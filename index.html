@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI NEWS – 31-12-2025</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Ctext%20x='2'%20y='52'%20font-size='52'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
+
+<style>
+:root{
+  --wine:#5b0a2b;
+  --wine2:#3b071e;
+  --gold:#f6c453;
+  --cream:#ffe9d6;
+  --text:#f7e7dd;
+  --muted:rgba(255,233,214,.80);
+  --card:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+html{
+  background:
+    radial-gradient(1200px 600px at 75% 30%, rgba(246,196,83,.12), transparent 55%),
+    radial-gradient(900px 500px at 20% 15%, rgba(255,122,165,.12), transparent 58%),
+    linear-gradient(180deg, var(--wine), #2b0818);
+}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Inter, Segoe UI, system-ui, -apple-system, sans-serif;
+  color:var(--text);
+  background:transparent; /* prevents horizontal cut */
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 22px}
+
+.topbar{position:relative;z-index:5;padding:18px 0 10px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-badge{
+  width:34px;height:34px;border-radius:12px;display:grid;place-items:center;
+  background: radial-gradient(circle at 30% 30%, rgba(246,196,83,.35), rgba(255,122,165,.10));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+.brand-name{font-weight:1000;letter-spacing:.6px}
+.menu{display:flex;gap:22px;align-items:center;opacity:.95;font-size:12px;text-transform:uppercase;letter-spacing:.9px}
+.menu a{padding:10px 10px;border-radius:999px;border:1px solid transparent}
+.menu a:hover{border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.06)}
+.right-tools{display:flex;align-items:center;gap:12px}
+#google_translate_element{min-width:120px;transform:scale(.92);transform-origin:right center}
+
+.hero{position:relative;padding:28px 0 36px}
+.hero-wrap{
+  position:relative;border-radius:26px;overflow:hidden;
+  background:
+    radial-gradient(1200px 600px at 75% 45%, rgba(255,122,165,.10), transparent 60%),
+    radial-gradient(900px 500px at 25% 20%, rgba(246,196,83,.14), transparent 58%),
+    linear-gradient(135deg, #6b0b33, var(--wine2));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 28px 80px rgba(0,0,0,.55);
+}
+.hero-wrap::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(40px 22px at 8% 18%, rgba(255,255,255,.07), transparent 70%),
+    radial-gradient(60px 30px at 18% 22%, rgba(255,255,255,.06), transparent 72%),
+    radial-gradient(52px 26px at 32% 14%, rgba(255,255,255,.05), transparent 72%),
+    radial-gradient(62px 30px at 86% 24%, rgba(255,255,255,.05), transparent 74%),
+    radial-gradient(46px 22px at 74% 18%, rgba(255,255,255,.06), transparent 74%),
+    radial-gradient(66px 32px at 90% 44%, rgba(255,255,255,.05), transparent 74%),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 30%, rgba(255,255,255,.02));
+  opacity:.75;pointer-events:none;
+}
+.hero-inner{position:relative;display:grid;grid-template-columns: 1.05fr .95fr;gap:18px;padding:34px 34px 30px}
+.hero-left{padding:10px 6px}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.16);font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,233,214,.92)}
+.kicker .dot{width:8px;height:8px;border-radius:999px;background:var(--gold);box-shadow:0 0 0 6px rgba(246,196,83,.18)}
+.hero-title{margin:18px 0 10px;font-size:54px;line-height:.95;font-weight:1000;text-transform:uppercase;letter-spacing:1px}
+.hero-sub{margin:0 0 14px;font-size:22px;color:rgba(255,233,214,.92)}
+.hero-desc{margin:0;max-width:520px;color:var(--muted);font-size:14px;line-height:1.7}
+.hero-actions{position:relative;display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.18);cursor:pointer;font-weight:900}
+.btn.primary{background: linear-gradient(180deg, rgba(246,196,83,.95), rgba(246,196,83,.70));color:#2b0818;border-color:rgba(0,0,0,.12);box-shadow:0 16px 30px rgba(246,196,83,.18)}
+.btn.primary:hover{filter:brightness(1.03)}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+/* Legend popover (fixed so it won't be clipped) */
+#legendPopover{
+  position:fixed;
+  width:min(360px, calc(100vw - 40px));
+  background:rgba(25,7,18,.86);
+  backdrop-filter: blur(14px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  padding:14px 14px 12px;
+  box-shadow:0 18px 70px rgba(0,0,0,.55);
+  display:none;
+  z-index:12000;
+}
+#legendPopover.show{display:block;animation:popMini .22s cubic-bezier(.2,1.4,.3,1) both}
+@keyframes popMini{0%{opacity:0;transform:translateY(-6px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+#legendPopover h4{margin:0 0 8px;font-size:14px;letter-spacing:.2px}
+#legendPopover p{margin:0;color:rgba(255,233,214,.88);line-height:1.6;font-size:13px}
+
+.logo{font-weight:1000;letter-spacing:.5px;position:relative;display:inline-block;cursor:pointer}
+.logo::after{content: attr(data-text);position:absolute;inset:0;background:linear-gradient(90deg, red,orange,yellow,green,cyan,blue,violet);background-size:300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;pointer-events:none}
+.logo:hover::after{opacity:1;animation:rainbow 1.8s linear infinite}
+@keyframes rainbow{0%{background-position:0%}100%{background-position:100%}}
+
+.hero-art{position:relative;display:flex;align-items:center;justify-content:center;padding:10px 0 0}
+.art-shell{width:100%;max-width:430px;aspect-ratio:1/1;border-radius:22px;background: radial-gradient(circle at 30% 30%, rgba(246,196,83,.18), rgba(0,0,0,0) 55%);border:1px solid rgba(255,255,255,.10);overflow:hidden}
+#fireworks{position:absolute;left:0;right:0;top:0;height:160px;width:100%;pointer-events:none;opacity:.92}
+
+.section{padding:26px 0 40px}
+.section h3{margin:0 0 14px;font-size:18px;letter-spacing:.2px;color:rgba(255,233,214,.95)}
+.grid-image{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px}
+.grid-text{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.image-card,.text-card{border-radius:18px;overflow:hidden;cursor:pointer;background:var(--card);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 50px rgba(0,0,0,.35);transition: transform .15s ease, box-shadow .15s ease}
+.image-card:hover,.text-card:hover{transform: translateY(-2px);box-shadow:0 22px 62px rgba(0,0,0,.45)}
+.image-card img{width:100%;height:210px;object-fit:cover;display:block}
+.card-pad{padding:16px 16px 18px}
+.source{font-size:12px;opacity:.78;margin-bottom:6px}
+.card-pad h3{margin:0;font-size:18px;line-height:1.25}
+
+#quickView{position:fixed;top:50%;right:22px;transform:translateY(-50%) scale(.92);width:420px;max-height:70vh;overflow:auto;background:rgba(25, 7, 18, .72);backdrop-filter: blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:18px 18px 16px;display:none;opacity:0;box-shadow:0 18px 70px rgba(0,0,0,.62);z-index:9999;transition: opacity .22s ease, transform .28s cubic-bezier(.2,1.4,.3,1)}
+#quickView.show{opacity:1;transform:translateY(-50%) scale(1);animation:qvPop .45s cubic-bezier(.2,1.4,.3,1) both}
+@keyframes qvPop{0%{transform:translateY(-50%) scale(.86)}60%{transform:translateY(-50%) scale(1.03)}100%{transform:translateY(-50%) scale(1)}}
+#quickView #qv-title{margin:0 0 10px;font-size:18px}
+#quickView #qv-summary{margin:0 0 14px;color:rgba(255,233,214,.88);line-height:1.65;font-size:14px}
+#quickView a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg, rgba(246,196,83,.35), rgba(255,122,165,.14));font-weight:900}
+#quickView::-webkit-scrollbar{width:10px}
+#quickView::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:20px}
+#quickView::-webkit-scrollbar-track{background:rgba(255,255,255,.05)}
+
+/* Scroll to top button */
+#toTop{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(25,7,18,.65);
+  backdrop-filter: blur(12px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 18px 60px rgba(0,0,0,.55);
+  z-index:13000;
+}
+#toTop.show{display:flex;animation:popMini .18s ease-out both}
+#toTop span{font-size:18px;line-height:1;transform:translateY(-1px)}
+#toTop:hover{background:rgba(255,255,255,.10)}
+
+@media (max-width: 980px){.hero-inner{grid-template-columns:1fr}.hero-title{font-size:46px}#quickView{right:12px;width:min(420px, calc(100vw - 24px))}.menu{display:none}}
+</style>
+
+<script>
+window.addEventListener('load', function () {
+  var s = document.createElement('script');
+  s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.body.appendChild(s);
+});
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,vi',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+function openQuickView(title, summary, link) {
+  document.getElementById('qv-title').innerText = title;
+  document.getElementById('qv-summary').innerText = summary;
+  document.getElementById('qv-link').href = link;
+  const qv = document.getElementById('quickView');
+  qv.style.display = 'block';
+  void qv.offsetHeight;
+  qv.classList.add('show');
+}
+function closeQuickView() {
+  const qv = document.getElementById('quickView');
+  qv.classList.remove('show');
+  setTimeout(() => { qv.style.display = 'none'; }, 240);
+}
+
+function showLegend() {
+  const btn = document.getElementById('btnReadMore');
+  const pop = document.getElementById('legendPopover');
+  if (!btn || !pop) return;
+  const r = btn.getBoundingClientRect();
+  const gap = 10;
+  // default: pop under the button
+  let top = r.bottom + gap;
+  let left = r.left;
+  // keep inside viewport
+  const maxLeft = window.innerWidth - pop.offsetWidth - 10;
+  if (left > maxLeft) left = maxLeft;
+  if (left < 10) left = 10;
+  // if too low, show above
+  if (top + pop.offsetHeight > window.innerHeight - 10) {
+    top = r.top - pop.offsetHeight - gap;
+  }
+  pop.style.top = top + 'px';
+  pop.style.left = left + 'px';
+  pop.classList.add('show');
+}
+function hideLegend() {
+  const pop = document.getElementById('legendPopover');
+  if (pop) pop.classList.remove('show');
+}
+function toggleLegend(){
+  const pop = document.getElementById('legendPopover');
+  if (!pop) return;
+  if (pop.classList.contains('show')) hideLegend();
+  else showLegend();
+}
+
+// DOM ready: bind card clicks + scroll-to-top
+document.addEventListener('DOMContentLoaded', () => {
+  // card click -> quick view
+  document.querySelectorAll('.image-card,.text-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const t = card.getAttribute('data-title') || '';
+      const s = card.getAttribute('data-summary') || '';
+      const l = card.getAttribute('data-link') || '';
+      if (t && l) openQuickView(t, s, l);
+    });
+  });
+
+  // scroll-to-top
+  const btn = document.getElementById('toTop');
+  const onScroll = () => {
+    if (!btn) return;
+    if (window.scrollY > 420) btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  if (btn) {
+    btn.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+});
+
+// close popups when click outside
+document.addEventListener('click', e => {
+  if (!e.target.closest('.image-card,.text-card,#quickView')) {
+    closeQuickView();
+  }
+  if (!e.target.closest('#legendPopover,#btnReadMore')) {
+    hideLegend();
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeQuickView(); hideLegend(); }
+});
+
+// update legend position on resize/scroll
+window.addEventListener('resize', () => {
+  const pop = document.getElementById('legendPopover');
+  if (pop && pop.classList.contains('show')) showLegend();
+});
+window.addEventListener('scroll', () => {
+  const pop = document.getElementById('legendPopover');
+  if (pop && pop.classList.contains('show')) showLegend();
+}, {passive:true});
+
+// Fireworks (safe: NO `${}` template literals)
+(function() {
+  const canvas = document.getElementById('fireworks');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = Math.floor(rect.width * devicePixelRatio);
+    canvas.height = Math.floor(rect.height * devicePixelRatio);
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const colors = ['#f6c453','#ffe9d6','#ff7aa5','#f97316','#22c55e','#60a5fa'];
+  const particles = [];
+
+  function burst(x, y) {
+    const count = 42 + Math.floor(Math.random() * 22);
+    for (let i = 0; i < count; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const sp = 1.0 + Math.random() * 3.6;
+      particles.push({
+        x:x, y:y,
+        vx: Math.cos(a)*sp,
+        vy: Math.sin(a)*sp,
+        life: 58 + Math.random()*26,
+        r: 1 + Math.random()*2,
+        c: colors[(Math.random()*colors.length)|0]
+      });
+    }
+  }
+
+  function hexToRgba(hex, alpha) {
+    const h = hex.replace('#','');
+    const r = parseInt(h.substring(0,2),16);
+    const g = parseInt(h.substring(2,4),16);
+    const b = parseInt(h.substring(4,6),16);
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+  }
+
+  let t = 0;
+  function step() {
+    t++;
+    const W = canvas.clientWidth;
+    const H = canvas.clientHeight;
+    ctx.fillStyle = 'rgba(0,0,0,0.18)';
+    ctx.fillRect(0,0,W,H);
+
+    if (t % 26 === 0) burst(60 + Math.random()*(W-120), 24 + Math.random()*55);
+
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.life -= 1;
+      p.vy += 0.03;
+      p.vx *= 0.988;
+      p.vy *= 0.988;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      const alpha = Math.max(0, Math.min(1, p.life/84));
+      ctx.beginPath();
+      ctx.fillStyle = hexToRgba(p.c, alpha);
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+
+      if (p.life <= 0 || p.y > H + 30) particles.splice(i, 1);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  setTimeout(() => { burst(canvas.clientWidth*0.5, 28); }, 280);
+  requestAnimationFrame(step);
+})();
+</script>
+</head>
+<body>
+
+<div class="topbar">  <div class="container nav">    <div class="brand">      <div class="brand-badge">🤖</div>      <div class="brand-name"><span class="logo" data-text="AI NEWS">AI NEWS</span></div>    </div>    <div class="menu">      <a href="#featured">Featured</a>      <a href="#more">More</a>      <a href="#how">How it works</a>      <a href="#contact">Contact</a>    </div>    <div class="right-tools">      <div id="google_translate_element"></div>    </div>  </div></div>
+
+<section class="hero">  <div class="container">    <div class="hero-wrap">      <canvas id="fireworks"></canvas>      <div class="hero-inner">        <div class="hero-left">          <div class="kicker"><span class="dot"></span> Lunar New Year Digest</div>          <div class="hero-title">CHINESE<br>NEW YEAR</div>          <div class="hero-sub">Celebration</div>          <p class="hero-desc">Click any card to preview in Quick View, then open full article. Cards stay minimal — full summary appears in the pop-up.</p>          <div class="hero-actions">            <button id="btnReadMore" class="btn primary" type="button" onclick="toggleLegend()">Read More →</button>            <a class="btn ghost" href="#more">More News</a>          </div>        </div>        <div class="hero-art" aria-hidden="true">          <div class="art-shell">            <svg viewBox="0 0 520 520" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">              <defs>                <radialGradient id="g1" cx="30%" cy="30%" r="70%">                  <stop offset="0%" stop-color="#f6c453" stop-opacity="0.55"/>                  <stop offset="60%" stop-color="#ff7aa5" stop-opacity="0.12"/>                  <stop offset="100%" stop-color="#000000" stop-opacity="0"/>                </radialGradient>                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">                  <stop offset="0%" stop-color="#ffb84d"/>                  <stop offset="100%" stop-color="#f6c453"/>                </linearGradient>              </defs>              <circle cx="270" cy="260" r="220" fill="url(#g1)"/>              <path d="M90 350c0-42 34-76 76-76 14 0 27 4 38 10 14-30 44-50 79-50 40 0 74 26 86 62 8-3 16-4 25-4 39 0 71 32 71 71 0 39-32 71-71 71H170c-44 0-80-36-80-80z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>              <path d="M260 365c-12-58 8-118 56-156 16-13 17-29 2-38-30-18-68 12-83 50-14-24-38-44-64-41-22 3-33 25-17 42 29 30 55 74 62 143z" fill="#2b0818" opacity="0.78"/>              <g>                <path d="M165 170c22-30 64-40 96-22 34-26 85-16 105 22 22 42-10 93-62 96-20 1-32-6-45-17-23 22-60 28-90 10-44-26-55-68-4-89z" fill="url(#g2)" opacity="0.95"/>                <path d="M315 210c12-16 34-21 52-12 18-14 44-9 54 12 12 22-5 49-31 50-11 1-17-3-24-9-12 11-30 14-46 6-22-13-27-36-5-47z" fill="rgba(246,196,83,.88)"/>              </g>              <g fill="#ffe9d6" opacity="0.95">                <circle cx="184" cy="222" r="10"/><circle cx="200" cy="210" r="7"/><circle cx="215" cy="224" r="6"/>                <circle cx="345" cy="238" r="10"/><circle cx="360" cy="226" r="7"/><circle cx="372" cy="242" r="6"/>              </g>            </svg>          </div>        </div>      </div>    </div>  </div></section>
+
+<!-- Legend popover element (fixed layer, not clipped) -->
+<div id="legendPopover">  <h4>Legend of Chinese Lunar New Year</h4>  <p>According to legend, a beast named Nian came each year to harm villages. People discovered Nian feared loud sounds, bright lights, and the color red. So they hung red decorations, lit firecrackers, and used lanterns to drive it away—forming the traditions we celebrate today.</p></div>
+
+<section class="section" id="featured">  <div class="container">    <h3>Featured</h3>    <div class="grid-image">  <div class="image-card" data-title="The latest AI news we announced in December" data-summary="Three application preview cards: AI chess interface, Gemini 3 Flash logo, Google search bar." data-link="https://blog.google/technology/ai/google-ai-updates-december-2025/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Dec_AI_Recap_still.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>The latest AI news we announced in December</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Google&#x27;s year in review: 8 areas with research breakthroughs in 2025" data-summary="The image depicts a visual collage or mosaic of multiple different images, with one image in the center that is black and displays the text &quot;Gemini 3&quot;." data-link="https://blog.google/technology/ai/2025-research-breakthroughs/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/end-of-year-blog_header_light_2.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>Google&#x27;s year in review: 8 areas with research breakthroughs in 2025</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="60 of our biggest AI announcements in 2025" data-summary="A translucent blue rectangle lies against a black background with blue dots and lines. Within the rectangle is text saying 2025, along with a grid of 12 images, each representing a big Google AI moment from the year." data-link="https://blog.google/technology/ai/google-ai-news-recap-2025/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/2025AI_Hero.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>60 of our biggest AI announcements in 2025</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="40 of our most helpful AI tips from 2025" data-summary="The image is a dark-themed illustration depicting three people interacting with technology, surrounded by various product icons." data-link="https://blog.google/technology/ai/ai-tips-2025/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Tips_hero.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>40 of our most helpful AI tips from 2025</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="5 ways AI agents will transform the way we work in 2026" data-summary="AI agent trends report 2026 graphic" data-link="https://blog.google/products/google-cloud/ai-business-trends-report-2026/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_Header_xCoMYQ5.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>5 ways AI agents will transform the way we work in 2026</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="You can now verify Google AI-generated videos in the Gemini app." data-summary="&lt;img src=&quot;https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SynthID_Social.max-600x600.format-webp.webp&quot; /&gt;We’re expanding our content transparency tools to help you more easily identify AI-generated content. You can now check if a video was edited or created with Google AI d…" data-link="https://blog.google/technology/ai/verify-google-ai-videos-gemini-app/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SynthID_Social.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>You can now verify Google AI-generated videos in the Gemini app.</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Inside Kaggle&#x27;s AI Agents intensive course with Google" data-summary="Illustration of a developer participating in the Kaggle AI Agents Intensive, sitting with their laptop with Kaggle and Google logos." data-link="https://blog.google/technology/developers/ai-agents-intensive-recap/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/kaggle_AI_intensive_hero.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>Inside Kaggle&#x27;s AI Agents intensive course with Google</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Watch a podcast discussion about Gemini 3 and the future of Search." data-summary="&lt;img src=&quot;https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Release_Notes_Sundar_Pichai_003.max-600x600.format-webp.webp&quot; /&gt;Learn how Gemini 3 powers Google Search with Generative UI, Nano Banana, and interactive graphics." data-link="https://blog.google/technology/ai/release-notes-podcast-search/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Release_Notes_Sundar_Pichai_003.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>Watch a podcast discussion about Gemini 3 and the future of Search.</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="AprielGuard: A Guardrail for Safety and Adversarial Robustness in Modern LLM Systems" data-summary="" data-link="https://huggingface.co/blog/ServiceNow-AI/aprielguard">
+<img src="https://cdn-uploads.huggingface.co/production/uploads/667521b4585f2bf570950584/bNdKz_2O6GjsvqnLCYe3p.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>AprielGuard: A Guardrail for Safety and Adversarial Robustness in Modern LLM Systems</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Tokenization in Transformers v5: Simpler, Clearer, and More Modular" data-summary="" data-link="https://huggingface.co/blog/tokenizers">
+<img src="https://huggingface.co/blog/assets/tokenizers/thumbnail.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>Tokenization in Transformers v5: Simpler, Clearer, and More Modular</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="The Open Evaluation Standard: Benchmarking NVIDIA Nemotron 3 Nano with NeMo Evaluator" data-summary="" data-link="https://huggingface.co/blog/nvidia/nemotron-3-nano-evaluation-recipe">
+<img src="https://cdn-uploads.huggingface.co/production/uploads/688cf7e6026af0cf8ac969dd/6RiFGxMzn9Fmgml83fK8G.jpeg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>The Open Evaluation Standard: Benchmarking NVIDIA Nemotron 3 Nano with NeMo Evaluator</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="CUGA on Hugging Face: Democratizing Configurable AI Agents" data-summary="" data-link="https://huggingface.co/blog/ibm-research/cuga-on-hugging-face">
+<img src="https://cdn-uploads.huggingface.co/production/uploads/6487da02c4b44322c124f39f/mnJsxp4Mp5t2C-IhmpQ39.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>CUGA on Hugging Face: Democratizing Configurable AI Agents</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="New in llama.cpp: Model Management" data-summary="" data-link="https://huggingface.co/blog/ggml-org/model-management-in-llamacpp">
+<img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/wGWbyTyYFKKGDMaAnTz7M.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>New in llama.cpp: Model Management</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Codex is Open Sourcing AI models" data-summary="" data-link="https://huggingface.co/blog/hf-skills-training-codex">
+<img src="https://huggingface.co/blog/assets/hf-skills-training/thumbnail-codex.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>Codex is Open Sourcing AI models</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Introducing swift-huggingface: The Complete Swift Client for Hugging Face" data-summary="" data-link="https://huggingface.co/blog/swift-huggingface">
+<img src="https://huggingface.co/blog/assets/swift-huggingface/banner.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>Introducing swift-huggingface: The Complete Swift Client for Hugging Face</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="DeepMath: A lightweight math reasoning Agent with smolagents" data-summary="" data-link="https://huggingface.co/blog/intel-deepmath">
+<img src="https://huggingface.co/blog/assets/intel-deepmath/banner.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>DeepMath: A lightweight math reasoning Agent with smolagents</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems" data-summary="&lt;p&gt;With some hints for good numerics&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/optimal-path-planning-for-wheeled-robots/&quot;&gt;Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/optimal-path-planning-for-wheeled-robots/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/Screenshot-2025-12-29-at-10.46.22-AM.jpg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel" data-summary="&lt;p&gt;AUC measures how well a model ranks positives above negatives, independent of any chosen threshold.&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/the-machine-learning-advent-calendar-bonus-1-auc-in-excel/&quot;&gt;The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/the-machine-learning-advent-calendar-bonus-1-auc-in-excel/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/AUC.jpg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Agents Under the Curve (AUC)" data-summary="&lt;p&gt;Towards understanding if your agentic solution is actually better&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/agents-under-the-curve-auc/&quot;&gt;Agents Under the Curve (AUC)&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/agents-under-the-curve-auc/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/image-461.jpg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Agents Under the Curve (AUC)</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="How to Facilitate Effective AI Programming" data-summary="&lt;p&gt;How to ensure your coding agent has the same context as you&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/how-to-faciliate-for-effective-ai-programming/&quot;&gt;How to Facilitate Effective AI Programming&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/how-to-faciliate-for-effective-ai-programming/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/image-382.jpg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>How to Facilitate Effective AI Programming</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Machine Learning vs AI Engineer: What Are the Differences?" data-summary="&lt;p&gt;One of the most confusing questions in tech right now is: What is the difference between an AI engineer and a machine learning engineer? Both are six-figure jobs, but if you choose the wrong one, you could waste months of your career learning the wrong skills and miss out on quality roles. As a practising [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/machine-learning-vs-ai-engineer-no-confusing-jargon/&quot;&gt;Machine Learning vs AI Engineer: What Are the Differences?&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/machine-learning-vs-ai-engineer-no-confusing-jargon/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/Egor-May-2nd-Thumbnail.jpg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Machine Learning vs AI Engineer: What Are the Differences?</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Implementing Vibe Proving with Reinforcement Learning" data-summary="&lt;p&gt;How to make LLMs reason with verifiable, step-by-step logic (Part 2)&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/implementing-vibe-proving-with-rl/&quot;&gt;Implementing Vibe Proving with Reinforcement Learning&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/implementing-vibe-proving-with-rl/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/rl-2-scaled-1.jpg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Implementing Vibe Proving with Reinforcement Learning</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Breaking the Hardware Barrier: Software FP8 for Older GPUs" data-summary="&lt;p&gt;Deep learning workloads are increasingly memory-bound, with GPU cores sitting idle while waiting for data transfers. FP8 precision solves this on newer hardware, but what about the millions of RTX 30 and 20 series GPUs already deployed? Feather demonstrates that software-based FP8 emulation through bitwise packing can achieve near-theoretical 4x bandwidth improvements (3.3x measured), making efficient deep learning accessible without expensive hardware upgrades&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/breaking-the-hardware-barrier-software-fp8-for-older-gpus/&quot;&gt;Breaking the Hardware Barrier: Software FP8 for Older GPUs&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/breaking-the-hardware-barrier-software-fp8-for-older-gpus/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/feather_feature_image-2-scaled-1.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Breaking the Hardware Barrier: Software FP8 for Older GPUs</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Hugging Face Transformers in Action: Learning How To Leverage AI for NLP" data-summary="&lt;p&gt;A practical guide to Hugging Face Transformers and to how you can analyze your resumé sentiment in seconds with AI&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/hugging-face-transformers-in-action-learning-how-to-leverage-ai-for-nlp/&quot;&gt;Hugging Face Transformers in Action: Learning How To Leverage AI for NLP&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/hugging-face-transformers-in-action-learning-how-to-leverage-ai-for-nlp/">
+<img src="https://towardsdatascience.com/wp-content/uploads/2025/12/Resume-app-1.jpg" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Hugging Face Transformers in Action: Learning How To Leverage AI for NLP</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="10 Awesome Docker Projects for Beginners" data-summary="&lt;p&gt;As a developer, tell me if you relate to this &amp;#8211; Docker commands are easy to understand but difficult to apply meaningfully. Out of the countless tutorials that I followed, most stopped at syntax, leaving me unsure about what to build next. (Here is an exception &amp;#8211; A step-by-step Docker tutorial for complete beginners) As [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/docker-projects/&quot;&gt;10 Awesome Docker Projects for Beginners&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/docker-projects/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/12/10-Awesome-Docker-Projects-for-Beginners.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>10 Awesome Docker Projects for Beginners</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="What is Chain of Thought (CoT) Prompting?" data-summary="&lt;p&gt;The core idea behind Chain of Thought (CoT) is to encourage an AI model to reason step by step before producing an answer. While the concept itself is not new and is essentially a structured way of asking models to explain their reasoning, it remains highly relevant today. Interest in CoT increased again after OpenAI [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/chain-of-thought-cot-prompting/&quot;&gt;What is Chain of Thought (CoT) Prompting?&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/chain-of-thought-cot-prompting/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/12/What-is-Chain-of-Thought-CoT-Prompting_.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>What is Chain of Thought (CoT) Prompting?</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="What is F1 Score in Machine Learning?" data-summary="&lt;p&gt;In machine learning and data science, evaluating a model is as important as building it. Accuracy is often the first metric people use, but it can be misleading when the data is imbalanced. For this reason, metrics such as precision, recall, and F1 score are widely used. This article focuses on the F1 score. It [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/what-is-f1-score-in-machine-learning/&quot;&gt;What is F1 Score in Machine Learning?&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/what-is-f1-score-in-machine-learning/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/12/What-is-F1-Score-in-Machine-Learningwebp.png" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>What is F1 Score in Machine Learning?</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems" data-summary="&lt;p&gt;More machine learning systems now rely on AI agents, which makes careful safety evaluation essential. With more and more vulnerabilities coming to the fray, it&amp;#8217;s nigh impossible for a single unified protocol to stay up to date with them all. This piece introduces MLflow as a practical framework for testing and monitoring agentic systems through [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/monitor-ai-agents-with-mlflow/&quot;&gt;Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/monitor-ai-agents-with-mlflow/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/12/Monitor-AI-Agents-Using-MLflow.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces" data-summary="&lt;p&gt;We have entered the time of multi-agent artificial intelligence. However, there is a very important issue: in what way can remote AI agents produce rich and interactive experiences without exposing the system to security risks? Google A2UI (Agent-to-UI) protocol addresses this question in a very smart way, allowing agents to create user interfaces that are [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/google-a2ui-explained/&quot;&gt;Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/google-a2ui-explained/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/12/Google-A2UI-Explained_-How-AI-Agents-Build-Secure-Native-User-Interfaces-1.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="LangChain: A Comprehensive Beginner’s Guide" data-summary="&lt;p&gt;Large language models are powerful, but on their own they have limitations. They cannot access live data, retain long-term context from previous conversations, or perform actions such as calling APIs or querying databases. LangChain is a framework designed to address these gaps and help developers build real-world applications using language models. LangChain is an open-source [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/langchain-beginners-guide/&quot;&gt;LangChain: A Comprehensive Beginner&amp;#8217;s Guide &lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/langchain-beginners-guide/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2024/11/Retrievers-in-LangChain.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>LangChain: A Comprehensive Beginner’s Guide</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Data Analyst Learning Path 2026" data-summary="&lt;p&gt;The role of a Data Analyst in 2026 looks very different from even a few years ago. Today’s analysts are expected to work with messy data, automate reporting, explain insights clearly to business stakeholders, and responsibly use AI to accelerate their workflow. This Data Analyst learning path for 2026 is designed as a practical, month-by-month [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/data-analyst-learning-path/&quot;&gt;Data Analyst Learning Path 2026&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/data-analyst-learning-path/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/12/Data-Analyst-learning-path-2026.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Data Analyst Learning Path 2026</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Top 6 YouTube Channels to Learn SQL" data-summary="&lt;p&gt;SQL is one of those skills that shows up everywhere, data analytics, backend engineering, reporting, and even product roles. But when it comes to resources for learning it, they aren&amp;#8217;t as omnipresent. The conventional ways of reading documentation or textbooks isn’t how everyone learns best. Some learners prefer seeing queries written, explained step by step [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/youtube-channels-to-learn-sql/&quot;&gt;Top 6 YouTube Channels to Learn SQL&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/youtube-channels-to-learn-sql/">
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2025/12/a-futuristic-digital-illustration-featur__lHyiG2MSG-Yz09qUKNcyA_E7Q4vop9RsypVMnhtbxL-w.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Top 6 YouTube Channels to Learn SQL</h3>
+    </div>
+  </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="more">  <div class="container">    <h3>More news</h3>    <div class="grid-text">  <div class="text-card" data-title="One in a million: celebrating the customers shaping AI’s future" data-summary="More than one million customers around the world now use OpenAI to empower their teams and unlock new opportunities. This post highlights how companies like PayPal, Virgin Atlantic, BBVA, Cisco, Moderna, and Canva are transforming the way work gets done with AI." data-link="https://openai.com/index/one-in-a-million-customers">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>One in a million: celebrating the customers shaping AI’s future</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Continuously hardening ChatGPT Atlas against prompt injection" data-summary="OpenAI is strengthening ChatGPT Atlas against prompt injection attacks using automated red teaming trained with reinforcement learning. This proactive discover-and-patch loop helps identify novel exploits early and harden the browser agent’s defenses as AI becomes more agentic." data-link="https://openai.com/index/hardening-atlas-against-prompt-injection">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Continuously hardening ChatGPT Atlas against prompt injection</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Evaluating chain-of-thought monitorability" data-summary="OpenAI introduces a new framework and evaluation suite for chain-of-thought monitorability, covering 13 evaluations across 24 environments. Our findings show that monitoring a model’s internal reasoning is far more effective than monitoring outputs alone, offering a promising path toward scalable control as AI systems grow more capable." data-link="https://openai.com/index/evaluating-chain-of-thought-monitorability">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Evaluating chain-of-thought monitorability</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Deepening our collaboration with the U.S. Department of Energy" data-summary="OpenAI and the U.S. Department of Energy have signed a memorandum of understanding to deepen collaboration on AI and advanced computing in support of scientific discovery. The agreement builds on ongoing work with national laboratories and helps establish a framework for applying AI to high-impact research across the DOE ecosystem." data-link="https://openai.com/index/us-department-of-energy-collaboration">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Deepening our collaboration with the U.S. Department of Energy</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="AI literacy resources for teens and parents" data-summary="OpenAI shares new AI literacy resources to help teens and parents use ChatGPT thoughtfully, safely, and with confidence. The guides include expert-vetted tips for responsible use, critical thinking, healthy boundaries, and supporting teens through emotional or sensitive topics." data-link="https://openai.com/index/ai-literacy-resources-for-teens-and-parents">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>AI literacy resources for teens and parents</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Updating our Model Spec with teen protections" data-summary="OpenAI is updating its Model Spec with new Under-18 Principles that define how ChatGPT should support teens with safe, age-appropriate guidance grounded in developmental science. The update strengthens guardrails, clarifies expected model behavior in higher-risk situations, and builds on our broader work to improve teen safety across ChatGPT." data-link="https://openai.com/index/updating-model-spec-with-teen-protections">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Updating our Model Spec with teen protections</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Introducing GPT-5.2-Codex" data-summary="GPT-5.2-Codex is OpenAI’s most advanced coding model, offering long-horizon reasoning, large-scale code transformations, and enhanced cybersecurity capabilities." data-link="https://openai.com/index/introducing-gpt-5-2-codex">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Introducing GPT-5.2-Codex</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Introducing GPT-5.2-Codex" data-summary="GPT-5.2-Codex is OpenAI’s most advanced coding model, offering long-horizon reasoning, large-scale code transformations, and enhanced cybersecurity capabilities." data-link="https://openai.com/index/gpt-5-2-codex">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Introducing GPT-5.2-Codex</h3>
+    </div>
+  </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="more">  <div class="container">    <h3>More news</h3>    <div class="grid-text">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">  <div class="container">    <h3>How it works</h3>    <div style="opacity:.82; line-height:1.7; max-width:880px;">Click any card → preview in Quick View → open full article. Use Translate at the top right.</div>  </div></section>
+
+<section class="section" id="contact">  <div class="container">    <h3>Contact</h3>    <div style="opacity:.82; line-height:1.7;">Want thêm lồng đèn rủ xuống, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</div>    <div style="margin-top:14px; font-weight:1000; letter-spacing:.8px; color:rgba(255,233,214,.95);">FROM MR. THOR WITH LOVE</div>  </div></section>
+
+<div id="quickView">  <h3 id="qv-title"></h3>  <p id="qv-summary"></p>  <a id="qv-link" target="_blank">Open full article →</a></div>
+<div id="toTop" title="Back to top"><span>↑</span></div>
+
+</body>
+</html>
