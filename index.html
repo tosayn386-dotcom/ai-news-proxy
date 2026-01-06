@@ -1,125 +1,59 @@
 <!DOCTYPE HTML>
-<html lang="vi">
+<html>
 <head>
-  <title>AI News Việt Nam & Thế Giới</title>
+  <title>🤖 AI News Việt Nam & Thế Giới</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <meta name="description" content="Trang đọc tin AI Việt Nam & Thế Giới. Ưu tiên AI Việt Nam, ý kiến chuyên gia và mặt trái của AI." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
 <body class="is-preload">
-<div id="wrapper" class="fade-in">
+<div id="wrapper">
 
-  <!-- INTRO -->
-  <div id="intro">
-    <h1>AI News</h1>
-    <p>
-      Tin tức AI Việt Nam & Thế Giới<br/>
-      Nhiều nguồn · Có ảnh khi có · Không ảnh thì bỏ
-    </p>
-    <ul class="actions">
-      <li><a href="#main" class="button icon solid solo fa-arrow-down scrolly">Xem tin</a></li>
-    </ul>
-  </div>
-
-  <!-- HEADER -->
+  <!-- Header -->
   <header id="header">
-    <a href="index.html" class="logo">AI NEWS</a>
+    <a href="#" class="logo">🤖 AI NEWS</a>
   </header>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <ul class="links">
-      <li class="active"><a href="index.html">Trang chủ</a></li>
-    </ul>
-  </nav>
-
-  <!-- MAIN -->
+  <!-- Main -->
   <div id="main">
-
-    <!-- FEATURED -->
-    <article class="post featured" id="featured-post"></article>
-
-    <!-- POSTS -->
-    <section class="posts" id="news-list"></section>
-
-  </div>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <section>
-      <h3>Về AI News</h3>
-      <p>Trang tổng hợp tin AI từ nhiều nguồn, ưu tiên Việt Nam 🇻🇳 và các góc nhìn chuyên sâu.</p>
+    <section class="posts" id="news-container">
+      <!-- JS render here -->
     </section>
-  </footer>
-
-  <div id="copyright">
-    <ul>
-      <li>&copy; AI News</li>
-      <li>Theme: HTML5 UP</li>
-    </ul>
   </div>
+
+  <footer id="copyright">
+    <p>AI News Việt Nam & Thế Giới • Auto Update</p>
+  </footer>
 
 </div>
 
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-
-<!-- LOAD NEWS -->
 <script>
 fetch("data/news.json")
-  .then(r => r.json())
-  .then(data => {
-    if (!data.length) return;
+  .then(res => res.json())
+  .then(news => {
+    const container = document.getElementById("news-container");
+    container.innerHTML = "";
 
-    /* ========= FEATURED ========= */
-    const featured = data[0];
-    const featuredEl = document.getElementById("featured-post");
-
-    featuredEl.innerHTML = `
-      <header class="major">
-        <span class="date">${featured.country || "AI News"}</span>
-        <h2>${featured.title}</h2>
-        <p>${featured.summary}</p>
-      </header>
-      ${featured.image ? `
-        <a href="${featured.url}" target="_blank" class="image main">
-          <img src="${featured.image}" alt="AI news"/>
-        </a>` : ``}
-      <ul class="actions special">
-        <li><a href="${featured.url}" target="_blank" class="button large">Đọc nguồn</a></li>
-      </ul>
-    `;
-
-    /* ========= LIST ========= */
-    const list = document.getElementById("news-list");
-    const seen = new Set();
-
-    data.slice(1).forEach(item => {
-      const key = (item.url || "") + (item.title || "");
-      if (seen.has(key)) return;
-      seen.add(key);
-
+    news.slice(0, 30).forEach(item => {
       const article = document.createElement("article");
+
+      let imageHTML = "";
+      if (item.image) {
+        imageHTML = `
+          <a href="${item.url}" class="image fit">
+            <img src="${item.image}" alt="">
+          </a>
+        `;
+      }
 
       article.innerHTML = `
         <header>
-          <span class="date">${item.country || ""}</span>
-          <h2>${item.title}</h2>
+          <span class="date">${item.source} • ${item.country}</span>
+          <h2><a href="${item.url}" target="_blank">${item.title}</a></h2>
         </header>
 
-        ${item.image ? `
-          <a href="${item.url}" target="_blank" class="image fit">
-            <img src="${item.image}" alt="AI news"/>
-          </a>` : ``}
+        ${imageHTML}
 
         <p>${item.summary}</p>
 
@@ -128,12 +62,13 @@ fetch("data/news.json")
         </ul>
       `;
 
-      list.appendChild(article);
+      container.appendChild(article);
     });
   })
-  .catch(() => {
-    document.getElementById("news-list").innerHTML =
-      "<p>Không tải được dữ liệu.</p>";
+  .catch(err => {
+    document.getElementById("news-container").innerHTML =
+      "<p>❌ Không tải được dữ liệu</p>";
+    console.error(err);
   });
 </script>
 
