@@ -4,7 +4,7 @@
   <title>AI News Việt Nam & Thế Giới</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <meta name="description" content="Trang đọc tin AI Việt Nam & Thế Giới. Ưu tiên AI Việt Nam, ý kiến chuyên gia và mặt trái của AI." />
+  <meta name="description" content="Tin tức AI Việt Nam & Thế Giới. Ưu tiên AI Việt Nam, chuyên gia và mặt trái của AI." />
   <link rel="stylesheet" href="assets/css/main.css" />
   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
@@ -17,7 +17,7 @@
     <h1>AI News</h1>
     <p>
       Tin tức AI Việt Nam & Thế Giới<br/>
-      Đọc nhanh · Có chọn lọc · Không nhiễu
+      Đọc nhanh · Có chọn lọc · Không trùng
     </p>
     <ul class="actions">
       <li><a href="#main" class="button icon solid solo fa-arrow-down scrolly">Xem tin</a></li>
@@ -39,22 +39,11 @@
   <!-- MAIN -->
   <div id="main">
 
-    <!-- FEATURED -->
-    <article class="post featured">
-      <header class="major">
-        <span class="date">AI NEWS</span>
-        <h2>Tin AI đáng chú ý</h2>
-        <p>
-          Tổng hợp tin AI mới nhất mỗi ngày.<br/>
-          Ưu tiên Việt Nam 🇻🇳 · Chuyên gia · Tác động xã hội
-        </p>
-      </header>
-    </article>
+    <!-- FEATURED (JS sẽ đổ vào) -->
+    <article class="post featured" id="featured-post"></article>
 
     <!-- POSTS -->
-    <section class="posts" id="news-list">
-      <!-- JS inject -->
-    </section>
+    <section class="posts" id="news-list"></section>
 
   </div>
 
@@ -62,10 +51,7 @@
   <footer id="footer">
     <section>
       <h3>Về AI News</h3>
-      <p>
-        Trang đọc tin AI phục vụ người Việt.<br/>
-        Mục tiêu: đọc nhanh – hiểu đúng – không giật tít.
-      </p>
+      <p>Trang đọc tin AI Việt Nam & Thế Giới – đọc nhanh, không nhiễu.</p>
     </section>
   </footer>
 
@@ -87,17 +73,37 @@
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 
-<!-- LOAD NEWS -->
 <script>
 const DEFAULT_IMAGE = "images/pic01.jpg";
 
 fetch("data/news.json")
   .then(r => r.json())
   .then(data => {
+    if (!data.length) return;
+
+    const featured = data[0];
+    const featuredEl = document.getElementById("featured-post");
+
+    // FEATURED = tin đầu tiên
+    featuredEl.innerHTML = `
+      <header class="major">
+        <span class="date">${featured.country || "AI News"}</span>
+        <h2>${featured.title}</h2>
+        <p>${featured.summary}</p>
+      </header>
+      <a href="${featured.url}" target="_blank" class="image main">
+        <img src="${featured.image || DEFAULT_IMAGE}" alt="AI news"/>
+      </a>
+      <ul class="actions special">
+        <li><a href="${featured.url}" target="_blank" class="button large">Đọc nguồn</a></li>
+      </ul>
+    `;
+
+    // LIST = bỏ qua tin đầu tiên
     const list = document.getElementById("news-list");
     const seen = new Set();
 
-    data.forEach(item => {
+    data.slice(1).forEach(item => {
       const key = (item.url || "") + (item.title || "");
       if (seen.has(key)) return;
       seen.add(key);
@@ -118,10 +124,6 @@ fetch("data/news.json")
       `;
       list.appendChild(article);
     });
-  })
-  .catch(() => {
-    document.getElementById("news-list").innerHTML =
-      "<p>Không tải được dữ liệu.</p>";
   });
 </script>
 
