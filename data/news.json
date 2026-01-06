@@ -1,11 +1,12 @@
 [
   {
     "title": "AI Việt Nam thử nghiệm drone giao hàng",
-    "summary": "TP HCM thử nghiệm giao hàng bằng thiết bị bay không người lái, mở ra hướng mới cho logistics thông minh.",
+    "summary": "TP HCM thử nghiệm giao hàng bằng thiết bị bay không người lái, mở ra hướng mới cho logistics thông minh tại Việt Nam.",
     "country": "VN",
     "category": "Ứng dụng AI",
     "hot_score": 9,
-    "source": "Test Manual"
+    "source": "VNExpress",
+    "url": "https://vnexpress.net/ai-viet-nam-thu-nghiem-drone-giao-hang"
   },
   {
     "title": "Yann LeCun chỉ trích làn sóng AI thổi phồng",
@@ -13,6 +14,16 @@
     "country": "Global",
     "category": "Ý kiến chuyên gia",
     "hot_score": 8,
-    "source": "Test Manual"
+    "source": "Meta AI Blog",
+    "url": "https://ai.meta.com/blog/yann-lecun-ai-hype"
+  },
+  {
+    "title": "Mặt trái của AI tạo ảnh hoàn tiền món ăn",
+    "summary": "Một số người lợi dụng AI tạo ảnh sai sự thật về món ăn để yêu cầu hoàn tiền, gây rủi ro cho nền tảng thương mại.",
+    "country": "Global",
+    "category": "Mặt trái AI",
+    "hot_score": 7,
+    "source": "The Verge",
+    "url": "https://www.theverge.com/ai-fake-food-refund"
   }
 ]
