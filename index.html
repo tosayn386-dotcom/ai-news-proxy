@@ -1,151 +1,240 @@
+
 <!DOCTYPE HTML>
-<html>
+<html lang="vi">
 <head>
   <title>🤖 AI Digest – Việt Nam & Thế Giới</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Styles (giữ style của AI Digest) -->
   <link rel="stylesheet" href="assets/css/main.css" />
   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
   <style>
+    /* Bổ sung nhẹ cho meta & popup như bản bạn gửi */
     .digest-meta {
-      font-size: 0.8em;
-      opacity: 0.7;
+      font-size: 0.85em;
+      opacity: 0.75;
       margin-bottom: 0.5em;
     }
-
     .digest-actions {
       display: flex;
       gap: 0.5em;
       flex-wrap: wrap;
     }
-
-    /* Popup */
+    /* Popup Quick View */
     #digest-popup {
       display: none;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.7);
       z-index: 1000;
+      padding: 1rem;
     }
     #digest-popup .box {
       background: #fff;
-      max-width: 720px;
-      margin: 5% auto;
+      max-width: 760px;
+      margin: 4% auto;
       padding: 2rem;
-      border-radius: 6px;
+      border-radius: 10px;
       max-height: 80vh;
       overflow-y: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     #digest-popup h2 {
       margin-top: 0;
     }
+    #digest-popup .close-btn {
+      margin-top: 1rem;
+    }
+
+    /* Ẩn phần mô tả “legend” nếu không dùng */
+    .lunar-legend { display: none; }
   </style>
 </head>
 
 <body class="is-preload">
-<div id="wrapper" class="fade-in">
+  <!-- Wrapper -->
+  <div id="wrapper" class="fade-in">
 
-  <!-- Header -->
-  <header id="header">
-    <a href="#" class="logo">🤖 AI DIGEST</a>
-  </header>
+    <!-- Header (giữ layout AI Digest) -->
+    <header id="header">
+      <a href="#" class="logo">🤖 AI DIGEST</a>
+      <nav>
+        <ul class="links">
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#more">More</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- Main -->
-  <div id="main">
-    <section class="posts" id="news-container">
-      <!-- JS render -->
-    </section>
-  </div>
+    <!-- Main -->
+    <div id="main">
+      <!-- Hero / Lunar theme banner (giữ nguyên tinh thần AI Digest) -->
+      <section class="post">
+        <header class="major">
+          <h2>Lunar New Year Digest</h2>
+          <p>Click bất kỳ card để mở Quick View, sau đó có thể mở bài gốc. Cards giữ tối giản — tóm tắt nằm trong pop-up.</p>
+          <a class="button" href="#more">More News</a>
+        </header>
+        <div class="lunar-legend">
+          <h4>Legend of Chinese Lunar New Year</h4>
+          <p>Theo truyền thuyết, quái thú Nian sợ tiếng nổ, ánh sáng và màu đỏ. Người dân treo đồ đỏ, đốt pháo và thắp lồng đèn — tạo nên truyền thống ngày Tết.</p>
+        </div>
+      </section>
 
-  <!-- Popup -->
-  <div id="digest-popup">
-    <div class="box">
-      <h2 id="popup-title"></h2>
-      <p id="popup-summary"></p>
-      <p>
-        <a id="popup-link" href="#" target="_blank">🔗 Đọc nguồn đầy đủ</a>
-      </p>
-      <button onclick="closeDigest()">Đóng</button>
+      <!-- Featured (render từ news.json) -->
+      <section id="featured" class="posts">
+        <!-- JS sẽ render top tin (ví dụ 8 mục đầu) -->
+      </section>
+
+      <!-- More news (render phần còn lại) -->
+      <section id="more" class="posts">
+        <!-- JS sẽ render danh sách tin thêm -->
+      </section>
+
+      <!-- Hướng dẫn -->
+      <section id="how" class="post">
+        <header class="major">
+          <h2>How it works</h2>
+        </header>
+        <p>Click card → xem nhanh trong Quick View → mở bài gốc ở nút “🔗 Nguồn”.</p>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="post">
+        <header class="major">
+          <h2>Contact</h2>
+        </header>
+        <p>Muốn thêm lồng đèn rủ xuống, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</p>
+        <p>FROM MR. THOR WITH LOVE</p>
+      </section>
     </div>
+
+    <!-- Popup Quick View -->
+    <div id="digest-popup" aria-hidden="true">
+      <div class="box">
+        <h2 id="popup-title"></h2>
+        <p id="popup-summary"></p>
+        <p><a id="popup-link" href="#" target="_blank">🔗 Đọc nguồn đầy đủ</a></p>
+        <button class="button primary close-btn" onclick="closeDigest()">Đóng</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="copyright">
+      <ul>
+        <li>&copy; AI Digest</li>
+        <li>Auto update</li>
+      </ul>
+    </footer>
   </div>
 
-  <!-- Footer -->
-  <footer id="copyright">
-    <ul>
-      <li>&copy; AI Digest</li>
-      <li>Auto update</li>
-    </ul>
-  </footer>
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/main.js"></script>
 
-</div>
+  <script>
+    // === Popup control ===
+    function openDigest(title, summary, link) {
+      document.getElementById("popup-title").innerText = title || "";
+      document.getElementById("popup-summary").innerText = summary || "";
+      const a = document.getElementById("popup-link");
+      a.href = link || "#";
+      document.getElementById("digest-popup").style.display = "block";
+      document.getElementById("digest-popup").setAttribute("aria-hidden", "false");
+    }
+    function closeDigest() {
+      document.getElementById("digest-popup").style.display = "none";
+      document.getElementById("digest-popup").setAttribute("aria-hidden", "true");
+    }
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/main.js"></script>
-
-<script>
-function openDigest(title, summary, link) {
-  document.getElementById("popup-title").innerText = title;
-  document.getElementById("popup-summary").innerText = summary;
-  document.getElementById("popup-link").href = link;
-  document.getElementById("digest-popup").style.display = "block";
-}
-
-function closeDigest() {
-  document.getElementById("digest-popup").style.display = "none";
-}
-
-fetch("data/news.json")
-  .then(res => res.json())
-  .then(news => {
-    const container = document.getElementById("news-container");
-    container.innerHTML = "";
-
-    news.slice(0, 30).forEach(item => {
+    // === Render helpers (giữ tinh thần card của AI Digest) ===
+    function createCard(item) {
       const article = document.createElement("article");
 
       const imageHTML = item.image
         ? `<a href="#" class="image fit"><img src="${item.image}" alt=""></a>`
         : "";
 
-      article.innerHTML = `
-        <header>
-          <div class="digest-meta">
-            ${item.country} • ${item.source}
-          </div>
-          <h2>${item.title}</h2>
-        </header>
-
-        ${imageHTML}
-
-        <p>${item.summary}</p>
-
-        <div class="digest-actions">
-          <a href="#" class="button small"
-             onclick="openDigest(
-               \`${item.title}\`,
-               \`${item.summary}\`,
-               \`${item.url}\`
-             )">
-            🤖 Tóm tắt nhanh
-          </a>
-
-          <a href="${item.url}" target="_blank" class="button small">
-            🔗 Nguồn
-          </a>
+      const sourceMeta = `
+        <div class="digest-meta">
+          ${(item.country || "Global")} • ${(item.source || "Unknown")}
         </div>
       `;
 
-      container.appendChild(article);
-    });
-  })
-  .catch(err => {
-    document.getElementById("news-container").innerHTML =
-      "<p>❌ Không tải được dữ liệu</p>";
-    console.error(err);
-  });
-</script>
+      const clickSummary = `
+        <a href="#" class="button small"
+           onclick="openDigest(
+             ${JSON.stringify(item.title || "")},
+             ${JSON.stringify(item.summary || "")},
+             ${JSON.stringify(item.url || "#")}
+           )">
+          🤖 Tóm tắt nhanh
+        </a>
+      `;
 
+      const linkSource = `
+        <a href="${item.url || '#'}" target="_blank" class="button small">🔗 Nguồn</a>
+      `;
+
+      article.innerHTML = `
+        <header>
+          ${sourceMeta}
+          <h2>${item.title || ""}</h2>
+        </header>
+        ${imageHTML}
+        <p>${item.summary || ""}</p>
+        <div class="digest-actions">
+          ${clickSummary}
+          ${linkSource}
+        </div>
+      `;
+      return article;
+    }
+
+    // === Load & split data to Featured / More ===
+    // Giữ nguyên nguồn từ file text/json bạn gửi
+    fetch("data/news.json")
+      .then(res => {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(news => {
+        // Chuẩn hóa dữ liệu: đảm bảo là mảng
+        const items = Array.isArray(news)
+          ? news
+          : (Array.isArray(news.items) ? news.items : []);
+
+        // Tách danh sách: featured = 8 tin đầu; more = phần còn lại đến 30 tin
+        const featured = items.slice(0, 8);
+        const more = items.slice(8, 30);
+
+        const featuredContainer = document.getElementById("featured");
+        const moreContainer = document.getElementById("more");
+
+        featuredContainer.innerHTML = "";
+        moreContainer.innerHTML = "";
+
+        featured.forEach(item => {
+          featuredContainer.appendChild(createCard(item));
+        });
+        more.forEach(item => {
+          moreContainer.appendChild(createCard(item));
+        });
+
+        // Nếu không có tin nào
+        if (items.length === 0) {
+          featuredContainer.innerHTML = "<p>❌ Không có dữ liệu để hiển thị.</p>";
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        const featuredContainer = document.getElementById("featured");
+        featuredContainer.innerHTML = "<p>❌ Không tải được dữ liệu.</p>";
+      });
+  </script>
 </body>
-</html>
+</
