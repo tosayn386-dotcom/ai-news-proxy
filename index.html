@@ -4,9 +4,28 @@
   <title>🤖 AI News Việt Nam & Thế Giới</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <meta name="description" content="Trang tổng hợp tin tức AI Việt Nam và Thế Giới. Ưu tiên AI Việt Nam, ý kiến chuyên gia và mặt trái của AI." />
+  <meta name="description" content="Tin tức AI Việt Nam & Thế Giới – Tóm tắt nhanh – Có hình – Không trùng" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+  <style>
+    .post-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1em;
+    }
+    .badge {
+      display: inline-block;
+      background: #ff4d4f;
+      color: white;
+      padding: 2px 8px;
+      font-size: 12px;
+      border-radius: 12px;
+      margin-left: 6px;
+    }
+  </style>
 </head>
 
 <body class="is-preload">
@@ -18,104 +37,73 @@
     <h1>🤖 AI News</h1>
     <p>
       AI Việt Nam & Thế Giới<br/>
-      Tóm tắt nhanh · Không giật tít · Cập nhật liên tục
+      Nhiều tin · Có hình · Không trùng · Đọc nhanh
     </p>
     <ul class="actions">
       <li><a href="#main" class="button icon solid solo fa-arrow-down scrolly">Xem tin</a></li>
     </ul>
   </div>
 
-  <!-- HEADER -->
   <header id="header">
     <a href="index.html" class="logo">AI NEWS</a>
   </header>
 
-  <!-- NAV -->
   <nav id="nav">
     <ul class="links">
       <li class="active"><a href="index.html">Trang chủ</a></li>
     </ul>
-    <ul class="icons">
-      <li><a href="https://github.com" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-    </ul>
   </nav>
 
-  <!-- MAIN -->
   <div id="main">
-
-    <!-- FEATURED -->
-    <article class="post featured">
-      <header class="major">
-        <span class="date">AI NEWS</span>
-        <h2>Tin AI đáng chú ý</h2>
-        <p>
-          Tin nổi bật được AI chọn lọc mỗi ngày.<br/>
-          Ưu tiên Việt Nam 🇻🇳, chuyên gia AI, và tác động xã hội.
-        </p>
-      </header>
-    </article>
-
-    <!-- POSTS (AI NEWS HERE) -->
-    <section class="posts" id="news-list">
-      <!-- JS sẽ đổ tin vào đây -->
-    </section>
-
+    <section class="posts" id="news-list"></section>
   </div>
 
-  <!-- FOOTER -->
   <footer id="footer">
-    <section class="split contact">
-      <section>
-        <h3>Giới thiệu</h3>
-        <p>
-          AI News là trang tổng hợp tin tức AI từ Việt Nam và Thế Giới.<br/>
-          Mục tiêu: đọc nhanh – hiểu đúng – không nhiễu.
-        </p>
-      </section>
-      <section>
-        <h3>Liên kết</h3>
-        <ul class="icons alt">
-          <li><a href="https://github.com" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-        </ul>
-      </section>
+    <section>
+      <h3>Giới thiệu</h3>
+      <p>Trang đọc tin AI Việt Nam & Thế Giới. Ưu tiên AI Việt 🇻🇳, chuyên gia, và mặt trái AI.</p>
     </section>
   </footer>
 
-  <div id="copyright">
-    <ul>
-      <li>&copy; AI News</li>
-      <li>Theme: HTML5 UP</li>
-    </ul>
-  </div>
-
 </div>
 
-<!-- SCRIPTS -->
+<!-- JS -->
 <script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 
-<!-- LOAD AI NEWS -->
 <script>
+const IMAGE_BY_CATEGORY = {
+  "Ứng dụng AI": "https://images.unsplash.com/photo-1581091870627-3f9c1a9c9f1b",
+  "Ý kiến chuyên gia": "https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+  "Mặt trái AI": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+  "default": "https://images.unsplash.com/photo-1518770660439-4636190af475"
+};
+
 fetch('data/news.json')
   .then(res => res.json())
   .then(data => {
+
     const list = document.getElementById('news-list');
-    if (!data.length) {
-      list.innerHTML = '<p>Chưa có tin AI.</p>';
-      return;
-    }
+    const seen = new Set();
 
     data.forEach(item => {
+      const key = (item.url || '') + (item.title || '');
+      if (seen.has(key)) return;
+      seen.add(key);
+
+      const img =
+        IMAGE_BY_CATEGORY[item.category] ||
+        IMAGE_BY_CATEGORY.default;
+
       const article = document.createElement('article');
       article.innerHTML = `
+        <img class="post-image" src="${img}" alt="AI news image"/>
         <header>
           <span class="date">${item.country || ''}</span>
-          <h2>${item.title}</h2>
+          <h2>
+            ${item.title}
+            ${item.hot ? '<span class="badge">HOT</span>' : ''}
+          </h2>
         </header>
         <p>${item.summary}</p>
         <ul class="actions special">
@@ -124,10 +112,14 @@ fetch('data/news.json')
       `;
       list.appendChild(article);
     });
+
+    if (!seen.size) {
+      list.innerHTML = '<p>Chưa có tin AI.</p>';
+    }
   })
   .catch(() => {
     document.getElementById('news-list').innerHTML =
-      '<p style="color:red">❌ Không tải được dữ liệu AI</p>';
+      '<p style="color:red">❌ Không tải được dữ liệu</p>';
   });
 </script>
 
