@@ -1,213 +1,127 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>AI Digest</title>
+  <title>AI News Hub</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/main.css" />
-
-  <!-- AI DIGEST THEME (TINH TẾ) -->
-  <style>
-    :root{
-      --bg-main:#2a0b18;
-      --bg-soft:#35101f;
-      --accent:#e9c46a;
-      --text-main:#f4ece6;
-      --text-muted:rgba(244,236,230,.75);
-      --line:rgba(244,236,230,.18);
-    }
-
-    body{
-      background:linear-gradient(180deg,var(--bg-soft),var(--bg-main));
-      color:var(--text-main);
-    }
-
-    a{color:var(--accent)}
-    a:hover{color:#f1d98a}
-
-    #header{
-      background:transparent;
-    }
-    #header .logo{
-      color:var(--accent);
-      font-weight:900;
-      letter-spacing:.08em;
-    }
-
-    /* HERO */
-    .post.featured{
-      background:transparent;
-      border-bottom:1px solid var(--line);
-      padding-bottom:4em;
-    }
-    .post.featured h1{
-      color:var(--accent);
-      letter-spacing:.12em;
-    }
-    .post.featured p{
-      color:var(--text-muted);
-      font-size:1.1em;
-    }
-
-    /* POSTS */
-    .post{
-      background:transparent;
-      border-bottom:1px solid var(--line);
-      padding-bottom:3em;
-    }
-    .post header h2{
-      color:var(--accent);
-      font-weight:700;
-    }
-    .post p{
-      color:var(--text-muted);
-    }
-    .post header .date{
-      color:var(--text-muted);
-      letter-spacing:.12em;
-    }
-
-    /* BUTTON */
-    .button{
-      background:none;
-      border:1px solid var(--accent);
-      color:var(--accent) !important;
-      letter-spacing:.1em;
-    }
-    .button:hover{
-      background:var(--accent);
-      color:#2a0b18 !important;
-    }
-
-    /* NAV */
-    #nav a{
-      color:var(--text-muted);
-    }
-    #nav a:hover{
-      color:var(--accent);
-    }
-
-    /* FOOTER */
-    #footer{
-      background:transparent;
-      color:var(--text-muted);
-    }
-  </style>
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-
 <body class="is-preload">
 
 <div id="wrapper" class="fade-in">
 
-  <!-- INTRO -->
-  <div id="intro">
-    <h1>AI Digest</h1>
-    <p>Curated Artificial Intelligence news & research</p>
+  <!-- Hero / Intro -->
+  <section id="intro" class="ai-hero">
+    <h1>AI News Hub</h1>
+    <p>Cập nhật nhanh các xu hướng, sản phẩm và nghiên cứu mới nhất về Trí tuệ Nhân tạo.</p>
     <ul class="actions">
-      <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+      <li><a href="#main" class="button primary icon solid fa-robot">Xem bảng tin</a></li>
     </ul>
-  </div>
+  </section>
 
-  <!-- HEADER -->
+  <!-- Header -->
   <header id="header">
-    <a href="index.html" class="logo">AI DIGEST</a>
+    <a href="index.html" class="logo">AI News</a>
   </header>
 
-  <!-- NAV -->
+  <!-- Navigation -->
   <nav id="nav">
     <ul class="links">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="#">Bảng tin</a></li>
+      <li><a href="#">Sản phẩm AI</a></li>
       <li><a href="#">Research</a></li>
-      <li><a href="#">Industry</a></li>
+      <li><a href="#">Tutorial</a></li>
     </ul>
   </nav>
 
-  <!-- MAIN -->
+  <!-- Main -->
   <div id="main">
 
-    <!-- FEATURED -->
-    <section class="post featured">
+    <!-- Featured News -->
+    <article class="post featured">
       <header class="major">
-        <span class="date">AI DIGEST</span>
-        <h1>Artificial<br />Intelligence</h1>
-        <p>
-          Curated AI news, research highlights,<br />
-          and industry movements — updated daily.
-        </p>
+        <span class="date">Tháng 1, 2026</span>
+        <h2><a href="#">OpenAI ra mắt mô hình AI mới</a></h2>
+        <p>Mô hình mới tập trung vào reasoning, coding và khả năng đa phương thức.</p>
       </header>
+      <a href="#" class="image main"><img src="images/ai-feature.jpg" alt="AI model" /></a>
       <ul class="actions special">
-        <li><a href="#posts" class="button">Explore</a></li>
+        <li><a href="#" class="button large">Đọc chi tiết</a></li>
       </ul>
+    </article>
+
+    <!-- News Grid -->
+    <section class="posts ai-posts">
+      <article>
+        <header>
+          <span class="date">Hôm nay</span>
+          <h2><a href="#">Google Gemini cập nhật</a></h2>
+        </header>
+        <p>Gemini cải thiện khả năng xử lý văn bản dài và code phức tạp.</p>
+        <ul class="tags">
+          <li>LLM</li><li>Google</li>
+        </ul>
+        <ul class="actions">
+          <li><a href="#" class="button small">Xem</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <header>
+          <span class="date">Hôm qua</span>
+          <h2><a href="#">AI Agents đang thay đổi workflow</a></h2>
+        </header>
+        <p>Agent AI giúp tự động hoá nghiên cứu, coding và marketing.</p>
+        <ul class="tags">
+          <li>Agent</li><li>Automation</li>
+        </ul>
+        <ul class="actions">
+          <li><a href="#" class="button small">Xem</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <header>
+          <span class="date">Tuần này</span>
+          <h2><a href="#">Top 5 công cụ AI cho developer</a></h2>
+        </header>
+        <p>So sánh Copilot, Cursor, Claude, CodeWhisperer.</p>
+        <ul class="tags">
+          <li>Tool</li><li>Developer</li>
+        </ul>
+        <ul class="actions">
+          <li><a href="#" class="button small">Xem</a></li>
+        </ul>
+      </article>
     </section>
 
-    <!-- POSTS -->
-    <section class="posts" id="posts">
-
-      <article class="post">
-        <header>
-          <span class="date">OpenAI</span>
-          <h2>Next-Gen Reasoning Models</h2>
-        </header>
-        <p>
-          OpenAI introduces a new generation of reasoning-focused models,
-          significantly improving multi-step problem solving.
-        </p>
-        <ul class="actions">
-          <li><a href="#" class="button">Read</a></li>
-        </ul>
-      </article>
-
-      <article class="post">
-        <header>
-          <span class="date">Google AI</span>
-          <h2>Gemini Updates</h2>
-        </header>
-        <p>
-          Gemini receives major updates focused on multimodal understanding
-          and developer tooling.
-        </p>
-        <ul class="actions">
-          <li><a href="#" class="button">Read</a></li>
-        </ul>
-      </article>
-
-      <article class="post">
-        <header>
-          <span class="date">Research</span>
-          <h2>Efficient LLM Training</h2>
-        </header>
-        <p>
-          New research explores parameter-efficient training methods
-          that dramatically reduce compute costs.
-        </p>
-        <ul class="actions">
-          <li><a href="#" class="button">Read</a></li>
-        </ul>
-      </article>
-
-    </section>
   </div>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer id="footer">
-    <section class="split contact">
-      <section>
-        <h3>Email</h3>
-        <p>contact@aidigest.ai</p>
-      </section>
+    <section>
+      <h3>Nhận bản tin AI</h3>
+      <form>
+        <div class="fields">
+          <div class="field">
+            <input type="email" placeholder="Email của bạn" />
+          </div>
+        </div>
+        <ul class="actions">
+          <li><input type="submit" value="Đăng ký" /></li>
+        </ul>
+      </form>
     </section>
   </footer>
 
+  <div id="copyright">
+    <ul><li>&copy; 2026 AI News Hub</li></ul>
+  </div>
+
 </div>
 
-<!-- SCRIPTS (MASSIVELY CORE) -->
 <script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-
 </body>
 </html>
