@@ -14,4 +14,6 @@ def summarize_vi(text):
         ]
     )
     return resp.choices[0].message.content.strip()
+if __name__ == "__main__":
+    print(summarize_vi("AI đang thay đổi thế giới như thế nào?"))
 
