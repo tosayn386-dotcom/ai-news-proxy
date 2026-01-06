@@ -1,0 +1,11 @@
+vietnam:
+  - name: VnExpress
+    rss: https://vnexpress.net/rss/cong-nghe.rss
+  - name: Vietnamnet
+    rss: https://vietnamnet.vn/rss/cong-nghe.rss
+
+global:
+  - name: OpenAI
+    rss: https://openai.com/blog/rss.xml
+  - name: Google AI
+    rss: https://blog.google/technology/ai/rss/
