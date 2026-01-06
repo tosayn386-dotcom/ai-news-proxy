@@ -1,127 +1,53 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="vi">
 <head>
-  <title>AI News Hub</title>
+  <title>AI News – Clean Feed</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    body { background:#0d0f12; color:#e5e7eb; }
+    a { color:#7dd3fc; }
+    .container { max-width:900px; margin:0 auto; padding:3rem 1.5rem; }
+    .news-item { padding:1.5rem 0; border-bottom:1px solid #1f2933; }
+    .news-item:last-child { border-bottom:none; }
+    .news-title { font-size:1.2rem; font-weight:600; margin-bottom:.4rem; }
+    .meta { font-size:.85rem; color:#9ca3af; margin-bottom:.6rem; }
+    .thumb { margin-top:1rem; border-radius:12px; overflow:hidden; }
+    .thumb img { width:100%; display:block; }
+    .tag { display:inline-block; font-size:.7rem; padding:.2rem .5rem; background:#1f2937; border-radius:999px; margin-right:.4rem; }
+  </style>
 </head>
-<body class="is-preload">
+<body>
 
-<div id="wrapper" class="fade-in">
+<div class="container">
+  <h1>🤖 AI News</h1>
+  <p class="meta">Feed tổng hợp tin AI – ưu tiên nội dung, có hình thì hiện, không có thì chỉ text.</p>
 
-  <!-- Hero / Intro -->
-  <section id="intro" class="ai-hero">
-    <h1>AI News Hub</h1>
-    <p>Cập nhật nhanh các xu hướng, sản phẩm và nghiên cứu mới nhất về Trí tuệ Nhân tạo.</p>
-    <ul class="actions">
-      <li><a href="#main" class="button primary icon solid fa-robot">Xem bảng tin</a></li>
-    </ul>
-  </section>
-
-  <!-- Header -->
-  <header id="header">
-    <a href="index.html" class="logo">AI News</a>
-  </header>
-
-  <!-- Navigation -->
-  <nav id="nav">
-    <ul class="links">
-      <li class="active"><a href="#">Bảng tin</a></li>
-      <li><a href="#">Sản phẩm AI</a></li>
-      <li><a href="#">Research</a></li>
-      <li><a href="#">Tutorial</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main -->
-  <div id="main">
-
-    <!-- Featured News -->
-    <article class="post featured">
-      <header class="major">
-        <span class="date">Tháng 1, 2026</span>
-        <h2><a href="#">OpenAI ra mắt mô hình AI mới</a></h2>
-        <p>Mô hình mới tập trung vào reasoning, coding và khả năng đa phương thức.</p>
-      </header>
-      <a href="#" class="image main"><img src="images/ai-feature.jpg" alt="AI model" /></a>
-      <ul class="actions special">
-        <li><a href="#" class="button large">Đọc chi tiết</a></li>
-      </ul>
-    </article>
-
-    <!-- News Grid -->
-    <section class="posts ai-posts">
-      <article>
-        <header>
-          <span class="date">Hôm nay</span>
-          <h2><a href="#">Google Gemini cập nhật</a></h2>
-        </header>
-        <p>Gemini cải thiện khả năng xử lý văn bản dài và code phức tạp.</p>
-        <ul class="tags">
-          <li>LLM</li><li>Google</li>
-        </ul>
-        <ul class="actions">
-          <li><a href="#" class="button small">Xem</a></li>
-        </ul>
-      </article>
-
-      <article>
-        <header>
-          <span class="date">Hôm qua</span>
-          <h2><a href="#">AI Agents đang thay đổi workflow</a></h2>
-        </header>
-        <p>Agent AI giúp tự động hoá nghiên cứu, coding và marketing.</p>
-        <ul class="tags">
-          <li>Agent</li><li>Automation</li>
-        </ul>
-        <ul class="actions">
-          <li><a href="#" class="button small">Xem</a></li>
-        </ul>
-      </article>
-
-      <article>
-        <header>
-          <span class="date">Tuần này</span>
-          <h2><a href="#">Top 5 công cụ AI cho developer</a></h2>
-        </header>
-        <p>So sánh Copilot, Cursor, Claude, CodeWhisperer.</p>
-        <ul class="tags">
-          <li>Tool</li><li>Developer</li>
-        </ul>
-        <ul class="actions">
-          <li><a href="#" class="button small">Xem</a></li>
-        </ul>
-      </article>
-    </section>
-
+  <!-- News with image -->
+  <div class="news-item">
+    <div class="news-title"><a href="#">OpenAI ra mắt mô hình AI mới</a></div>
+    <div class="meta">OpenAI • 2 giờ trước</div>
+    <span class="tag">LLM</span><span class="tag">OpenAI</span>
+    <div class="thumb">
+      <img src="images/ai-feature.jpg" alt="AI news" />
+    </div>
   </div>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <section>
-      <h3>Nhận bản tin AI</h3>
-      <form>
-        <div class="fields">
-          <div class="field">
-            <input type="email" placeholder="Email của bạn" />
-          </div>
-        </div>
-        <ul class="actions">
-          <li><input type="submit" value="Đăng ký" /></li>
-        </ul>
-      </form>
-    </section>
-  </footer>
+  <!-- News text only -->
+  <div class="news-item">
+    <div class="news-title"><a href="#">Google Gemini cải thiện khả năng reasoning</a></div>
+    <div class="meta">Google • Hôm nay</div>
+    <span class="tag">Gemini</span><span class="tag">Update</span>
+  </div>
 
-  <div id="copyright">
-    <ul><li>&copy; 2026 AI News Hub</li></ul>
+  <div class="news-item">
+    <div class="news-title"><a href="#">AI Agents đang thay đổi cách developer làm việc</a></div>
+    <div class="meta">Research • Tuần này</div>
+    <span class="tag">Agent</span><span class="tag">Automation</span>
   </div>
 
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/main.js"></script>
 </body>
 </html>
