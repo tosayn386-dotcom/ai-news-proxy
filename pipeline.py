@@ -1,134 +1,128 @@
 import feedparser
 import json
 import os
-import hashlib
 from datetime import datetime
-from html import unescape
 
-# =========================
+# ======================
 # CONFIG
-# =========================
+# ======================
+OUTPUT_PATH = "data/news.json"
 
-DATA_DIR = "data"
-OUTPUT_FILE = os.path.join(DATA_DIR, "news.json")
-
-RSS_SOURCES = [
-    # 🇻🇳 VIETNAM
-    {"name": "Tuổi Trẻ", "country": "VN", "rss": "https://tuoitre.vn/rss/cong-nghe.rss"},
-    {"name": "VnExpress", "country": "VN", "rss": "https://vnexpress.net/rss/so-hoa.rss"},
-    {"name": "Thanh Niên", "country": "VN", "rss": "https://thanhnien.vn/rss/cong-nghe.rss"},
-    {"name": "Tiền Phong", "country": "VN", "rss": "https://tienphong.vn/rss/cong-nghe.rss"},
-    {"name": "VietnamNet", "country": "VN", "rss": "https://vietnamnet.vn/rss/cong-nghe.rss"},
-    {"name": "Dân Trí", "country": "VN", "rss": "https://dantri.com.vn/rss/cong-nghe.rss"},
+RSS_FEEDS = [
+    # 🇻🇳 VIỆT NAM
+    ("VN", "VNExpress", "https://vnexpress.net/rss/cong-nghe.rss"),
+    ("VN", "Tuổi Trẻ", "https://tuoitre.vn/rss/cong-nghe.rss"),
+    ("VN", "Thanh Niên", "https://thanhnien.vn/rss/cong-nghe.rss"),
+    ("VN", "Tiền Phong", "https://tienphong.vn/rss/cong-nghe-45.rss"),
 
     # 🌍 GLOBAL
-    {"name": "TechCrunch", "country": "Global", "rss": "https://techcrunch.com/feed/"},
-    {"name": "MIT Tech Review", "country": "Global", "rss": "https://www.technologyreview.com/feed/"},
-    {"name": "VentureBeat AI", "country": "Global", "rss": "https://venturebeat.com/category/ai/feed/"},
-    {"name": "The Verge", "country": "Global", "rss": "https://www.theverge.com/rss/index.xml"},
-    {"name": "Wired", "country": "Global", "rss": "https://www.wired.com/feed/rss"},
+    ("GLOBAL", "MIT Tech Review", "https://www.technologyreview.com/feed/"),
+    ("GLOBAL", "The Verge AI", "https://www.theverge.com/rss/ai/index.xml"),
+    ("GLOBAL", "VentureBeat AI", "https://venturebeat.com/category/ai/feed/"),
 ]
 
 AI_KEYWORDS = [
-    # core AI
-    "ai", "artificial intelligence", "trí tuệ nhân tạo",
-    "machine learning", "deep learning",
-
-    # sản phẩm AI
-    "chatgpt", "openai", "google ai", "copilot", "gemini",
-
-    # ứng dụng AI thực tế (BÁO RẤT HAY DÙNG)
-    "robot", "drone", "thiết bị bay",
-    "tự động hóa", "camera thông minh",
-    "nhận diện", "xử lý hình ảnh",
-    "xe tự hành", "logistics thông minh",
-    "nhà máy thông minh",
-    "chuyển đổi số",
-    "công nghệ thông minh"
+    "ai",
+    "artificial intelligence",
+    "trí tuệ nhân tạo",
+    "machine learning",
+    "deep learning",
+    "openai",
+    "chatgpt",
+    "robot",
+    "automation",
 ]
 
-MAX_ITEMS_PER_SOURCE = 20
-
-# =========================
+# ======================
 # HELPERS
-# =========================
-
+# ======================
 def is_ai_related(text: str) -> bool:
     text = text.lower()
     return any(k in text for k in AI_KEYWORDS)
 
-def clean_text(text: str) -> str:
-    if not text:
-        return ""
-    return unescape(text).replace("\n", " ").strip()
+
+def normalize_title(title: str) -> str:
+    return (
+        title.lower()
+        .replace("ai", "")
+        .replace("trí tuệ nhân tạo", "")
+        .replace("artificial intelligence", "")
+        .strip()
+    )
+
 
 def extract_image(entry):
+    # ưu tiên media_content
     if "media_content" in entry:
         return entry.media_content[0].get("url")
-    if "media_thumbnail" in entry:
-        return entry.media_thumbnail[0].get("url")
+
+    # fallback: image trong summary
+    if "summary" in entry:
+        import re
+        match = re.search(r'<img[^>]+src="([^">]+)"', entry.summary)
+        if match:
+            return match.group(1)
+
     return None
 
-def make_uid(title, link):
-    raw = f"{title}-{link}"
-    return hashlib.md5(raw.encode("utf-8")).hexdigest()
 
-# =========================
-# MAIN PIPELINE
-# =========================
-
+# ======================
+# PIPELINE
+# ======================
 def run_pipeline():
-    os.makedirs(DATA_DIR, exist_ok=True)
+    os.makedirs("data", exist_ok=True)
 
-    news = []
+    if os.path.exists(OUTPUT_PATH):
+        with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+            existing_news = json.load(f)
+    else:
+        existing_news = []
+
     seen = set()
+    cleaned = []
 
-    for source in RSS_SOURCES:
-        print(f"🔎 Fetching: {source['name']}")
-        feed = feedparser.parse(source["rss"])
+    # dedup existing
+    for n in existing_news:
+        key = (normalize_title(n["title"]), n["source"])
+        if key not in seen:
+            seen.add(key)
+            cleaned.append(n)
 
-        for entry in feed.entries[:MAX_ITEMS_PER_SOURCE]:
-            title = clean_text(entry.get("title", ""))
-            summary = clean_text(entry.get("summary", ""))
-            link = entry.get("link", "")
+    # fetch new
+    for country, source, url in RSS_FEEDS:
+        feed = feedparser.parse(url)
 
-            if not title or not link:
+        for entry in feed.entries:
+            title = entry.get("title", "")
+            summary = entry.get("summary", "")
+
+            if not is_ai_related(title + summary):
                 continue
 
-            text_blob = f"{title} {summary}"
-            if not is_ai_related(text_blob):
+            key = (normalize_title(title), source)
+            if key in seen:
                 continue
 
-            uid = make_uid(title, link)
-            if uid in seen:
-                continue
-            seen.add(uid)
-
-            image = extract_image(entry)
-
-            news.append({
+            item = {
                 "title": title,
-                "summary": summary,
-                "url": link,
-                "source": source["name"],
-                "country": source["country"],
-                "category": "AI",
-                "image": image,
-                "published_at": entry.get("published", ""),
-                "uid": uid
-            })
+                "summary": summary[:300] + "...",
+                "url": entry.get("link"),
+                "image": extract_image(entry),
+                "source": source,
+                "country": country,
+                "category": "AI News",
+                "published": entry.get("published", ""),
+                "created_at": datetime.utcnow().isoformat(),
+            }
 
-    # sort newest first (rough)
-    news = news[::-1]
+            seen.add(key)
+            cleaned.append(item)
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(news, f, ensure_ascii=False, indent=2)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(cleaned, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ Saved {len(news)} AI news to {OUTPUT_FILE}")
+    print(f"✅ DONE: {len(cleaned)} articles")
 
-# =========================
-# RUN
-# =========================
 
 if __name__ == "__main__":
     run_pipeline()
