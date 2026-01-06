@@ -1,253 +1,229 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<title>AI News – Lunar Digest</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-<style>
-:root{
-  --wine:#5b0a2b;
-  --wine2:#2b0818;
-  --gold:#f6c453;
-  --cream:#ffe9d6;
-  --text:#f7e7dd;
-  --muted:rgba(255,233,214,.75);
-  --card:rgba(255,255,255,.06);
-}
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
 
-*{box-sizing:border-box}
-html{
-  background:
-    radial-gradient(1200px 600px at 70% 25%, rgba(246,196,83,.12), transparent 60%),
-    radial-gradient(900px 500px at 20% 15%, rgba(255,122,165,.12), transparent 60%),
-    linear-gradient(180deg, var(--wine), var(--wine2));
-}
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
-  color:var(--text);
-  overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
+				<!-- Intro -->
+					<div id="intro">
+						<h1>This is<br />
+						Massively</h1>
+						<p>A free, fully responsive HTML5 + CSS3 site template designed by <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a><br />
+						and released for free under the <a href="https://html5up.net/license">Creative Commons license</a>.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
 
-.container{max-width:1100px;margin:auto;padding:0 20px}
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Massively</a>
+					</header>
 
-/* ===== HERO ===== */
-.hero{
-  padding:36px 0 42px;
-}
-.hero-box{
-  position:relative;
-  border-radius:26px;
-  padding:36px;
-  background:
-    radial-gradient(900px 400px at 80% 40%, rgba(255,122,165,.12), transparent 60%),
-    linear-gradient(135deg, #6b0b33, var(--wine2));
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 30px 90px rgba(0,0,0,.55);
-}
-.hero h1{
-  font-size:52px;
-  line-height:1;
-  margin:0 0 10px;
-  font-weight:1000;
-  letter-spacing:1px;
-}
-.hero p{
-  max-width:520px;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.7;
-}
-.kicker{
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
-  margin-bottom:14px;
-  font-size:12px;
-  letter-spacing:.9px;
-  text-transform:uppercase;
-}
-.kicker span{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 0 6px rgba(246,196,83,.18);
-}
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">This is Massively</a></li>
+							<li><a href="generic.html">Generic Page</a></li>
+							<li><a href="elements.html">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
 
-/* ===== GRID ===== */
-.section{padding:34px 0}
-.section h2{
-  font-size:18px;
-  margin:0 0 16px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:18px;
-}
-.card{
-  background:var(--card);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:18px;
-  padding:16px;
-  cursor:pointer;
-  transition:.2s;
-}
-.card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 18px 50px rgba(0,0,0,.45);
-}
-.source{
-  font-size:12px;
-  opacity:.75;
-  margin-bottom:6px;
-}
-.card h3{
-  margin:0;
-  font-size:18px;
-  line-height:1.25;
-}
+				<!-- Main -->
+					<div id="main">
 
-/* ===== QUICK VIEW ===== */
-#quickView{
-  position:fixed;
-  top:50%;
-  right:20px;
-  transform:translateY(-50%) scale(.92);
-  width:420px;
-  max-width:calc(100vw - 40px);
-  max-height:70vh;
-  overflow:auto;
-  background:rgba(25,7,18,.78);
-  backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:18px;
-  padding:18px;
-  display:none;
-  opacity:0;
-  z-index:9999;
-  transition:.25s;
-}
-#quickView.show{
-  display:block;
-  opacity:1;
-  transform:translateY(-50%) scale(1);
-}
-#quickView h3{
-  margin:0 0 10px;
-}
-#quickView p{
-  font-size:14px;
-  line-height:1.65;
-  color:var(--muted);
-}
-#quickView a{
-  display:inline-block;
-  margin-top:12px;
-  padding:10px 14px;
-  border-radius:999px;
-  font-weight:900;
-  background:linear-gradient(90deg, rgba(246,196,83,.9), rgba(246,196,83,.6));
-  color:#2b0818;
-}
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<span class="date">April 25, 2017</span>
+									<h2><a href="#">And this is a<br />
+									massive headline</a></h2>
+									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
+									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
+									amet nullam sed etiam veroeros.</p>
+								</header>
+								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+								<ul class="actions special">
+									<li><a href="#" class="button large">Full Story</a></li>
+								</ul>
+							</article>
 
-/* ===== TO TOP ===== */
-#toTop{
-  position:fixed;
-  bottom:18px;
-  right:18px;
-  width:44px;height:44px;
-  border-radius:50%;
-  display:none;
-  place-items:center;
-  background:rgba(25,7,18,.65);
-  border:1px solid rgba(255,255,255,.18);
-  cursor:pointer;
-  z-index:10000;
-}
-#toTop.show{display:grid}
+						<!-- Posts -->
+							<section class="posts">
+								<article>
+									<header>
+										<span class="date">April 24, 2017</span>
+										<h2><a href="#">Sed magna<br />
+										ipsum faucibus</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 22, 2017</span>
+										<h2><a href="#">Primis eget<br />
+										imperdiet lorem</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 18, 2017</span>
+										<h2><a href="#">Ante mattis<br />
+										interdum dolor</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 14, 2017</span>
+										<h2><a href="#">Tempus sed<br />
+										nulla imperdiet</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 11, 2017</span>
+										<h2><a href="#">Odio magna<br />
+										sed consectetur</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 7, 2017</span>
+										<h2><a href="#">Augue lorem<br />
+										primis vestibulum</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+							</section>
 
-@media(max-width:900px){
-  .hero h1{font-size:44px}
-  #quickView{right:10px}
-}
-</style>
-</head>
+						<!-- Footer -->
+							<footer>
+								<div class="pagination">
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="#" class="page active">1</a>
+									<a href="#" class="page">2</a>
+									<a href="#" class="page">3</a>
+									<span class="extra">&hellip;</span>
+									<a href="#" class="page">8</a>
+									<a href="#" class="page">9</a>
+									<a href="#" class="page">10</a>
+									<a href="#" class="next">Next</a>
+								</div>
+							</footer>
 
-<body>
+					</div>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-box">
-      <div class="kicker"><span></span> Lunar New Year AI Digest</div>
-      <h1>AI NEWS</h1>
-      <p>Tin AI Việt Nam & Thế Giới. Click card để xem tóm tắt nhanh, mở bài đầy đủ khi cần.</p>
-    </div>
-  </div>
-</section>
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>1234 Somewhere Road #87257<br />
+								Nashville, TN 00000-0000</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
 
-<section class="section">
-  <div class="container">
-    <h2>🔥 Tin mới</h2>
-    <div class="grid" id="news">Đang tải...</div>
-  </div>
-</section>
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
 
-<!-- Quick View -->
-<div id="quickView">
-  <h3 id="qv-title"></h3>
-  <p id="qv-summary"></p>
-  <a id="qv-link" target="_blank">Đọc bài đầy đủ →</a>
-</div>
+			</div>
 
-<div id="toTop">↑</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-<script>
-const newsEl = document.getElementById("news");
-const qv = document.getElementById("quickView");
-
-function openQuick(title, summary, link){
-  document.getElementById("qv-title").innerText = title;
-  document.getElementById("qv-summary").innerText = summary;
-  document.getElementById("qv-link").href = link;
-  qv.classList.add("show");
-}
-
-function closeQuick(){
-  qv.classList.remove("show");
-}
-
-fetch("./data/news.json")
-  .then(r=>r.json())
-  .then(data=>{
-    newsEl.innerHTML="";
-    data.sort((a,b)=>b.hot_score-a.hot_score).forEach(n=>{
-      const d=document.createElement("div");
-      d.className="card";
-      d.innerHTML=`
-        <div class="source">${n.country==="VN"?"🇻🇳":"🌍"} ${n.source}</div>
-        <h3>${n.title}</h3>
-      `;
-      d.onclick=()=>openQuick(n.title,n.summary,n.url||"#");
-      newsEl.appendChild(d);
-    });
-  })
-  .catch(()=>newsEl.innerText="❌ Không tải được dữ liệu");
-
-document.addEventListener("click",e=>{
-  if(!e.target.closest(".card") && !e.target.closest("#quickView")){
-    closeQuick();
-  }
-});
-
-const toTop=document.getElementById("toTop");
-window.addEventListener("scroll",()=>{
-  if(window.scrollY>400) toTop.classList.add("show");
-  else toTop.classList.remove("show");
-});
-toTop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
-</script>
-
-</body>
+	</body>
 </html>
