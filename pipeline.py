@@ -30,10 +30,21 @@ RSS_SOURCES = [
 ]
 
 AI_KEYWORDS = [
+    # core AI
     "ai", "artificial intelligence", "trí tuệ nhân tạo",
     "machine learning", "deep learning",
-    "chatgpt", "openai", "google ai",
-    "robot", "drone", "tự động hóa"
+
+    # sản phẩm AI
+    "chatgpt", "openai", "google ai", "copilot", "gemini",
+
+    # ứng dụng AI thực tế (BÁO RẤT HAY DÙNG)
+    "robot", "drone", "thiết bị bay",
+    "tự động hóa", "camera thông minh",
+    "nhận diện", "xử lý hình ảnh",
+    "xe tự hành", "logistics thông minh",
+    "nhà máy thông minh",
+    "chuyển đổi số",
+    "công nghệ thông minh"
 ]
 
 MAX_ITEMS_PER_SOURCE = 20
