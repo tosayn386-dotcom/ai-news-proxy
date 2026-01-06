@@ -5,30 +5,90 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+  <style>
+    /* popup */
+    #popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+    }
+    #popup .box {
+      background: #fff;
+      max-width: 700px;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 6px;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
+    #popup h2 { margin-top: 0 }
+    #popup button { margin-top: 1rem }
+  </style>
 </head>
 
 <body class="is-preload">
-<div id="wrapper">
+<div id="wrapper" class="fade-in">
 
   <!-- Header -->
   <header id="header">
-    <a href="#" class="logo">🤖 AI NEWS</a>
+    <a href="index.html" class="logo">🤖 AI NEWS</a>
   </header>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <ul class="links">
+      <li class="active"><a href="#">AI News</a></li>
+    </ul>
+  </nav>
 
   <!-- Main -->
   <div id="main">
     <section class="posts" id="news-container">
-      <!-- JS render here -->
+      <!-- JS inject -->
     </section>
   </div>
 
+  <!-- Popup -->
+  <div id="popup">
+    <div class="box">
+      <h2 id="popup-title"></h2>
+      <p id="popup-summary"></p>
+      <a id="popup-link" href="#" target="_blank">🔗 Đọc nguồn</a>
+      <br>
+      <button onclick="closePopup()">Đóng</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer id="copyright">
-    <p>AI News Việt Nam & Thế Giới • Auto Update</p>
+    <ul>
+      <li>&copy; AI News VN</li>
+      <li>Auto Update</li>
+    </ul>
   </footer>
 
 </div>
 
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/main.js"></script>
+
 <script>
+function openPopup(title, summary, link) {
+  document.getElementById("popup-title").innerText = title;
+  document.getElementById("popup-summary").innerText = summary;
+  document.getElementById("popup-link").href = link;
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
 fetch("data/news.json")
   .then(res => res.json())
   .then(news => {
@@ -38,19 +98,14 @@ fetch("data/news.json")
     news.slice(0, 30).forEach(item => {
       const article = document.createElement("article");
 
-      let imageHTML = "";
-      if (item.image) {
-        imageHTML = `
-          <a href="${item.url}" class="image fit">
-            <img src="${item.image}" alt="">
-          </a>
-        `;
-      }
+      const imageHTML = item.image
+        ? `<a href="#" class="image fit"><img src="${item.image}" alt=""></a>`
+        : "";
 
       article.innerHTML = `
         <header>
           <span class="date">${item.source} • ${item.country}</span>
-          <h2><a href="${item.url}" target="_blank">${item.title}</a></h2>
+          <h2><a href="#">${item.title}</a></h2>
         </header>
 
         ${imageHTML}
@@ -58,17 +113,21 @@ fetch("data/news.json")
         <p>${item.summary}</p>
 
         <ul class="actions special">
-          <li><a href="${item.url}" target="_blank" class="button">Đọc nguồn</a></li>
+          <li>
+            <a href="#" class="button"
+               onclick="openPopup(
+                 \`${item.title}\`,
+                 \`${item.summary}\`,
+                 \`${item.url}\`
+               )">
+               Đọc nhanh
+            </a>
+          </li>
         </ul>
       `;
 
       container.appendChild(article);
     });
-  })
-  .catch(err => {
-    document.getElementById("news-container").innerHTML =
-      "<p>❌ Không tải được dữ liệu</p>";
-    console.error(err);
   });
 </script>
 
