@@ -1,7 +1,0 @@
-vietnam:
-  - name: VnExpress
-    rss: https://vnexpress.net/rss/cong-nghe.rss
-
-global:
-  - name: OpenAI
-    rss: https://openai.com/blog/rss.xml
