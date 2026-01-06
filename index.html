@@ -1,240 +1,923 @@
-
-<!DOCTYPE HTML>
-<html lang="vi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>🤖 AI Digest – Việt Nam & Thế Giới</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<title>AI NEWS – 02-01-2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Styles (giữ style của AI Digest) -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Ctext%20x='2'%20y='52'%20font-size='52'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
 
-  <style>
-    /* Bổ sung nhẹ cho meta & popup như bản bạn gửi */
-    .digest-meta {
-      font-size: 0.85em;
-      opacity: 0.75;
-      margin-bottom: 0.5em;
+<style>
+:root{
+  --wine:#5b0a2b;
+  --wine2:#3b071e;
+  --gold:#f6c453;
+  --cream:#ffe9d6;
+  --text:#f7e7dd;
+  --muted:rgba(255,233,214,.80);
+  --card:rgba(255,255,255,.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+html{
+  background:
+    radial-gradient(1200px 600px at 75% 30%, rgba(246,196,83,.12), transparent 55%),
+    radial-gradient(900px 500px at 20% 15%, rgba(255,122,165,.12), transparent 58%),
+    linear-gradient(180deg, var(--wine), #2b0818);
+}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Inter, Segoe UI, system-ui, -apple-system, sans-serif;
+  color:var(--text);
+  background:transparent; /* prevents horizontal cut */
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 22px}
+
+.topbar{position:relative;z-index:5;padding:18px 0 10px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-badge{
+  width:34px;height:34px;border-radius:12px;display:grid;place-items:center;
+  background: radial-gradient(circle at 30% 30%, rgba(246,196,83,.35), rgba(255,122,165,.10));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+.brand-name{font-weight:1000;letter-spacing:.6px}
+.menu{display:flex;gap:22px;align-items:center;opacity:.95;font-size:12px;text-transform:uppercase;letter-spacing:.9px}
+.menu a{padding:10px 10px;border-radius:999px;border:1px solid transparent}
+.menu a:hover{border-color:rgba(255,255,255,.20);background:rgba(255,255,255,.06)}
+.right-tools{display:flex;align-items:center;gap:12px}
+#google_translate_element{min-width:120px;transform:scale(.92);transform-origin:right center}
+
+.hero{position:relative;padding:28px 0 36px}
+.hero-wrap{
+  position:relative;border-radius:26px;overflow:hidden;
+  background:
+    radial-gradient(1200px 600px at 75% 45%, rgba(255,122,165,.10), transparent 60%),
+    radial-gradient(900px 500px at 25% 20%, rgba(246,196,83,.14), transparent 58%),
+    linear-gradient(135deg, #6b0b33, var(--wine2));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 28px 80px rgba(0,0,0,.55);
+}
+.hero-wrap::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(40px 22px at 8% 18%, rgba(255,255,255,.07), transparent 70%),
+    radial-gradient(60px 30px at 18% 22%, rgba(255,255,255,.06), transparent 72%),
+    radial-gradient(52px 26px at 32% 14%, rgba(255,255,255,.05), transparent 72%),
+    radial-gradient(62px 30px at 86% 24%, rgba(255,255,255,.05), transparent 74%),
+    radial-gradient(46px 22px at 74% 18%, rgba(255,255,255,.06), transparent 74%),
+    radial-gradient(66px 32px at 90% 44%, rgba(255,255,255,.05), transparent 74%),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 30%, rgba(255,255,255,.02));
+  opacity:.75;pointer-events:none;
+}
+.hero-inner{position:relative;display:grid;grid-template-columns: 1.05fr .95fr;gap:18px;padding:34px 34px 30px}
+.hero-left{padding:10px 6px}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.16);font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,233,214,.92)}
+.kicker .dot{width:8px;height:8px;border-radius:999px;background:var(--gold);box-shadow:0 0 0 6px rgba(246,196,83,.18)}
+.hero-title{margin:18px 0 10px;font-size:54px;line-height:.95;font-weight:1000;text-transform:uppercase;letter-spacing:1px}
+.hero-sub{margin:0 0 14px;font-size:22px;color:rgba(255,233,214,.92)}
+.hero-desc{margin:0;max-width:520px;color:var(--muted);font-size:14px;line-height:1.7}
+.hero-actions{position:relative;display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.18);cursor:pointer;font-weight:900}
+.btn.primary{background: linear-gradient(180deg, rgba(246,196,83,.95), rgba(246,196,83,.70));color:#2b0818;border-color:rgba(0,0,0,.12);box-shadow:0 16px 30px rgba(246,196,83,.18)}
+.btn.primary:hover{filter:brightness(1.03)}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+/* Legend popover (fixed so it won't be clipped) */
+#legendPopover{
+  position:fixed;
+  width:min(360px, calc(100vw - 40px));
+  background:rgba(25,7,18,.86);
+  backdrop-filter: blur(14px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  padding:14px 14px 12px;
+  box-shadow:0 18px 70px rgba(0,0,0,.55);
+  display:none;
+  z-index:12000;
+}
+#legendPopover.show{display:block;animation:popMini .22s cubic-bezier(.2,1.4,.3,1) both}
+@keyframes popMini{0%{opacity:0;transform:translateY(-6px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+#legendPopover h4{margin:0 0 8px;font-size:14px;letter-spacing:.2px}
+#legendPopover p{margin:0;color:rgba(255,233,214,.88);line-height:1.6;font-size:13px}
+
+.logo{font-weight:1000;letter-spacing:.5px;position:relative;display:inline-block;cursor:pointer}
+.logo::after{content: attr(data-text);position:absolute;inset:0;background:linear-gradient(90deg, red,orange,yellow,green,cyan,blue,violet);background-size:300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;pointer-events:none}
+.logo:hover::after{opacity:1;animation:rainbow 1.8s linear infinite}
+@keyframes rainbow{0%{background-position:0%}100%{background-position:100%}}
+
+.hero-art{position:relative;display:flex;align-items:center;justify-content:center;padding:10px 0 0}
+.art-shell{width:100%;max-width:430px;aspect-ratio:1/1;border-radius:22px;background: radial-gradient(circle at 30% 30%, rgba(246,196,83,.18), rgba(0,0,0,0) 55%);border:1px solid rgba(255,255,255,.10);overflow:hidden}
+#fireworks{position:absolute;left:0;right:0;top:0;height:160px;width:100%;pointer-events:none;opacity:.92}
+
+.section{padding:26px 0 40px}
+.section h3{margin:0 0 14px;font-size:18px;letter-spacing:.2px;color:rgba(255,233,214,.95)}
+.grid-image{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px}
+.grid-text{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.image-card,.text-card{border-radius:18px;overflow:hidden;cursor:pointer;background:var(--card);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 50px rgba(0,0,0,.35);transition: transform .15s ease, box-shadow .15s ease}
+.image-card:hover,.text-card:hover{transform: translateY(-2px);box-shadow:0 22px 62px rgba(0,0,0,.45)}
+.image-card img{width:100%;height:210px;object-fit:cover;display:block}
+.card-pad{padding:16px 16px 18px}
+.source{font-size:12px;opacity:.78;margin-bottom:6px}
+.card-pad h3{margin:0;font-size:18px;line-height:1.25}
+
+#quickView{position:fixed;top:50%;right:22px;transform:translateY(-50%) scale(.92);width:420px;max-height:70vh;overflow:auto;background:rgba(25, 7, 18, .72);backdrop-filter: blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:18px 18px 16px;display:none;opacity:0;box-shadow:0 18px 70px rgba(0,0,0,.62);z-index:9999;transition: opacity .22s ease, transform .28s cubic-bezier(.2,1.4,.3,1)}
+#quickView.show{opacity:1;transform:translateY(-50%) scale(1);animation:qvPop .45s cubic-bezier(.2,1.4,.3,1) both}
+@keyframes qvPop{0%{transform:translateY(-50%) scale(.86)}60%{transform:translateY(-50%) scale(1.03)}100%{transform:translateY(-50%) scale(1)}}
+#quickView #qv-title{margin:0 0 10px;font-size:18px}
+#quickView #qv-summary{margin:0 0 14px;color:rgba(255,233,214,.88);line-height:1.65;font-size:14px}
+#quickView a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg, rgba(246,196,83,.35), rgba(255,122,165,.14));font-weight:900}
+#quickView::-webkit-scrollbar{width:10px}
+#quickView::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:20px}
+#quickView::-webkit-scrollbar-track{background:rgba(255,255,255,.05)}
+
+/* Scroll to top button */
+#toTop{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(25,7,18,.65);
+  backdrop-filter: blur(12px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 18px 60px rgba(0,0,0,.55);
+  z-index:13000;
+}
+#toTop.show{display:flex;animation:popMini .18s ease-out both}
+#toTop span{font-size:18px;line-height:1;transform:translateY(-1px)}
+#toTop:hover{background:rgba(255,255,255,.10)}
+
+@media (max-width: 980px){.hero-inner{grid-template-columns:1fr}.hero-title{font-size:46px}#quickView{right:12px;width:min(420px, calc(100vw - 24px))}.menu{display:none}}
+</style>
+
+<script>
+window.addEventListener('load', function () {
+  var s = document.createElement('script');
+  s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.body.appendChild(s);
+});
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,vi',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+function openQuickView(title, summary, link) {
+  document.getElementById('qv-title').innerText = title;
+  document.getElementById('qv-summary').innerText = summary;
+  document.getElementById('qv-link').href = link;
+  const qv = document.getElementById('quickView');
+  qv.style.display = 'block';
+  void qv.offsetHeight;
+  qv.classList.add('show');
+}
+function closeQuickView() {
+  const qv = document.getElementById('quickView');
+  qv.classList.remove('show');
+  setTimeout(() => { qv.style.display = 'none'; }, 240);
+}
+
+function showLegend() {
+  const btn = document.getElementById('btnReadMore');
+  const pop = document.getElementById('legendPopover');
+  if (!btn || !pop) return;
+  const r = btn.getBoundingClientRect();
+  const gap = 10;
+  // default: pop under the button
+  let top = r.bottom + gap;
+  let left = r.left;
+  // keep inside viewport
+  const maxLeft = window.innerWidth - pop.offsetWidth - 10;
+  if (left > maxLeft) left = maxLeft;
+  if (left < 10) left = 10;
+  // if too low, show above
+  if (top + pop.offsetHeight > window.innerHeight - 10) {
+    top = r.top - pop.offsetHeight - gap;
+  }
+  pop.style.top = top + 'px';
+  pop.style.left = left + 'px';
+  pop.classList.add('show');
+}
+function hideLegend() {
+  const pop = document.getElementById('legendPopover');
+  if (pop) pop.classList.remove('show');
+}
+function toggleLegend(){
+  const pop = document.getElementById('legendPopover');
+  if (!pop) return;
+  if (pop.classList.contains('show')) hideLegend();
+  else showLegend();
+}
+
+// DOM ready: bind card clicks + scroll-to-top
+document.addEventListener('DOMContentLoaded', () => {
+  // card click -> quick view
+  document.querySelectorAll('.image-card,.text-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const t = card.getAttribute('data-title') || '';
+      const s = card.getAttribute('data-summary') || '';
+      const l = card.getAttribute('data-link') || '';
+      if (t && l) openQuickView(t, s, l);
+    });
+  });
+
+  // scroll-to-top
+  const btn = document.getElementById('toTop');
+  const onScroll = () => {
+    if (!btn) return;
+    if (window.scrollY > 420) btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  if (btn) {
+    btn.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+});
+
+// close popups when click outside
+document.addEventListener('click', e => {
+  if (!e.target.closest('.image-card,.text-card,#quickView')) {
+    closeQuickView();
+  }
+  if (!e.target.closest('#legendPopover,#btnReadMore')) {
+    hideLegend();
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeQuickView(); hideLegend(); }
+});
+
+// update legend position on resize/scroll
+window.addEventListener('resize', () => {
+  const pop = document.getElementById('legendPopover');
+  if (pop && pop.classList.contains('show')) showLegend();
+});
+window.addEventListener('scroll', () => {
+  const pop = document.getElementById('legendPopover');
+  if (pop && pop.classList.contains('show')) showLegend();
+}, {passive:true});
+
+// Fireworks (safe: NO `${}` template literals)
+(function() {
+  const canvas = document.getElementById('fireworks');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = Math.floor(rect.width * devicePixelRatio);
+    canvas.height = Math.floor(rect.height * devicePixelRatio);
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const colors = ['#f6c453','#ffe9d6','#ff7aa5','#f97316','#22c55e','#60a5fa'];
+  const particles = [];
+
+  function burst(x, y) {
+    const count = 42 + Math.floor(Math.random() * 22);
+    for (let i = 0; i < count; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const sp = 1.0 + Math.random() * 3.6;
+      particles.push({
+        x:x, y:y,
+        vx: Math.cos(a)*sp,
+        vy: Math.sin(a)*sp,
+        life: 58 + Math.random()*26,
+        r: 1 + Math.random()*2,
+        c: colors[(Math.random()*colors.length)|0]
+      });
     }
-    .digest-actions {
-      display: flex;
-      gap: 0.5em;
-      flex-wrap: wrap;
-    }
-    /* Popup Quick View */
-    #digest-popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      padding: 1rem;
-    }
-    #digest-popup .box {
-      background: #fff;
-      max-width: 760px;
-      margin: 4% auto;
-      padding: 2rem;
-      border-radius: 10px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-    #digest-popup h2 {
-      margin-top: 0;
-    }
-    #digest-popup .close-btn {
-      margin-top: 1rem;
+  }
+
+  function hexToRgba(hex, alpha) {
+    const h = hex.replace('#','');
+    const r = parseInt(h.substring(0,2),16);
+    const g = parseInt(h.substring(2,4),16);
+    const b = parseInt(h.substring(4,6),16);
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+  }
+
+  let t = 0;
+  function step() {
+    t++;
+    const W = canvas.clientWidth;
+    const H = canvas.clientHeight;
+    ctx.fillStyle = 'rgba(0,0,0,0.18)';
+    ctx.fillRect(0,0,W,H);
+
+    if (t % 26 === 0) burst(60 + Math.random()*(W-120), 24 + Math.random()*55);
+
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.life -= 1;
+      p.vy += 0.03;
+      p.vx *= 0.988;
+      p.vy *= 0.988;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      const alpha = Math.max(0, Math.min(1, p.life/84));
+      ctx.beginPath();
+      ctx.fillStyle = hexToRgba(p.c, alpha);
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+
+      if (p.life <= 0 || p.y > H + 30) particles.splice(i, 1);
     }
 
-    /* Ẩn phần mô tả “legend” nếu không dùng */
-    .lunar-legend { display: none; }
-  </style>
+    requestAnimationFrame(step);
+  }
+
+  setTimeout(() => { burst(canvas.clientWidth*0.5, 28); }, 280);
+  requestAnimationFrame(step);
+})();
+</script>
 </head>
+<body>
 
-<body class="is-preload">
-  <!-- Wrapper -->
-  <div id="wrapper" class="fade-in">
+<div class="topbar">  <div class="container nav">    <div class="brand">      <div class="brand-badge">🤖</div>      <div class="brand-name"><span class="logo" data-text="AI NEWS">AI NEWS</span></div>    </div>    <div class="menu">      <a href="#featured">Featured</a>      <a href="#more">More</a>      <a href="#how">How it works</a>      <a href="#contact">Contact</a>    </div>    <div class="right-tools">      <div id="google_translate_element"></div>    </div>  </div></div>
 
-    <!-- Header (giữ layout AI Digest) -->
-    <header id="header">
-      <a href="#" class="logo">🤖 AI DIGEST</a>
-      <nav>
-        <ul class="links">
-          <li><a href="#featured">Featured</a></li>
-          <li><a href="#more">More</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<section class="hero">  <div class="container">    <div class="hero-wrap">      <canvas id="fireworks"></canvas>      <div class="hero-inner">        <div class="hero-left">          <div class="kicker"><span class="dot"></span> Lunar New Year Digest</div>          <div class="hero-title">CHINESE<br>NEW YEAR</div>          <div class="hero-sub">Celebration</div>          <p class="hero-desc">Click any card to preview in Quick View, then open full article. Cards stay minimal — full summary appears in the pop-up.</p>          <div class="hero-actions">            <button id="btnReadMore" class="btn primary" type="button" onclick="toggleLegend()">Read More →</button>            <a class="btn ghost" href="#more">More News</a>          </div>        </div>        <div class="hero-art" aria-hidden="true">          <div class="art-shell">            <svg viewBox="0 0 520 520" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">              <defs>                <radialGradient id="g1" cx="30%" cy="30%" r="70%">                  <stop offset="0%" stop-color="#f6c453" stop-opacity="0.55"/>                  <stop offset="60%" stop-color="#ff7aa5" stop-opacity="0.12"/>                  <stop offset="100%" stop-color="#000000" stop-opacity="0"/>                </radialGradient>                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">                  <stop offset="0%" stop-color="#ffb84d"/>                  <stop offset="100%" stop-color="#f6c453"/>                </linearGradient>              </defs>              <circle cx="270" cy="260" r="220" fill="url(#g1)"/>              <path d="M90 350c0-42 34-76 76-76 14 0 27 4 38 10 14-30 44-50 79-50 40 0 74 26 86 62 8-3 16-4 25-4 39 0 71 32 71 71 0 39-32 71-71 71H170c-44 0-80-36-80-80z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)"/>              <path d="M260 365c-12-58 8-118 56-156 16-13 17-29 2-38-30-18-68 12-83 50-14-24-38-44-64-41-22 3-33 25-17 42 29 30 55 74 62 143z" fill="#2b0818" opacity="0.78"/>              <g>                <path d="M165 170c22-30 64-40 96-22 34-26 85-16 105 22 22 42-10 93-62 96-20 1-32-6-45-17-23 22-60 28-90 10-44-26-55-68-4-89z" fill="url(#g2)" opacity="0.95"/>                <path d="M315 210c12-16 34-21 52-12 18-14 44-9 54 12 12 22-5 49-31 50-11 1-17-3-24-9-12 11-30 14-46 6-22-13-27-36-5-47z" fill="rgba(246,196,83,.88)"/>              </g>              <g fill="#ffe9d6" opacity="0.95">                <circle cx="184" cy="222" r="10"/><circle cx="200" cy="210" r="7"/><circle cx="215" cy="224" r="6"/>                <circle cx="345" cy="238" r="10"/><circle cx="360" cy="226" r="7"/><circle cx="372" cy="242" r="6"/>              </g>            </svg>          </div>        </div>      </div>    </div>  </div></section>
 
-    <!-- Main -->
-    <div id="main">
-      <!-- Hero / Lunar theme banner (giữ nguyên tinh thần AI Digest) -->
-      <section class="post">
-        <header class="major">
-          <h2>Lunar New Year Digest</h2>
-          <p>Click bất kỳ card để mở Quick View, sau đó có thể mở bài gốc. Cards giữ tối giản — tóm tắt nằm trong pop-up.</p>
-          <a class="button" href="#more">More News</a>
-        </header>
-        <div class="lunar-legend">
-          <h4>Legend of Chinese Lunar New Year</h4>
-          <p>Theo truyền thuyết, quái thú Nian sợ tiếng nổ, ánh sáng và màu đỏ. Người dân treo đồ đỏ, đốt pháo và thắp lồng đèn — tạo nên truyền thống ngày Tết.</p>
-        </div>
-      </section>
+<!-- Legend popover element (fixed layer, not clipped) -->
+<div id="legendPopover">  <h4>Legend of Chinese Lunar New Year</h4>  <p>According to legend, a beast named Nian came each year to harm villages. People discovered Nian feared loud sounds, bright lights, and the color red. So they hung red decorations, lit firecrackers, and used lanterns to drive it away—forming the traditions we celebrate today.</p></div>
 
-      <!-- Featured (render từ news.json) -->
-      <section id="featured" class="posts">
-        <!-- JS sẽ render top tin (ví dụ 8 mục đầu) -->
-      </section>
-
-      <!-- More news (render phần còn lại) -->
-      <section id="more" class="posts">
-        <!-- JS sẽ render danh sách tin thêm -->
-      </section>
-
-      <!-- Hướng dẫn -->
-      <section id="how" class="post">
-        <header class="major">
-          <h2>How it works</h2>
-        </header>
-        <p>Click card → xem nhanh trong Quick View → mở bài gốc ở nút “🔗 Nguồn”.</p>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="post">
-        <header class="major">
-          <h2>Contact</h2>
-        </header>
-        <p>Muốn thêm lồng đèn rủ xuống, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</p>
-        <p>FROM MR. THOR WITH LOVE</p>
-      </section>
+<section class="section" id="featured">  <div class="container">    <h3>Featured</h3>    <div class="grid-image">  <div class="image-card" data-title="The latest AI news we announced in December" data-summary="Three application preview cards: AI chess interface, Gemini 3 Flash logo, Google search bar." data-link="https://blog.google/technology/ai/google-ai-updates-december-2025/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Dec_AI_Recap_still.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>The latest AI news we announced in December</h3>
     </div>
-
-    <!-- Popup Quick View -->
-    <div id="digest-popup" aria-hidden="true">
-      <div class="box">
-        <h2 id="popup-title"></h2>
-        <p id="popup-summary"></p>
-        <p><a id="popup-link" href="#" target="_blank">🔗 Đọc nguồn đầy đủ</a></p>
-        <button class="button primary close-btn" onclick="closeDigest()">Đóng</button>
-      </div>
+  </div>
+  <div class="image-card" data-title="Google&#x27;s year in review: 8 areas with research breakthroughs in 2025" data-summary="The image depicts a visual collage or mosaic of multiple different images, with one image in the center that is black and displays the text &quot;Gemini 3&quot;." data-link="https://blog.google/technology/ai/2025-research-breakthroughs/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/end-of-year-blog_header_light_2.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>Google&#x27;s year in review: 8 areas with research breakthroughs in 2025</h3>
     </div>
-
-    <!-- Footer -->
-    <footer id="copyright">
-      <ul>
-        <li>&copy; AI Digest</li>
-        <li>Auto update</li>
-      </ul>
-    </footer>
+  </div>
+  <div class="image-card" data-title="60 of our biggest AI announcements in 2025" data-summary="A translucent blue rectangle lies against a black background with blue dots and lines. Within the rectangle is text saying 2025, along with a grid of 12 images, each representing a big Google AI moment from the year." data-link="https://blog.google/technology/ai/google-ai-news-recap-2025/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/2025AI_Hero.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>60 of our biggest AI announcements in 2025</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="40 of our most helpful AI tips from 2025" data-summary="The image is a dark-themed illustration depicting three people interacting with technology, surrounded by various product icons." data-link="https://blog.google/technology/ai/ai-tips-2025/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Tips_hero.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>40 of our most helpful AI tips from 2025</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="5 ways AI agents will transform the way we work in 2026" data-summary="AI agent trends report 2026 graphic" data-link="https://blog.google/products/google-cloud/ai-business-trends-report-2026/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_Header_xCoMYQ5.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>5 ways AI agents will transform the way we work in 2026</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="You can now verify Google AI-generated videos in the Gemini app." data-summary="&lt;img src=&quot;https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SynthID_Social.max-600x600.format-webp.webp&quot; /&gt;We’re expanding our content transparency tools to help you more easily identify AI-generated content. You can now check if a video was edited or created with Google AI d…" data-link="https://blog.google/technology/ai/verify-google-ai-videos-gemini-app/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SynthID_Social.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>You can now verify Google AI-generated videos in the Gemini app.</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Inside Kaggle&#x27;s AI Agents intensive course with Google" data-summary="Illustration of a developer participating in the Kaggle AI Agents Intensive, sitting with their laptop with Kaggle and Google logos." data-link="https://blog.google/technology/developers/ai-agents-intensive-recap/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/kaggle_AI_intensive_hero.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>Inside Kaggle&#x27;s AI Agents intensive course with Google</h3>
+    </div>
+  </div>
+  <div class="image-card" data-title="Watch a podcast discussion about Gemini 3 and the future of Search." data-summary="&lt;img src=&quot;https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Release_Notes_Sundar_Pichai_003.max-600x600.format-webp.webp&quot; /&gt;Learn how Gemini 3 powers Google Search with Generative UI, Nano Banana, and interactive graphics." data-link="https://blog.google/technology/ai/release-notes-podcast-search/">
+<img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Release_Notes_Sundar_Pichai_003.max-600x600.format-webp.webp" onerror="this.style.display='none'">
+    <div class="card-pad">
+      <div class="source">Google AI</div>
+      <h3>Watch a podcast discussion about Gemini 3 and the future of Search.</h3>
+    </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/main.js"></script>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // === Popup control ===
-    function openDigest(title, summary, link) {
-      document.getElementById("popup-title").innerText = title || "";
-      document.getElementById("popup-summary").innerText = summary || "";
-      const a = document.getElementById("popup-link");
-      a.href = link || "#";
-      document.getElementById("digest-popup").style.display = "block";
-      document.getElementById("digest-popup").setAttribute("aria-hidden", "false");
-    }
-    function closeDigest() {
-      document.getElementById("digest-popup").style.display = "none";
-      document.getElementById("digest-popup").setAttribute("aria-hidden", "true");
-    }
+<section class="section" id="more">  <div class="container">    <h3>More news</h3>    <div class="grid-text">  <div class="text-card" data-title="One in a million: celebrating the customers shaping AI’s future" data-summary="More than one million customers around the world now use OpenAI to empower their teams and unlock new opportunities. This post highlights how companies like PayPal, Virgin Atlantic, BBVA, Cisco, Moderna, and Canva are transforming the way work gets done with AI." data-link="https://openai.com/index/one-in-a-million-customers">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>One in a million: celebrating the customers shaping AI’s future</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Continuously hardening ChatGPT Atlas against prompt injection" data-summary="OpenAI is strengthening ChatGPT Atlas against prompt injection attacks using automated red teaming trained with reinforcement learning. This proactive discover-and-patch loop helps identify novel exploits early and harden the browser agent’s defenses as AI becomes more agentic." data-link="https://openai.com/index/hardening-atlas-against-prompt-injection">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Continuously hardening ChatGPT Atlas against prompt injection</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Evaluating chain-of-thought monitorability" data-summary="OpenAI introduces a new framework and evaluation suite for chain-of-thought monitorability, covering 13 evaluations across 24 environments. Our findings show that monitoring a model’s internal reasoning is far more effective than monitoring outputs alone, offering a promising path toward scalable control as AI systems grow more capable." data-link="https://openai.com/index/evaluating-chain-of-thought-monitorability">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Evaluating chain-of-thought monitorability</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Deepening our collaboration with the U.S. Department of Energy" data-summary="OpenAI and the U.S. Department of Energy have signed a memorandum of understanding to deepen collaboration on AI and advanced computing in support of scientific discovery. The agreement builds on ongoing work with national laboratories and helps establish a framework for applying AI to high-impact research across the DOE ecosystem." data-link="https://openai.com/index/us-department-of-energy-collaboration">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Deepening our collaboration with the U.S. Department of Energy</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Updating our Model Spec with teen protections" data-summary="OpenAI is updating its Model Spec with new Under-18 Principles that define how ChatGPT should support teens with safe, age-appropriate guidance grounded in developmental science. The update strengthens guardrails, clarifies expected model behavior in higher-risk situations, and builds on our broader work to improve teen safety across ChatGPT." data-link="https://openai.com/index/updating-model-spec-with-teen-protections">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Updating our Model Spec with teen protections</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="AI literacy resources for teens and parents" data-summary="OpenAI shares new AI literacy resources to help teens and parents use ChatGPT thoughtfully, safely, and with confidence. The guides include expert-vetted tips for responsible use, critical thinking, healthy boundaries, and supporting teens through emotional or sensitive topics." data-link="https://openai.com/index/ai-literacy-resources-for-teens-and-parents">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>AI literacy resources for teens and parents</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Introducing GPT-5.2-Codex" data-summary="GPT-5.2-Codex is OpenAI’s most advanced coding model, offering long-horizon reasoning, large-scale code transformations, and enhanced cybersecurity capabilities." data-link="https://openai.com/index/gpt-5-2-codex">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Introducing GPT-5.2-Codex</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Introducing GPT-5.2-Codex" data-summary="GPT-5.2-Codex is OpenAI’s most advanced coding model, offering long-horizon reasoning, large-scale code transformations, and enhanced cybersecurity capabilities." data-link="https://openai.com/index/introducing-gpt-5-2-codex">
+    <div class="card-pad">
+      <div class="source">OpenAI</div>
+      <h3>Introducing GPT-5.2-Codex</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="AprielGuard: A Guardrail for Safety and Adversarial Robustness in Modern LLM Systems" data-summary="" data-link="https://huggingface.co/blog/ServiceNow-AI/aprielguard">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>AprielGuard: A Guardrail for Safety and Adversarial Robustness in Modern LLM Systems</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Tokenization in Transformers v5: Simpler, Clearer, and More Modular" data-summary="" data-link="https://huggingface.co/blog/tokenizers">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>Tokenization in Transformers v5: Simpler, Clearer, and More Modular</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="The Open Evaluation Standard: Benchmarking NVIDIA Nemotron 3 Nano with NeMo Evaluator" data-summary="" data-link="https://huggingface.co/blog/nvidia/nemotron-3-nano-evaluation-recipe">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>The Open Evaluation Standard: Benchmarking NVIDIA Nemotron 3 Nano with NeMo Evaluator</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="CUGA on Hugging Face: Democratizing Configurable AI Agents" data-summary="" data-link="https://huggingface.co/blog/ibm-research/cuga-on-hugging-face">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>CUGA on Hugging Face: Democratizing Configurable AI Agents</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="New in llama.cpp: Model Management" data-summary="" data-link="https://huggingface.co/blog/ggml-org/model-management-in-llamacpp">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>New in llama.cpp: Model Management</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Codex is Open Sourcing AI models" data-summary="" data-link="https://huggingface.co/blog/hf-skills-training-codex">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>Codex is Open Sourcing AI models</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Introducing swift-huggingface: The Complete Swift Client for Hugging Face" data-summary="" data-link="https://huggingface.co/blog/swift-huggingface">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>Introducing swift-huggingface: The Complete Swift Client for Hugging Face</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="DeepMath: A lightweight math reasoning Agent with smolagents" data-summary="" data-link="https://huggingface.co/blog/intel-deepmath">
+    <div class="card-pad">
+      <div class="source">HuggingFace</div>
+      <h3>DeepMath: A lightweight math reasoning Agent with smolagents</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="EDA in Public (Part 3): RFM Analysis for Customer Segmentation in Pandas" data-summary="&lt;p&gt;How to build, score, and interpret RFM segments step by step&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/eda-in-public-part-3-rfm-analysis-for-customer-segmentation-in-pandas/&quot;&gt;EDA in Public (Part 3): RFM Analysis for Customer Segmentation in Pandas&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/eda-in-public-part-3-rfm-analysis-for-customer-segmentation-in-pandas/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>EDA in Public (Part 3): RFM Analysis for Customer Segmentation in Pandas</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Deep Reinforcement Learning: The Actor-Critic Method" data-summary="&lt;p&gt;Robot friends collaborate to learn to fly a drone&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/deep-reinforcement-learning-the-actor-critic-method/&quot;&gt;Deep Reinforcement Learning: The Actor-Critic Method&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/deep-reinforcement-learning-the-actor-critic-method/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Deep Reinforcement Learning: The Actor-Critic Method</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Production-Ready LLMs Made Simple with the NeMo Agent Toolkit" data-summary="&lt;p&gt;From simple chat to multi-agent reasoning and real-time REST APIs&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/production-ready-llms-made-simple-with-nemo-agent-toolkit/&quot;&gt;Production-Ready LLMs Made Simple with the NeMo Agent Toolkit&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/production-ready-llms-made-simple-with-nemo-agent-toolkit/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Production-Ready LLMs Made Simple with the NeMo Agent Toolkit</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="What Advent of Code Has Taught Me About Data Science" data-summary="&lt;p&gt;Five key learnings that I discovered during a programming challenge and how they apply to data science&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/what-advent-of-code-has-taught-me-about-data-science/&quot;&gt;What Advent of Code Has Taught Me About Data Science&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/what-advent-of-code-has-taught-me-about-data-science/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>What Advent of Code Has Taught Me About Data Science</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Chunk Size as an Experimental Variable in RAG Systems" data-summary="&lt;p&gt;Understanding retrieval in RAG systems by experimenting with different chunk sizes&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/chunk-size-as-an-experimental-variable-in-rag-systems/&quot;&gt;Chunk Size as an Experimental Variable in RAG Systems&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/chunk-size-as-an-experimental-variable-in-rag-systems/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Chunk Size as an Experimental Variable in RAG Systems</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="The Machine Learning “Advent Calendar” Bonus 2: Gradient Descent Variants in Excel" data-summary="&lt;p&gt;Gradient Descent, Momentum, RMSProp, and Adam all aim for the same minimum. They do not change the destination, only the path. Each method adds a mechanism that fixes a limitation of the previous one, making the movement faster, more stable, or more adaptive. The goal stays the same. The update becomes smarter.&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/the-machine-learning-advent-calendar-bonus-2-gradient-descent-variants-in-excel/&quot;&gt;The Machine Learning “Advent Calendar” Bonus 2: Gradient Descent Variants in Excel&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/the-machine-learning-advent-calendar-bonus-2-gradient-descent-variants-in-excel/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>The Machine Learning “Advent Calendar” Bonus 2: Gradient Descent Variants in Excel</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems" data-summary="&lt;p&gt;With some hints for good numerics&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/optimal-path-planning-for-wheeled-robots/&quot;&gt;Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/optimal-path-planning-for-wheeled-robots/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel" data-summary="&lt;p&gt;AUC measures how well a model ranks positives above negatives, independent of any chosen threshold.&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://towardsdatascience.com/the-machine-learning-advent-calendar-bonus-1-auc-in-excel/&quot;&gt;The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel&lt;/a&gt; appeared first on &lt;a href=&quot;https://towardsdatascience.com&quot;&gt;Towards Data Science&lt;/a&gt;.&lt;/p&gt;" data-link="https://towardsdatascience.com/the-machine-learning-advent-calendar-bonus-1-auc-in-excel/">
+    <div class="card-pad">
+      <div class="source">Towards Data Science</div>
+      <h3>The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Google T5Gemma-2 Explained: Trying Out a Laptop-Friendly Multimodal AI Model" data-summary="&lt;p&gt;Google just dropped T5Gemma-2, and it is a game-changer for someone working with AI models on everyday hardware. Built on the Gemma 3 family, this encoder-decoder powerhouse squeezes multimodal smarts and massive context into tiny packages. Imagine running 270M parameters running smoothly on your laptop. If you’re looking for an efficient AI that handles text, [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2026/01/google-t5gemma-2/&quot;&gt;Google T5Gemma-2 Explained: Trying Out a Laptop-Friendly Multimodal AI Model&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2026/01/google-t5gemma-2/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Google T5Gemma-2 Explained: Trying Out a Laptop-Friendly Multimodal AI Model</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Student ID Benefits Worth Thousands: Get 15+ Premium Tools For Free or on Discount" data-summary="&lt;p&gt;I remember from my student days the plethora of subscriptions, fees, and payments to be made for a range of tasks. Be it learning a new skill, using the right environment for practice, or simply travelling to and from home, we had to shell money out of our pockets. But it is almost 2026 now, [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/student-id-discounts-worth-thousands/&quot;&gt;Student ID Benefits Worth Thousands: Get 15+ Premium Tools For Free or on Discount&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/student-id-discounts-worth-thousands/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Student ID Benefits Worth Thousands: Get 15+ Premium Tools For Free or on Discount</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="15 Best Python Books for Beginners to Advanced Learners [2026 Edition]" data-summary="&lt;p&gt;There is no shortage of resources available online and offline when it comes to learning Python. However, not all Python books are created equal. Some are best suited for beginners, while others are designed for experienced programmers or learners with specific goals. In this article, I have curated the best Python books across different categories [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/best-python-books/&quot;&gt;15 Best Python Books for Beginners to Advanced Learners [2026 Edition]&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/best-python-books/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>15 Best Python Books for Beginners to Advanced Learners [2026 Edition]</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="10 Awesome Docker Projects for Beginners" data-summary="&lt;p&gt;As a developer, tell me if you relate to this &amp;#8211; Docker commands are easy to understand but difficult to apply meaningfully. Out of the countless tutorials that I followed, most stopped at syntax, leaving me unsure about what to build next. (Here is an exception &amp;#8211; A step-by-step Docker tutorial for complete beginners) As [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/docker-projects/&quot;&gt;10 Awesome Docker Projects for Beginners&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/docker-projects/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>10 Awesome Docker Projects for Beginners</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="What is Chain of Thought (CoT) Prompting?" data-summary="&lt;p&gt;The core idea behind Chain of Thought (CoT) is to encourage an AI model to reason step by step before producing an answer. While the concept itself is not new and is essentially a structured way of asking models to explain their reasoning, it remains highly relevant today. Interest in CoT increased again after OpenAI [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/chain-of-thought-cot-prompting/&quot;&gt;What is Chain of Thought (CoT) Prompting?&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/chain-of-thought-cot-prompting/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>What is Chain of Thought (CoT) Prompting?</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="What is F1 Score in Machine Learning?" data-summary="&lt;p&gt;In machine learning and data science, evaluating a model is as important as building it. Accuracy is often the first metric people use, but it can be misleading when the data is imbalanced. For this reason, metrics such as precision, recall, and F1 score are widely used. This article focuses on the F1 score. It [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/what-is-f1-score-in-machine-learning/&quot;&gt;What is F1 Score in Machine Learning?&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/what-is-f1-score-in-machine-learning/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>What is F1 Score in Machine Learning?</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems" data-summary="&lt;p&gt;More machine learning systems now rely on AI agents, which makes careful safety evaluation essential. With more and more vulnerabilities coming to the fray, it&amp;#8217;s nigh impossible for a single unified protocol to stay up to date with them all. This piece introduces MLflow as a practical framework for testing and monitoring agentic systems through [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/monitor-ai-agents-with-mlflow/&quot;&gt;Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/monitor-ai-agents-with-mlflow/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces" data-summary="&lt;p&gt;We have entered the time of multi-agent artificial intelligence. However, there is a very important issue: in what way can remote AI agents produce rich and interactive experiences without exposing the system to security risks? Google A2UI (Agent-to-UI) protocol addresses this question in a very smart way, allowing agents to create user interfaces that are [&amp;#8230;]&lt;/p&gt; &lt;p&gt;The post &lt;a href=&quot;https://www.analyticsvidhya.com/blog/2025/12/google-a2ui-explained/&quot;&gt;Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces&lt;/a&gt; appeared first on &lt;a href=&quot;https://www.analyticsvidhya.com&quot;&gt;Analytics Vidhya&lt;/a&gt;.&lt;/p&gt;" data-link="https://www.analyticsvidhya.com/blog/2025/12/google-a2ui-explained/">
+    <div class="card-pad">
+      <div class="source">Analytics Vidhya</div>
+      <h3>Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="OpenAI đang dạy cho ChatGPT cách nhận lỗi" data-summary="&lt;a href=&quot;https://vtv.vn/openai-dang-day-cho-chatgpt-cach-nhan-loi-100251215113034523.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/12/15/107337810-1700658508111-107337810-1700657783740-gettyimages-1258550523-skorea-openai-23971436091152859026222-78311161170853968412273.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - &quot;Biết sai để sửa&quot; là một trong những kỹ năng sống còn của con người." data-link="https://vtv.vn/openai-dang-day-cho-chatgpt-cach-nhan-loi-100251215113034523.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>OpenAI đang dạy cho ChatGPT cách nhận lỗi</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="CEO Jensen Huang tiết lộ sốc: Trong kỷ nguyên AI, tương lai thuộc về người có “gu&quot;" data-summary="&lt;a href=&quot;https://vtv.vn/ceo-jensen-huang-tiet-lo-soc-trong-ky-nguyen-ai-tuong-lai-thuoc-ve-nguoi-co-gu-100251226150336176.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/12/26/nvidia-jensen-huang-1-96727815255119727724075-74125602817864508128303.png&quot; /&gt;&lt;/a&gt; VTV.vn - Theo ông Huang, trong kỷ nguyên AI, công thức thành công cũ với khả năng ghi nhớ, sự thông minh, điểm số sẽ không còn cần thiết nữa." data-link="https://vtv.vn/ceo-jensen-huang-tiet-lo-soc-trong-ky-nguyen-ai-tuong-lai-thuoc-ve-nguoi-co-gu-100251226150336176.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>CEO Jensen Huang tiết lộ sốc: Trong kỷ nguyên AI, tương lai thuộc về người có “gu&quot;</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Mỹ dự định xây trung tâm dữ liệu AI chạy bằng lò phản ứng hạt nhân quân sự &quot;về hưu&quot;" data-summary="&lt;a href=&quot;https://vtv.vn/my-du-dinh-xay-trung-tam-du-lieu-ai-chay-bang-lo-phan-ung-hat-nhan-quan-su-ve-huu-100251226114431226.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/12/26/1631px-uss-nimitz-in-victoria-canada-036-33008735380333322754768-22690588951757463707774.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Từ tàu sân bay đến AI, lò phản ứng hạt nhân sắp có vòng đời thứ hai." data-link="https://vtv.vn/my-du-dinh-xay-trung-tam-du-lieu-ai-chay-bang-lo-phan-ung-hat-nhan-quan-su-ve-huu-100251226114431226.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>Mỹ dự định xây trung tâm dữ liệu AI chạy bằng lò phản ứng hạt nhân quân sự &quot;về hưu&quot;</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Tại sao ASUS đánh giá laptop AI sẽ trở thành động lực tăng trưởng mới của thị trường laptop?" data-summary="&lt;a href=&quot;https://vtv.vn/tai-sao-asus-danh-gia-laptop-ai-se-tro-thanh-dong-luc-tang-truong-moi-cua-thi-truong-laptop-100251216085639291.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/12/16/package-media-10847876222049814910494-31704033526001827317156.png&quot; /&gt;&lt;/a&gt; VTV.vn - ASUS đang đầu tư mạnh vào kỷ nguyên AI PC với nhiều bước đi đáng chú ý. Cơ sở nào cho thấy AI có thể mở ra một chu kỳ nâng cấp mới trên thị trường laptop?" data-link="https://vtv.vn/tai-sao-asus-danh-gia-laptop-ai-se-tro-thanh-dong-luc-tang-truong-moi-cua-thi-truong-laptop-100251216085639291.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>Tại sao ASUS đánh giá laptop AI sẽ trở thành động lực tăng trưởng mới của thị trường laptop?</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="CEO Google Sundar Pichai: trong tương lai, AI có thể thay ông làm chủ tịch tập đoàn" data-summary="&lt;a href=&quot;https://vtv.vn/ceo-google-sundar-pichai-trong-tuong-lai-ai-co-the-thay-ong-lam-chu-tich-tap-doan-100251201123851771.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/12/01/httpsspecials-images-forbesimg-c-37391953817870238202397-73084169268128344301304.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Trí tuệ nhân tạo sẽ thay thế con người tại những công việc được trả lương cao, như chủ tịch tập đoàn." data-link="https://vtv.vn/ceo-google-sundar-pichai-trong-tuong-lai-ai-co-the-thay-ong-lam-chu-tich-tap-doan-100251201123851771.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>CEO Google Sundar Pichai: trong tương lai, AI có thể thay ông làm chủ tịch tập đoàn</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Vốn nổi tiếng lạc quan, nhưng giờ CEO Sam Altman cũng phải kinh hoàng khi thấy Google Gemini 3 Pro ra mắt" data-summary="&lt;a href=&quot;https://vtv.vn/von-noi-tieng-lac-quan-nhung-gio-ceo-sam-altman-cung-phai-kinh-hoang-khi-thay-google-gemini-3-pro-ra-mat-100251125130316705.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/11/25/im-857638-19689437078380698642413-84085849078929381850552.jpeg&quot; /&gt;&lt;/a&gt; VTV.vn - Một bức thư nội bộ cho thấy CEO của OpenAI bày tỏ sự lo ngại cho tương lai của công ty khi đối thủ Google Gemini 3 Pro ra mắt." data-link="https://vtv.vn/von-noi-tieng-lac-quan-nhung-gio-ceo-sam-altman-cung-phai-kinh-hoang-khi-thay-google-gemini-3-pro-ra-mat-100251125130316705.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>Vốn nổi tiếng lạc quan, nhưng giờ CEO Sam Altman cũng phải kinh hoàng khi thấy Google Gemini 3 Pro ra mắt</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Sức mạnh đáng nể của Nano Banana Pro: Dịch truyện tranh chưa bao giờ dễ dàng đến thế" data-summary="&lt;a href=&quot;https://vtv.vn/suc-manh-dang-ne-cua-nano-banana-pro-dich-truyen-tranh-chua-bao-gio-de-dang-den-the-100251124155347302.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/11/24/package-media-92446928959898308386539-23879793503661735665269.png&quot; /&gt;&lt;/a&gt; VTV.vn - Công cụ chỉnh sửa ảnh AI mới của Google không chỉ hiểu được đoạn văn bản trong hình ảnh, mà còn cả bối cảnh và ngữ cảnh của hình ảnh đó để đưa ra lời dịch phù hợp." data-link="https://vtv.vn/suc-manh-dang-ne-cua-nano-banana-pro-dich-truyen-tranh-chua-bao-gio-de-dang-den-the-100251124155347302.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>Sức mạnh đáng nể của Nano Banana Pro: Dịch truyện tranh chưa bao giờ dễ dàng đến thế</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Giả biến thành thật: Startup AI gây chấn động vì founder đóng giả làm AI cho đến khi đủ tiền để tạo ra AI thật" data-summary="&lt;a href=&quot;https://vtv.vn/gia-bien-thanh-that-startup-ai-gay-chan-dong-vi-founder-dong-gia-lam-ai-cho-den-khi-du-tien-de-tao-ra-ai-that-100251117101456503.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/11/17/fireflies-ai-founders-15381604976685985706994-79310765391752582080234.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Câu chuyện này là minh chứng sống động cho triết lý &quot;fake it till you make it&quot; vốn nổi tiếng trong giới khởi nghiệp ở Thung lũng Silicon." data-link="https://vtv.vn/gia-bien-thanh-that-startup-ai-gay-chan-dong-vi-founder-dong-gia-lam-ai-cho-den-khi-du-tien-de-tao-ra-ai-that-100251117101456503.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI</div>
+      <h3>Giả biến thành thật: Startup AI gây chấn động vì founder đóng giả làm AI cho đến khi đủ tiền để tạo ra AI thật</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Tại sao ASUS đánh giá laptop AI sẽ trở thành động lực tăng trưởng mới của thị trường laptop?" data-summary="&lt;a href=&quot;https://vtv.vn/tai-sao-asus-danh-gia-laptop-ai-se-tro-thanh-dong-luc-tang-truong-moi-cua-thi-truong-laptop-100251216085639291.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/12/16/package-media-10847876222049814910494-31704033526001827317156.png&quot; /&gt;&lt;/a&gt; VTV.vn - ASUS đang đầu tư mạnh vào kỷ nguyên AI PC với nhiều bước đi đáng chú ý. Cơ sở nào cho thấy AI có thể mở ra một chu kỳ nâng cấp mới trên thị trường laptop?" data-link="https://vtv.vn/tai-sao-asus-danh-gia-laptop-ai-se-tro-thanh-dong-luc-tang-truong-moi-cua-thi-truong-laptop-100251216085639291.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>Tại sao ASUS đánh giá laptop AI sẽ trở thành động lực tăng trưởng mới của thị trường laptop?</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="OpenAI đang phát triển ứng dụng xem video giống TikTok, tất cả nội dung sẽ do AI sản xuất" data-summary="&lt;a href=&quot;https://vtv.vn/openai-dang-phat-trien-ung-dung-xem-video-giong-tiktok-tat-ca-noi-dung-se-do-ai-san-xuat-100250930110047486.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/09/30/openai-89281023370970082833873-13679938616817900765743.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Ứng dụng sẽ cạnh tranh trực tiếp với những ông lớn khác trong làng công nghệ." data-link="https://vtv.vn/openai-dang-phat-trien-ung-dung-xem-video-giong-tiktok-tat-ca-noi-dung-se-do-ai-san-xuat-100250930110047486.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>OpenAI đang phát triển ứng dụng xem video giống TikTok, tất cả nội dung sẽ do AI sản xuất</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="AI trở thành trọng tâm tại giải thưởng Better Choice Awards 2025" data-summary="&lt;a href=&quot;https://vtv.vn/ai-tro-thanh-trong-tam-tai-giai-thuong-better-choice-awards-2025-100250807112708897.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/08/07/dsc01369-21266132952533325295788-41401017253548574772220.JPG&quot; /&gt;&lt;/a&gt; VTV.vn - Từ thiết bị cá nhân đến nền tảng tài chính, sản phẩm tích hợp AI sẽ được đánh giá dựa trên khả năng phục vụ người Việt." data-link="https://vtv.vn/ai-tro-thanh-trong-tam-tai-giai-thuong-better-choice-awards-2025-100250807112708897.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>AI trở thành trọng tâm tại giải thưởng Better Choice Awards 2025</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Di chuyển 65 triệu container không cần con người: siêu cảng biển tự động của Singapore sẽ cách mạng hóa ngành logistic" data-summary="&lt;a href=&quot;https://vtv.vn/di-chuyen-65-trieu-container-khong-can-con-nguoi-sieu-cang-bien-tu-dong-cua-singapore-se-cach-mang-hoa-nganh-logistic-100250724153756045.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/07/25/unbelievable-powerhouse-this-gigantic-automated-port-handling-71-million-tons-annually-is-set-to-revolutionize-global-shipping-forever-47405392881020945320576-55308447716740012069564.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Dự án tự động hóa cảng biển mới của quốc gia này được cho sẽ viết lại quy tắc của ngành vận tải biển toàn cầu." data-link="https://vtv.vn/di-chuyen-65-trieu-container-khong-can-con-nguoi-sieu-cang-bien-tu-dong-cua-singapore-se-cach-mang-hoa-nganh-logistic-100250724153756045.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>Di chuyển 65 triệu container không cần con người: siêu cảng biển tự động của Singapore sẽ cách mạng hóa ngành logistic</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Sam Altman học nuôi con bằng ChatGPT, khẳng định con mình sẽ không bao giờ thông minh hơn AI" data-summary="&lt;a href=&quot;https://vtv.vn/sam-altman-hoc-nuoi-con-bang-chatgpt-khang-dinh-con-minh-se-khong-bao-gio-thong-minh-hon-ai-100250718115324437.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/07/18/openai-sam-altman-podcast-chatgp-81990093384015535903876-06293691305854468945493.jpg&quot; /&gt;&lt;/a&gt; Ông bố trẻ đang dùng ChatGPT để nuôi và dạy con." data-link="https://vtv.vn/sam-altman-hoc-nuoi-con-bang-chatgpt-khang-dinh-con-minh-se-khong-bao-gio-thong-minh-hon-ai-100250718115324437.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>Sam Altman học nuôi con bằng ChatGPT, khẳng định con mình sẽ không bao giờ thông minh hơn AI</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Chủ tịch FPT Trương Gia Bình: Bán dẫn là lương thực của kỷ nguyên số, AI là dầu khí của tương lai" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/chu-tich-fpt-truong-gia-binh-ban-dan-la-luong-thuc-cua-ky-nguyen-so-ai-la-dau-khi-cua-tuong-lai-20250618142938831.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/18/avatar1746619832001-17466198324801200782556-46657834522372270814044-68869027833872803008672.jpeg&quot; /&gt;&lt;/a&gt; VTV.vn - Ông Trương Gia Bình nhấn mạnh Việt Nam cần hành động nhanh nếu không muốn tiếp tục tụt lại trong cuộc đua công nghệ toàn cầu." data-link="https://vtv.vn/vuon-minh-bang-ai/chu-tich-fpt-truong-gia-binh-ban-dan-la-luong-thuc-cua-ky-nguyen-so-ai-la-dau-khi-cua-tuong-lai-20250618142938831.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>Chủ tịch FPT Trương Gia Bình: Bán dẫn là lương thực của kỷ nguyên số, AI là dầu khí của tương lai</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Ứng dụng AI để tìm kiếm bạn đời trong thời hiện đại" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/ung-dung-ai-de-tim-kiem-ban-doi-trong-thoi-hien-dai-20250617083119228.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/17/ai-lvoe-2-32597317520860757721352-05308134792714093779055.png&quot; /&gt;&lt;/a&gt; VTV.vn - Khi trí truệ nhân tạo (AI) trở thành &quot;ông mai bà mối&quot;." data-link="https://vtv.vn/vuon-minh-bang-ai/ung-dung-ai-de-tim-kiem-ban-doi-trong-thoi-hien-dai-20250617083119228.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>Ứng dụng AI để tìm kiếm bạn đời trong thời hiện đại</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Ông Trương Gia Bình: “Nếu không hành động, chúng ta sẽ lại bị bỏ lại trong kỷ nguyên bán dẫn”" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/ong-truong-gia-binh-neu-khong-hanh-dong-chung-ta-se-lai-bi-bo-lai-trong-ky-nguyen-ban-dan-20250615101555914.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/15/1-34009871830925533867635-22872113661637975235278.JPG&quot; /&gt;&lt;/a&gt; VTV.vn - Ông Trương Gia Bình - Chủ tịch Ủy ban Phát triển Công nghiệp Bán dẫn - cảnh báo Việt Nam đang đứng trước một thời khắc quan trọng của lịch sử công nghệ, nơi mỗi sự chậm tr" data-link="https://vtv.vn/vuon-minh-bang-ai/ong-truong-gia-binh-neu-khong-hanh-dong-chung-ta-se-lai-bi-bo-lai-trong-ky-nguyen-ban-dan-20250615101555914.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Thời đại</div>
+      <h3>Ông Trương Gia Bình: “Nếu không hành động, chúng ta sẽ lại bị bỏ lại trong kỷ nguyên bán dẫn”</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Nhà nghiên cứu DeepSeek cảnh báo: AI sẽ xóa sổ hầu hết việc làm trong 10 năm tới" data-summary="&lt;a href=&quot;https://vtv.vn/nha-nghien-cuu-deepseek-canh-bao-ai-se-xoa-so-hau-het-viec-lam-trong-10-nam-toi-100251118143214675.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/11/18/b12dac0336443ccbd43b0324fec2c6a7--1--44408106814484286771251-01478547669427734950532.jpeg&quot; /&gt;&lt;/a&gt; VTV.vn - Theo nhà nghiên cứu cấp cao của DeepSeek, trong bối cảnh đó, chính các công ty công nghệ cần đóng vai trò là người bảo vệ nhân loại." data-link="https://vtv.vn/nha-nghien-cuu-deepseek-canh-bao-ai-se-xoa-so-hau-het-viec-lam-trong-10-nam-toi-100251118143214675.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>Nhà nghiên cứu DeepSeek cảnh báo: AI sẽ xóa sổ hầu hết việc làm trong 10 năm tới</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="93% doanh nghiệp Việt Nam dùng AI mỗi ngày: Đã đến lúc thiết bị công nghệ cũng phải thích nghi" data-summary="&lt;a href=&quot;https://vtv.vn/93-doanh-nghiep-viet-nam-dung-ai-moi-ngay-da-den-luc-thiet-bi-cong-nghe-cung-phai-thich-nghi-100250930095824847.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/09/30/dscf6125-01273064550250108822602-95377421919843577871000.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - AI đang dần trở thành yếu tố định hình cách doanh nghiệp Việt lựa chọn thiết bị làm việc, từ phần mềm đến phần cứng." data-link="https://vtv.vn/93-doanh-nghiep-viet-nam-dung-ai-moi-ngay-da-den-luc-thiet-bi-cong-nghe-cung-phai-thich-nghi-100250930095824847.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>93% doanh nghiệp Việt Nam dùng AI mỗi ngày: Đã đến lúc thiết bị công nghệ cũng phải thích nghi</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="65% doanh nghiệp Việt đã dùng AI để nhắn tin tự động cho khách hàng" data-summary="&lt;a href=&quot;https://vtv.vn/65-doanh-nghiep-viet-da-dung-ai-de-nhan-tin-tu-dong-cho-khach-hang-100250930124746699.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/09/30/image-23683714589592843909582-36854952252310770266305.png&quot; /&gt;&lt;/a&gt; VTV.vn - Ứng dụng AI trong giao tiếp với khách hàng đang trở thành xu hướng phổ biến tại Việt Nam, đặc biệt thông qua các nền tảng nhắn tin tự động như chatbot và click-to-message." data-link="https://vtv.vn/65-doanh-nghiep-viet-da-dung-ai-de-nhan-tin-tu-dong-cho-khach-hang-100250930124746699.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>65% doanh nghiệp Việt đã dùng AI để nhắn tin tự động cho khách hàng</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="AI thay đổi cách người tiêu dùng Việt Nam lựa chọn thiết bị làm việc" data-summary="&lt;a href=&quot;https://vtv.vn/ai-thay-doi-cach-nguoi-tieu-dung-viet-nam-lua-chon-thiet-bi-lam-viec-100250815121046042.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/08/17/dscf4775-63047550502983780969936-26736445915088471124609.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Trí tuệ nhân tạo đang định hình lại thói quen tiêu dùng, đưa trải nghiệm cá nhân hóa trở thành yếu tố then chốt." data-link="https://vtv.vn/ai-thay-doi-cach-nguoi-tieu-dung-viet-nam-lua-chon-thiet-bi-lam-viec-100250815121046042.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>AI thay đổi cách người tiêu dùng Việt Nam lựa chọn thiết bị làm việc</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Universal gửi &quot;tối hậu thư&quot; tới ngành công nghệ: nếu sử dụng phim của chúng tôi để huấn luyện AI, bạn sẽ bị kiện" data-summary="&lt;a href=&quot;https://vtv.vn/universal-gui-toi-hau-thu-toi-nganh-cong-nghe-neu-su-dung-phim-cua-chung-toi-de-huan-luyen-ai-ban-se-bi-kien-100250807164651889.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/08/07/gettyimages-2207617955-960x640-24175470701026192308850-86537977896474758971869.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Universal mạng tay trong cuộc chiến bản quyền thời đại số." data-link="https://vtv.vn/universal-gui-toi-hau-thu-toi-nganh-cong-nghe-neu-su-dung-phim-cua-chung-toi-de-huan-luyen-ai-ban-se-bi-kien-100250807164651889.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>Universal gửi &quot;tối hậu thư&quot; tới ngành công nghệ: nếu sử dụng phim của chúng tôi để huấn luyện AI, bạn sẽ bị kiện</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="CEO NVIDIA đưa ra dự báo về việc làm thời AI" data-summary="&lt;a href=&quot;https://vtv.vn/ceo-nvidia-dua-ra-du-bao-ve-viec-lam-thoi-ai-100250723145741759.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/07/23/12313-81153232999401071405364-99111692543890049250665.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Những phát biểu của ông Jensen Huang khiến người lao động đứng ngồi không yên." data-link="https://vtv.vn/ceo-nvidia-dua-ra-du-bao-ve-viec-lam-thoi-ai-100250723145741759.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>CEO NVIDIA đưa ra dự báo về việc làm thời AI</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Muốn Việt Nam đi xa trong cuộc đua AI, chúng ta phải đi cùng nhau" data-summary="&lt;a href=&quot;https://vtv.vn/muon-viet-nam-di-xa-trong-cuoc-dua-ai-chung-ta-phai-di-cung-nhau-100250625123342052.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/25/toan-canh-tao--am-2--02960963729743776065509-79450951120213601996729.JPG&quot; /&gt;&lt;/a&gt; Làm chủ công nghệ AI không chỉ là bài toán về kỹ thuật, mà còn là thước đo về mức độ gắn kết và quyết tâm của cả một hệ sinh thái quốc gia." data-link="https://vtv.vn/muon-viet-nam-di-xa-trong-cuoc-dua-ai-chung-ta-phai-di-cung-nhau-100250625123342052.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>Muốn Việt Nam đi xa trong cuộc đua AI, chúng ta phải đi cùng nhau</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Kích hoạt “bộ tứ” chính sách: Đòn bẩy mới cho doanh nghiệp đổi mới sáng tạo" data-summary="&lt;a href=&quot;https://vtv.vn/kich-hoat-bo-tu-chinh-sach-don-bay-moi-cho-doanh-nghiep-doi-moi-sang-tao-100250624182118134.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/24/package-media-12438410611160816435497-12390799388679389850382.png&quot; /&gt;&lt;/a&gt; VTV.vn - Năm 2025 là bước ngoặt, khi bốn chính sách trọng điểm đồng loạt hình thành hành lang thể chế đồng bộ, tiếp sức doanh nghiệp Việt Nam gia nhập sân chơi đổi mới toàn cầu." data-link="https://vtv.vn/kich-hoat-bo-tu-chinh-sach-don-bay-moi-cho-doanh-nghiep-doi-moi-sang-tao-100250624182118134.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Doanh nghiệp</div>
+      <h3>Kích hoạt “bộ tứ” chính sách: Đòn bẩy mới cho doanh nghiệp đổi mới sáng tạo</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Bị nghi ngờ &quot;AI sẽ thay thế smartphone&quot;, sếp Samsung phản hồi ra sao?" data-summary="&lt;a href=&quot;https://vtv.vn/bi-nghi-ngo-ai-se-thay-the-smartphone-sep-samsung-phan-hoi-ra-sao-100250721135444934.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/07/21/dscf3497-21314935692695326600743-13791054746356085545174.jpg&quot; /&gt;&lt;/a&gt; Giữa những dự đoán về một “kỷ nguyên hậu-smartphone”, Samsung lại chọn một hướng đi hoàn toàn khác: biến chiếc điện thoại thành trục xoay chính để triển khai trí tuệ nhân tạo môi trường (ambient AI) – nơi mọi trải nghiệm trở nên liền mạch, tự nhiên và chủ động." data-link="https://vtv.vn/bi-nghi-ngo-ai-se-thay-the-smartphone-sep-samsung-phan-hoi-ra-sao-100250721135444934.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>Bị nghi ngờ &quot;AI sẽ thay thế smartphone&quot;, sếp Samsung phản hồi ra sao?</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="“Người Việt giỏi Toán, chăm chỉ, tài năng”: Tập đoàn công nghệ Mỹ tiết lộ lý do chọn Việt Nam để mở trung tâm nghiên cứu AI" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/nguoi-viet-gioi-toan-cham-chi-tai-nang-tap-doan-cong-nghe-my-tiet-lo-ly-do-chon-viet-nam-de-mo-trung-tam-nghien-cuu-ai-20250618134257179.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/18/dscf1006-31547000608479305259279-20344474499485748714742.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Việt Nam có nhiều người trẻ tài năng, giỏi Toán và giàu nghị lực là lý do then chốt để tập đoàn này đặt trung tâm R&amp;amp;D AI đầu tiên tại Đông Nam Á." data-link="https://vtv.vn/vuon-minh-bang-ai/nguoi-viet-gioi-toan-cham-chi-tai-nang-tap-doan-cong-nghe-my-tiet-lo-ly-do-chon-viet-nam-de-mo-trung-tam-nghien-cuu-ai-20250618134257179.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>“Người Việt giỏi Toán, chăm chỉ, tài năng”: Tập đoàn công nghệ Mỹ tiết lộ lý do chọn Việt Nam để mở trung tâm nghiên cứu AI</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Nỗi lo &quot;ô nhiễm&quot; đang làm các nhà nghiên cứu AI lo lắng." data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/noi-lo-o-nhiem-dang-lam-cac-nha-nghien-cuu-ai-lo-lang-20250618123850271.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/18/trinity-shot-color-57954243635795185559363-25137177656102061669833.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Nỗi lo &quot;ô nhiễm&quot; đang làm các nhà nghiên cứu AI lo lắng." data-link="https://vtv.vn/vuon-minh-bang-ai/noi-lo-o-nhiem-dang-lam-cac-nha-nghien-cuu-ai-lo-lang-20250618123850271.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>Nỗi lo &quot;ô nhiễm&quot; đang làm các nhà nghiên cứu AI lo lắng.</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Xếp hạng 10 cấp độ AI, từ công nghệ có thật cho tới khoa học viễn tưởng: Gemini và ChatGPT đang thuộc cấp độ nào?" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/xep-hang-10-cap-do-ai-tu-cong-nghe-co-that-cho-toi-khoa-hoc-vien-tuong-gemini-va-chatgpt-dang-thuoc-cap-do-nao-2025060614423025.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/06/ngang-48264818358686649209632-93309876024335005090016.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Chúng ta đang ở nấc thang nào trong hành trình tiến hóa của trí tuệ nhân tạo (AI)?" data-link="https://vtv.vn/vuon-minh-bang-ai/xep-hang-10-cap-do-ai-tu-cong-nghe-co-that-cho-toi-khoa-hoc-vien-tuong-gemini-va-chatgpt-dang-thuoc-cap-do-nao-2025060614423025.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>Xếp hạng 10 cấp độ AI, từ công nghệ có thật cho tới khoa học viễn tưởng: Gemini và ChatGPT đang thuộc cấp độ nào?</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Ngành anime Nhật Bản đón chào AI: làm công việc của 1 tuần trong 2 ngày, giải quyết khủng hoảng lao động" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/nganh-anime-nhat-ban-don-chao-ai-lam-cong-viec-cua-1-tuan-trong-2-ngay-giai-quyet-khung-hoang-lao-dong-20250523120747767.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/05/23/72528445-605-30775269905902160439491-19303020467446227978366.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Bộ anime yêu thích của bạn sẽ sớm được làm bằng trí tuệ nhân tạo (AI)." data-link="https://vtv.vn/vuon-minh-bang-ai/nganh-anime-nhat-ban-don-chao-ai-lam-cong-viec-cua-1-tuan-trong-2-ngay-giai-quyet-khung-hoang-lao-dong-20250523120747767.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>Ngành anime Nhật Bản đón chào AI: làm công việc của 1 tuần trong 2 ngày, giải quyết khủng hoảng lao động</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="CEO NVIDIA: Nếu đang là sinh viên trong thời đại AI, đây là thứ đầu tiên tôi sẽ học" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/ceo-nvidia-neu-dang-la-sinh-vien-trong-thoi-dai-ai-day-la-thu-dau-tien-toi-se-hoc-20250518030451046.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/05/17/108138813-1746031980165-gettyimages-2212772002-594x594-33626322992833912492236-05966085284589870101230.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Thay vì e sợ AI cướp việc làm, đây là điều sinh viên cần làm để thích nghi trong làn sóng AI đang bùng nổ ngày nay." data-link="https://vtv.vn/vuon-minh-bang-ai/ceo-nvidia-neu-dang-la-sinh-vien-trong-thoi-dai-ai-day-la-thu-dau-tien-toi-se-hoc-20250518030451046.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>CEO NVIDIA: Nếu đang là sinh viên trong thời đại AI, đây là thứ đầu tiên tôi sẽ học</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Trí tuệ nhân tạo sẽ đặt dấu chấm hết cho thực tập sinh?" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/tri-tue-nhan-tao-se-dat-dau-cham-het-cho-thuc-tap-sinh-20250519084249153.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/05/19/1745966512201-80531661593975790150556-45054626984915815290032.png&quot; /&gt;&lt;/a&gt; VTV.vn - AI đang khuấy đảo thị trường lao động theo nhiều cách." data-link="https://vtv.vn/vuon-minh-bang-ai/tri-tue-nhan-tao-se-dat-dau-cham-het-cho-thuc-tap-sinh-20250519084249153.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>Trí tuệ nhân tạo sẽ đặt dấu chấm hết cho thực tập sinh?</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="“Dạy trẻ về AI không cần chờ tới lớp 9 mà có thể dạy ngay từ lớp 1”" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/day-tre-ve-ai-khong-can-cho-toi-lop-9-ma-co-the-day-ngay-tu-lop-1-20250515164345431.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/05/15/3-00123220927784180662421-97475211875375007278266.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Thúc đẩy phát triển trí tuệ nhân tạo (AI) một cách có đạo đức và bền vững." data-link="https://vtv.vn/vuon-minh-bang-ai/day-tre-ve-ai-khong-can-cho-toi-lop-9-ma-co-the-day-ngay-tu-lop-1-20250515164345431.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Góc nhìn</div>
+      <h3>“Dạy trẻ về AI không cần chờ tới lớp 9 mà có thể dạy ngay từ lớp 1”</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Giả biến thành thật: Startup AI gây chấn động vì founder đóng giả làm AI cho đến khi đủ tiền để tạo ra AI thật" data-summary="&lt;a href=&quot;https://vtv.vn/gia-bien-thanh-that-startup-ai-gay-chan-dong-vi-founder-dong-gia-lam-ai-cho-den-khi-du-tien-de-tao-ra-ai-that-100251117101456503.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/11/17/fireflies-ai-founders-15381604976685985706994-79310765391752582080234.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Câu chuyện này là minh chứng sống động cho triết lý &quot;fake it till you make it&quot; vốn nổi tiếng trong giới khởi nghiệp ở Thung lũng Silicon." data-link="https://vtv.vn/gia-bien-thanh-that-startup-ai-gay-chan-dong-vi-founder-dong-gia-lam-ai-cho-den-khi-du-tien-de-tao-ra-ai-that-100251117101456503.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>Giả biến thành thật: Startup AI gây chấn động vì founder đóng giả làm AI cho đến khi đủ tiền để tạo ra AI thật</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Cựu lãnh đạo Microsoft thành lập startup AI thay thế Excel trong ngành tài chính" data-summary="&lt;a href=&quot;https://vtv.vn/cuu-lanh-dao-microsoft-thanh-lap-startup-ai-thay-the-excel-trong-nganh-tai-chinh-100250930125944007.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/09/30/excel-46234931116245177959190-02740144346273244515709.png&quot; /&gt;&lt;/a&gt; VTV.vn - Hai cựu lãnh đạo Microsoft ra mắt Maximor, startup dùng AI thay thế bảng tính Excel trong công việc kế toán, vừa gọi vốn thành công 9 triệu USD." data-link="https://vtv.vn/cuu-lanh-dao-microsoft-thanh-lap-startup-ai-thay-the-excel-trong-nganh-tai-chinh-100250930125944007.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>Cựu lãnh đạo Microsoft thành lập startup AI thay thế Excel trong ngành tài chính</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="NASA và IBM sử dụng AI để dự báo bão mặt trời" data-summary="&lt;a href=&quot;https://vtv.vn/nasa-va-ibm-su-dung-ai-de-du-bao-bao-mat-troi-100250821113445084.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/08/21/package-media-36385648064725019303105-86018124532666757777015.png&quot; /&gt;&lt;/a&gt; VTV.vn - Dù không thể ngăn chặn, việc dự đoán chính xác thời điểm xảy ra bão sẽ giúp con người chủ động ứng phó." data-link="https://vtv.vn/nasa-va-ibm-su-dung-ai-de-du-bao-bao-mat-troi-100250821113445084.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>NASA và IBM sử dụng AI để dự báo bão mặt trời</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Quản trị dữ liệu AI hiệu quả với các công nghệ và sản phẩm chiến lược trong kỷ nguyên vươn mình" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/quan-tri-du-lieu-ai-hieu-qua-voi-cac-cong-nghe-va-san-pham-chien-luoc-trong-ky-nguyen-vuon-minh-20250616103234377.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/16/4-28157318232694562994002-99992079580848909320295.jpg&quot; /&gt;&lt;/a&gt; VTV - Các giải pháp hữu ích để trả lời câu hỏi &quot;Làm sao quản trị dữ liệu AI một cách hiệu quả, tránh dữ liệu rác và hỗ trợ ra quyết định một cách hiệu quả hơn?&quot;" data-link="https://vtv.vn/vuon-minh-bang-ai/quan-tri-du-lieu-ai-hieu-qua-voi-cac-cong-nghe-va-san-pham-chien-luoc-trong-ky-nguyen-vuon-minh-20250616103234377.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>Quản trị dữ liệu AI hiệu quả với các công nghệ và sản phẩm chiến lược trong kỷ nguyên vươn mình</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Tại cuộc gặp mặt bí mật với 30 nhà toán học, AI đang chứng minh khả năng giải toán tiệm cận thiên tài" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/tai-cuoc-gap-mat-bi-mat-voi-30-nha-toan-hoc-ai-dang-chung-minh-kha-nang-giai-toan-tiem-can-thien-tai-20250613114441153.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/13/3123-28100654494480349928036-66119092878781129056479.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Các mô hình suy luận đang có những bước tiến vượt bậc và nhanh chóng." data-link="https://vtv.vn/vuon-minh-bang-ai/tai-cuoc-gap-mat-bi-mat-voi-30-nha-toan-hoc-ai-dang-chung-minh-kha-nang-giai-toan-tiem-can-thien-tai-20250613114441153.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>Tại cuộc gặp mặt bí mật với 30 nhà toán học, AI đang chứng minh khả năng giải toán tiệm cận thiên tài</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Dùng siêu chip của NVIDIA, startup cạnh tranh với Google dịch xong toàn bộ nội dung Internet chỉ trong 18 ngày" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/dung-sieu-chip-cua-nvidia-startup-canh-tranh-voi-google-dich-xong-toan-bo-noi-dung-internet-chi-trong-18-ngay-20250612150244168.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/12/aen20240426005900320-01-i-p4-26463585438530807802057-86285910109283113807048.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - DeepL là một công ty khởi nghiệp đã phát triển các mô hình AI riêng để phục vụ việc dịch thuật và hiện đang cạnh tranh trực tiếp với Google Translate." data-link="https://vtv.vn/vuon-minh-bang-ai/dung-sieu-chip-cua-nvidia-startup-canh-tranh-voi-google-dich-xong-toan-bo-noi-dung-internet-chi-trong-18-ngay-20250612150244168.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>Dùng siêu chip của NVIDIA, startup cạnh tranh với Google dịch xong toàn bộ nội dung Internet chỉ trong 18 ngày</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Chuyện khôi hài: ChatGPT đánh cờ vua thua một cỗ máy chơi game của thập niên 70" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/chuyen-khoi-hai-chatgpt-danh-co-vua-thua-mot-co-may-choi-game-cua-thap-nien-70-20250611121014173.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/11/fdfda-76382346491744351114868-19697150747170095237665.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Khi ChatGPT bị đánh bại bởi chiếc máy chơi game 8-bit cổ lỗ sĩ" data-link="https://vtv.vn/vuon-minh-bang-ai/chuyen-khoi-hai-chatgpt-danh-co-vua-thua-mot-co-may-choi-game-cua-thap-nien-70-20250611121014173.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>Chuyện khôi hài: ChatGPT đánh cờ vua thua một cỗ máy chơi game của thập niên 70</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Google Veo 3 quá thật để nghi ngờ: Những kịch bản lừa đảo bằng video AI đang nhắm thẳng vào chính người thân bạn" data-summary="&lt;a href=&quot;https://vtv.vn/vuon-minh-bang-ai/google-veo-3-qua-that-de-nghi-ngo-nhung-kich-ban-lua-dao-bang-video-ai-dang-nham-thang-vao-chinh-nguoi-than-ban-20250609154000756.htm&quot;&gt;&lt;img src=&quot;https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2025/06/09/genk---veo3-30-42707154654964115598992-55040679521227993912252.jpg&quot; /&gt;&lt;/a&gt; VTV.vn - Sự phát triển của AI video như Google Veo 3 đang mở đường cho những kịch bản lừa đảo tinh vi nhắm vào người lớn tuổi" data-link="https://vtv.vn/vuon-minh-bang-ai/google-veo-3-qua-that-de-nghi-ngo-nhung-kich-ban-lua-dao-bang-video-ai-dang-nham-thang-vao-chinh-nguoi-than-ban-20250609154000756.htm">
+    <div class="card-pad">
+      <div class="source">VTV AI – Kiến thức</div>
+      <h3>Google Veo 3 quá thật để nghi ngờ: Những kịch bản lừa đảo bằng video AI đang nhắm thẳng vào chính người thân bạn</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="200.000 nhân viên ngân hàng sắp thất nghiệp vì AI: “Bất kỳ công việc nào thường xuyên lặp lại đều có nguy cơ biến mất”" data-summary="&lt;a href=&quot;https://genk.vn/200000-nhan-vien-ngan-hang-sap-that-nghiep-vi-ai-bat-ky-cong-viec-nao-thuong-xuyen-lap-lai-deu-co-nguy-co-bien-mat-165260101164852034.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/1/1/avatar1767260894888-17672608953091833101502.png&quot; /&gt;&lt;/a&gt; Các nhà phân tích ước tính rằng hơn 200.000 việc làm trong ngành ngân hàng châu Âu sẽ bị đe dọa trong 5 năm tới, trong bối cảnh các ngân hàng ngày càng ứng dụng trí tuệ nhân tạo và đóng cửa nhiều chi nhánh." data-link="https://genk.vn/200000-nhan-vien-ngan-hang-sap-that-nghiep-vi-ai-bat-ky-cong-viec-nao-thuong-xuyen-lap-lai-deu-co-nguy-co-bien-mat-165260101164852034.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>200.000 nhân viên ngân hàng sắp thất nghiệp vì AI: “Bất kỳ công việc nào thường xuyên lặp lại đều có nguy cơ biến mất”</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Trung Quốc đề xuất quy định AI mới để bảo vệ trẻ vị thành niên và ngăn chặn nội dung có hại" data-summary="&lt;a href=&quot;https://genk.vn/trung-quoc-de-xuat-quy-dinh-ai-moi-de-bao-ve-tre-vi-thanh-nien-va-ngan-chan-noi-dung-co-hai-165253112161822707.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/1/1/avatar1767244411024-176724441169541876481.jpg&quot; /&gt;&lt;/a&gt; Cơ quan Quản lý Không gian mạng Trung Quốc đề xuất quy định AI mới nhằm bảo vệ trẻ vị thành niên khỏi nội dung có hại và yêu cầu các công ty AI thêm chế độ đặc biệt cho trẻ em, với thời hạn lấy ý kiến kéo dài 25 ngày kết thúc vào 25/1/2026." data-link="https://genk.vn/trung-quoc-de-xuat-quy-dinh-ai-moi-de-bao-ve-tre-vi-thanh-nien-va-ngan-chan-noi-dung-co-hai-165253112161822707.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>Trung Quốc đề xuất quy định AI mới để bảo vệ trẻ vị thành niên và ngăn chặn nội dung có hại</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Khi AI không còn là trào lưu, mà trở thành một phần của nhịp sống số" data-summary="&lt;a href=&quot;https://genk.vn/khi-ai-khong-con-la-trao-luu-ma-tro-thanh-mot-phan-cua-nhip-song-so-165251231145503326.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2025/12/31/avatar1767167637207-17671676384801575530901-0-209-900-1649-crop-1767167658250134712251.jpg&quot; /&gt;&lt;/a&gt; Nhìn tổng thể, AI tại Việt Nam đã đi một chặng đường dài từ khái niệm học thuật đến ứng dụng thực tế. Các số liệu về thời gian sử dụng, mức độ phổ cập và tốc độ ứng dụng trong doanh nghiệp cho thấy AI đã trở thành một phần không thể tách rời của đời sống số." data-link="https://genk.vn/khi-ai-khong-con-la-trao-luu-ma-tro-thanh-mot-phan-cua-nhip-song-so-165251231145503326.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>Khi AI không còn là trào lưu, mà trở thành một phần của nhịp sống số</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Chủ tịch Trương Gia Bình &#x27;flex&#x27;: Mô hình ngôn ngữ lớn của FPT có khoảng 5 triệu người dùng thường xuyên" data-summary="&lt;a href=&quot;https://genk.vn/chu-tich-truong-gia-binh-flex-mo-hinh-ngon-ngu-lon-cua-fpt-co-khoang-5-trieu-nguoi-dung-thuong-xuyen-165251231081628246.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2025/12/31/avatar1767143702167-1767143702967324372491.jpg&quot; /&gt;&lt;/a&gt; Chủ tịch FPT khẳng định Tập đoàn đang chuyển trọng tâm từ tăng trưởng thuần túy sang đầu tư dài hạn cho các công nghệ lõi." data-link="https://genk.vn/chu-tich-truong-gia-binh-flex-mo-hinh-ngon-ngu-lon-cua-fpt-co-khoang-5-trieu-nguoi-dung-thuong-xuyen-165251231081628246.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>Chủ tịch Trương Gia Bình &#x27;flex&#x27;: Mô hình ngôn ngữ lớn của FPT có khoảng 5 triệu người dùng thường xuyên</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Trung Quốc ra phán quyết lịch sử: Doanh nghiệp không được sa thải nhân viên vì công việc bị AI thay thế" data-summary="&lt;a href=&quot;https://genk.vn/trung-quoc-ra-phan-quyet-lich-su-doanh-nghiep-khong-duoc-sa-thai-nhan-vien-vi-cong-viec-bi-ai-thay-the-165251230195329793.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2025/12/30/expl-1754285733114-1754285753713-1759683113363-17670991834991313905457-0-25-337-564-crop-1767099188729858488329.png&quot; /&gt;&lt;/a&gt; Vụ việc này thiết lập một ranh giới pháp lý rõ ràng khi AI đang hiện diện ngày càng phổ biến trong môi trường doanh nghiệp Trung Quốc." data-link="https://genk.vn/trung-quoc-ra-phan-quyet-lich-su-doanh-nghiep-khong-duoc-sa-thai-nhan-vien-vi-cong-viec-bi-ai-thay-the-165251230195329793.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>Trung Quốc ra phán quyết lịch sử: Doanh nghiệp không được sa thải nhân viên vì công việc bị AI thay thế</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="CEO Jensen Huang tiết lộ sốc: Trong kỷ nguyên AI, tương lai thuộc về người có “gu&quot;" data-summary="&lt;a href=&quot;https://genk.vn/ceo-jensen-huang-tiet-lo-soc-trong-ky-nguyen-ai-tuong-lai-thuoc-ve-nguoi-co-gu-165251229115629474.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2025/12/29/nvidia-jensen-huang-1-96727815255119727724075-1766984127918-17669841281011432769254-0-97-900-1537-crop-17669841383051927874973.png&quot; /&gt;&lt;/a&gt; VTV.vn - Theo ông Huang, trong kỷ nguyên AI, công thức thành công cũ với khả năng ghi nhớ, sự thông minh, điểm số sẽ không còn cần thiết nữa." data-link="https://genk.vn/ceo-jensen-huang-tiet-lo-soc-trong-ky-nguyen-ai-tuong-lai-thuoc-ve-nguoi-co-gu-165251229115629474.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>CEO Jensen Huang tiết lộ sốc: Trong kỷ nguyên AI, tương lai thuộc về người có “gu&quot;</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Trào lưu sử dụng “hot girl ảo”, gợi cảm nhờ dòng prompt nhưng vẫn khiến nhiều người tin là thật" data-summary="&lt;a href=&quot;https://genk.vn/trao-luu-su-dung-hot-girl-ao-goi-cam-nho-dong-prompt-nhung-van-khien-nhieu-nguoi-tin-la-that-165251229022852298.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2025/12/28/avatar1766950096315-17669500965981756029683.jpeg&quot; /&gt;&lt;/a&gt; Sở hữu hơn nửa triệu người theo dõi, “hot girl ảo” này còn tự tin mở bán những nội dung độc quyền và vẫn có rất nhiều người mua." data-link="https://genk.vn/trao-luu-su-dung-hot-girl-ao-goi-cam-nho-dong-prompt-nhung-van-khien-nhieu-nguoi-tin-la-that-165251229022852298.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>Trào lưu sử dụng “hot girl ảo”, gợi cảm nhờ dòng prompt nhưng vẫn khiến nhiều người tin là thật</h3>
+    </div>
+  </div>
+  <div class="text-card" data-title="Từ Đông sang Tây, ai cũng làm AI: làng công nghệ năm 2025 sôi động hơn bao giờ hết nhờ 8 nhân vật này" data-summary="&lt;a href=&quot;https://genk.vn/tu-dong-sang-tay-ai-cung-lam-ai-lang-cong-nghe-nam-2025-soi-dong-hon-bao-gio-het-nho-8-nhan-vat-nay-16525251216582448.chn&quot;&gt;&lt;img src=&quot;https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2025/12/26/av-ai-1766651532317209574147-1766720542922-17667205433401686232535-0-81-768-1310-crop-17667206238651570578243.png&quot; /&gt;&lt;/a&gt; Toàn cảnh công nghệ 2025: 8 “kiến trúc sư” định hình dòng chảy lịch sử." data-link="https://genk.vn/tu-dong-sang-tay-ai-cung-lam-ai-lang-cong-nghe-nam-2025-soi-dong-hon-bao-gio-het-nho-8-nhan-vat-nay-16525251216582448.chn">
+    <div class="card-pad">
+      <div class="source">GenK AI</div>
+      <h3>Từ Đông sang Tây, ai cũng làm AI: làng công nghệ năm 2025 sôi động hơn bao giờ hết nhờ 8 nhân vật này</h3>
+    </div>
+  </div>
 
-    // === Render helpers (giữ tinh thần card của AI Digest) ===
-    function createCard(item) {
-      const article = document.createElement("article");
+    </div>
+  </div>
+</section>
 
-      const imageHTML = item.image
-        ? `<a href="#" class="image fit"><img src="${item.image}" alt=""></a>`
-        : "";
+<section class="section" id="more">  <div class="container">    <h3>More news</h3>    <div class="grid-text">
+    </div>
+  </div>
+</section>
 
-      const sourceMeta = `
-        <div class="digest-meta">
-          ${(item.country || "Global")} • ${(item.source || "Unknown")}
-        </div>
-      `;
+<section class="section" id="how">  <div class="container">    <h3>How it works</h3>    <div style="opacity:.82; line-height:1.7; max-width:880px;">Click any card → preview in Quick View → open full article. Use Translate at the top right.</div>  </div></section>
 
-      const clickSummary = `
-        <a href="#" class="button small"
-           onclick="openDigest(
-             ${JSON.stringify(item.title || "")},
-             ${JSON.stringify(item.summary || "")},
-             ${JSON.stringify(item.url || "#")}
-           )">
-          🤖 Tóm tắt nhanh
-        </a>
-      `;
+<section class="section" id="contact">  <div class="container">    <h3>Contact</h3>    <div style="opacity:.82; line-height:1.7;">Want thêm lồng đèn rủ xuống, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</div>    <div style="margin-top:14px; font-weight:1000; letter-spacing:.8px; color:rgba(255,233,214,.95);">FROM MR. THOR WITH LOVE</div>  </div></section>
 
-      const linkSource = `
-        <a href="${item.url || '#'}" target="_blank" class="button small">🔗 Nguồn</a>
-      `;
+<div id="quickView">  <h3 id="qv-title"></h3>  <p id="qv-summary"></p>  <a id="qv-link" target="_blank">Open full article →</a></div>
+<div id="toTop" title="Back to top"><span>↑</span></div>
 
-      article.innerHTML = `
-        <header>
-          ${sourceMeta}
-          <h2>${item.title || ""}</h2>
-        </header>
-        ${imageHTML}
-        <p>${item.summary || ""}</p>
-        <div class="digest-actions">
-          ${clickSummary}
-          ${linkSource}
-        </div>
-      `;
-      return article;
-    }
-
-    // === Load & split data to Featured / More ===
-    // Giữ nguyên nguồn từ file text/json bạn gửi
-    fetch("data/news.json")
-      .then(res => {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      })
-      .then(news => {
-        // Chuẩn hóa dữ liệu: đảm bảo là mảng
-        const items = Array.isArray(news)
-          ? news
-          : (Array.isArray(news.items) ? news.items : []);
-
-        // Tách danh sách: featured = 8 tin đầu; more = phần còn lại đến 30 tin
-        const featured = items.slice(0, 8);
-        const more = items.slice(8, 30);
-
-        const featuredContainer = document.getElementById("featured");
-        const moreContainer = document.getElementById("more");
-
-        featuredContainer.innerHTML = "";
-        moreContainer.innerHTML = "";
-
-        featured.forEach(item => {
-          featuredContainer.appendChild(createCard(item));
-        });
-        more.forEach(item => {
-          moreContainer.appendChild(createCard(item));
-        });
-
-        // Nếu không có tin nào
-        if (items.length === 0) {
-          featuredContainer.innerHTML = "<p>❌ Không có dữ liệu để hiển thị.</p>";
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        const featuredContainer = document.getElementById("featured");
-        featuredContainer.innerHTML = "<p>❌ Không tải được dữ liệu.</p>";
-      });
-  </script>
 </body>
-</
+</html>
