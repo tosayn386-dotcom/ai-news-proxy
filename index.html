@@ -1,137 +1,253 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>AI News Việt Nam & Thế Giới</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<title>AI News – Lunar Digest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      transition: background 0.3s ease;
-    }
+<style>
+:root{
+  --wine:#5b0a2b;
+  --wine2:#2b0818;
+  --gold:#f6c453;
+  --cream:#ffe9d6;
+  --text:#f7e7dd;
+  --muted:rgba(255,233,214,.75);
+  --card:rgba(255,255,255,.06);
+}
 
-    h1 {
-      text-align: center;
-    }
+*{box-sizing:border-box}
+html{
+  background:
+    radial-gradient(1200px 600px at 70% 25%, rgba(246,196,83,.12), transparent 60%),
+    radial-gradient(900px 500px at 20% 15%, rgba(255,122,165,.12), transparent 60%),
+    linear-gradient(180deg, var(--wine), var(--wine2));
+}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  color:var(--text);
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
 
-    .news-item {
-      background: white;
-      padding: 16px;
-      margin-bottom: 16px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
+.container{max-width:1100px;margin:auto;padding:0 20px}
 
-    .meta {
-      font-size: 13px;
-      color: #6b7280;
-    }
+/* ===== HERO ===== */
+.hero{
+  padding:36px 0 42px;
+}
+.hero-box{
+  position:relative;
+  border-radius:26px;
+  padding:36px;
+  background:
+    radial-gradient(900px 400px at 80% 40%, rgba(255,122,165,.12), transparent 60%),
+    linear-gradient(135deg, #6b0b33, var(--wine2));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 30px 90px rgba(0,0,0,.55);
+}
+.hero h1{
+  font-size:52px;
+  line-height:1;
+  margin:0 0 10px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+.hero p{
+  max-width:520px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.7;
+}
+.kicker{
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:14px;
+  font-size:12px;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+}
+.kicker span{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 6px rgba(246,196,83,.18);
+}
 
-    /* ===== TET THEME ===== */
-    body.tet {
-      background: linear-gradient(180deg, #fff7ed, #fef3c7);
-    }
+/* ===== GRID ===== */
+.section{padding:34px 0}
+.section h2{
+  font-size:18px;
+  margin:0 0 16px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:16px;
+  cursor:pointer;
+  transition:.2s;
+}
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 50px rgba(0,0,0,.45);
+}
+.source{
+  font-size:12px;
+  opacity:.75;
+  margin-bottom:6px;
+}
+.card h3{
+  margin:0;
+  font-size:18px;
+  line-height:1.25;
+}
 
-    body.tet h1::after {
-      content: " 🧧";
-    }
+/* ===== QUICK VIEW ===== */
+#quickView{
+  position:fixed;
+  top:50%;
+  right:20px;
+  transform:translateY(-50%) scale(.92);
+  width:420px;
+  max-width:calc(100vw - 40px);
+  max-height:70vh;
+  overflow:auto;
+  background:rgba(25,7,18,.78);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;
+  padding:18px;
+  display:none;
+  opacity:0;
+  z-index:9999;
+  transition:.25s;
+}
+#quickView.show{
+  display:block;
+  opacity:1;
+  transform:translateY(-50%) scale(1);
+}
+#quickView h3{
+  margin:0 0 10px;
+}
+#quickView p{
+  font-size:14px;
+  line-height:1.65;
+  color:var(--muted);
+}
+#quickView a{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+  background:linear-gradient(90deg, rgba(246,196,83,.9), rgba(246,196,83,.6));
+  color:#2b0818;
+}
 
-    body.tet .news-item {
-      border-left: 4px solid #dc2626;
-    }
+/* ===== TO TOP ===== */
+#toTop{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  width:44px;height:44px;
+  border-radius:50%;
+  display:none;
+  place-items:center;
+  background:rgba(25,7,18,.65);
+  border:1px solid rgba(255,255,255,.18);
+  cursor:pointer;
+  z-index:10000;
+}
+#toTop.show{display:grid}
 
-    body.tet .news-item h3 {
-      color: #b91c1c;
-    }
-
-    .tet-badge {
-      display: none;
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-
-    body.tet .tet-badge {
-      display: block;
-      background: #dc2626;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    body.tet::before {
-      content: "🌸 🌼 🧧 🌸";
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      font-size: 24px;
-      opacity: 0.3;
-      pointer-events: none;
-    }
-  </style>
+@media(max-width:900px){
+  .hero h1{font-size:44px}
+  #quickView{right:10px}
+}
+</style>
 </head>
 
 <body>
 
-  <h1>🤖 AI News Việt Nam & Thế Giới</h1>
-  <div class="tet-badge">🎊 Tết AI 2026</div>
+<section class="hero">
+  <div class="container">
+    <div class="hero-box">
+      <div class="kicker"><span></span> Lunar New Year AI Digest</div>
+      <h1>AI NEWS</h1>
+      <p>Tin AI Việt Nam & Thế Giới. Click card để xem tóm tắt nhanh, mở bài đầy đủ khi cần.</p>
+    </div>
+  </div>
+</section>
 
-  <div id="news">Đang tải tin AI...</div>
+<section class="section">
+  <div class="container">
+    <h2>🔥 Tin mới</h2>
+    <div class="grid" id="news">Đang tải...</div>
+  </div>
+</section>
 
-  <script>
-    // ===== AUTO TET THEME =====
-    (function () {
-      const today = new Date();
-      const month = today.getMonth() + 1;
-      const day = today.getDate();
+<!-- Quick View -->
+<div id="quickView">
+  <h3 id="qv-title"></h3>
+  <p id="qv-summary"></p>
+  <a id="qv-link" target="_blank">Đọc bài đầy đủ →</a>
+</div>
 
-      // Bật theme Tết từ 20/12 đến 15/02
-      const isTet =
-        (month === 12 && day >= 20) ||
-        (month === 1) ||
-        (month === 2 && day <= 15);
+<div id="toTop">↑</div>
 
-      if (isTet) {
-        document.body.classList.add("tet");
-      }
-    })();
+<script>
+const newsEl = document.getElementById("news");
+const qv = document.getElementById("quickView");
 
-    // ===== LOAD NEWS =====
-    fetch("./data/news.json")
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("news");
-        container.innerHTML = "";
+function openQuick(title, summary, link){
+  document.getElementById("qv-title").innerText = title;
+  document.getElementById("qv-summary").innerText = summary;
+  document.getElementById("qv-link").href = link;
+  qv.classList.add("show");
+}
 
-        data
-          .sort((a, b) => b.hot_score - a.hot_score)
-          .forEach(item => {
-            const div = document.createElement("div");
-            div.className = "news-item";
-            div.innerHTML = `
-              <h3>${item.country === "VN" ? "🇻🇳" : "🌍"} ${item.title}</h3>
-              <p>${item.summary}</p>
-              <div class="meta">
-                ${item.source} • ${item.category} • 🔥 ${item.hot_score}
-              </div>
-            `;
-            container.appendChild(div);
-          });
-      })
-      .catch(err => {
-        document.getElementById("news").innerText = "❌ Không tải được dữ liệu";
-        console.error(err);
-      });
-  </script>
+function closeQuick(){
+  qv.classList.remove("show");
+}
+
+fetch("./data/news.json")
+  .then(r=>r.json())
+  .then(data=>{
+    newsEl.innerHTML="";
+    data.sort((a,b)=>b.hot_score-a.hot_score).forEach(n=>{
+      const d=document.createElement("div");
+      d.className="card";
+      d.innerHTML=`
+        <div class="source">${n.country==="VN"?"🇻🇳":"🌍"} ${n.source}</div>
+        <h3>${n.title}</h3>
+      `;
+      d.onclick=()=>openQuick(n.title,n.summary,n.url||"#");
+      newsEl.appendChild(d);
+    });
+  })
+  .catch(()=>newsEl.innerText="❌ Không tải được dữ liệu");
+
+document.addEventListener("click",e=>{
+  if(!e.target.closest(".card") && !e.target.closest("#quickView")){
+    closeQuick();
+  }
+});
+
+const toTop=document.getElementById("toTop");
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>400) toTop.classList.add("show");
+  else toTop.classList.remove("show");
+});
+toTop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+</script>
 
 </body>
 </html>
