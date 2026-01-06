@@ -1,240 +1,213 @@
-
 <!DOCTYPE HTML>
-<html lang="vi">
+<html>
 <head>
-  <title>🤖 AI Digest – Việt Nam & Thế Giới</title>
+  <title>AI Digest</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Styles (giữ style của AI Digest) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
+  <!-- AI DIGEST THEME (TINH TẾ) -->
   <style>
-    /* Bổ sung nhẹ cho meta & popup như bản bạn gửi */
-    .digest-meta {
-      font-size: 0.85em;
-      opacity: 0.75;
-      margin-bottom: 0.5em;
-    }
-    .digest-actions {
-      display: flex;
-      gap: 0.5em;
-      flex-wrap: wrap;
-    }
-    /* Popup Quick View */
-    #digest-popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      padding: 1rem;
-    }
-    #digest-popup .box {
-      background: #fff;
-      max-width: 760px;
-      margin: 4% auto;
-      padding: 2rem;
-      border-radius: 10px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-    #digest-popup h2 {
-      margin-top: 0;
-    }
-    #digest-popup .close-btn {
-      margin-top: 1rem;
+    :root{
+      --bg-main:#2a0b18;
+      --bg-soft:#35101f;
+      --accent:#e9c46a;
+      --text-main:#f4ece6;
+      --text-muted:rgba(244,236,230,.75);
+      --line:rgba(244,236,230,.18);
     }
 
-    /* Ẩn phần mô tả “legend” nếu không dùng */
-    .lunar-legend { display: none; }
+    body{
+      background:linear-gradient(180deg,var(--bg-soft),var(--bg-main));
+      color:var(--text-main);
+    }
+
+    a{color:var(--accent)}
+    a:hover{color:#f1d98a}
+
+    #header{
+      background:transparent;
+    }
+    #header .logo{
+      color:var(--accent);
+      font-weight:900;
+      letter-spacing:.08em;
+    }
+
+    /* HERO */
+    .post.featured{
+      background:transparent;
+      border-bottom:1px solid var(--line);
+      padding-bottom:4em;
+    }
+    .post.featured h1{
+      color:var(--accent);
+      letter-spacing:.12em;
+    }
+    .post.featured p{
+      color:var(--text-muted);
+      font-size:1.1em;
+    }
+
+    /* POSTS */
+    .post{
+      background:transparent;
+      border-bottom:1px solid var(--line);
+      padding-bottom:3em;
+    }
+    .post header h2{
+      color:var(--accent);
+      font-weight:700;
+    }
+    .post p{
+      color:var(--text-muted);
+    }
+    .post header .date{
+      color:var(--text-muted);
+      letter-spacing:.12em;
+    }
+
+    /* BUTTON */
+    .button{
+      background:none;
+      border:1px solid var(--accent);
+      color:var(--accent) !important;
+      letter-spacing:.1em;
+    }
+    .button:hover{
+      background:var(--accent);
+      color:#2a0b18 !important;
+    }
+
+    /* NAV */
+    #nav a{
+      color:var(--text-muted);
+    }
+    #nav a:hover{
+      color:var(--accent);
+    }
+
+    /* FOOTER */
+    #footer{
+      background:transparent;
+      color:var(--text-muted);
+    }
   </style>
 </head>
 
 <body class="is-preload">
-  <!-- Wrapper -->
-  <div id="wrapper" class="fade-in">
 
-    <!-- Header (giữ layout AI Digest) -->
-    <header id="header">
-      <a href="#" class="logo">🤖 AI DIGEST</a>
-      <nav>
-        <ul class="links">
-          <li><a href="#featured">Featured</a></li>
-          <li><a href="#more">More</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<div id="wrapper" class="fade-in">
 
-    <!-- Main -->
-    <div id="main">
-      <!-- Hero / Lunar theme banner (giữ nguyên tinh thần AI Digest) -->
-      <section class="post">
-        <header class="major">
-          <h2>Lunar New Year Digest</h2>
-          <p>Click bất kỳ card để mở Quick View, sau đó có thể mở bài gốc. Cards giữ tối giản — tóm tắt nằm trong pop-up.</p>
-          <a class="button" href="#more">More News</a>
-        </header>
-        <div class="lunar-legend">
-          <h4>Legend of Chinese Lunar New Year</h4>
-          <p>Theo truyền thuyết, quái thú Nian sợ tiếng nổ, ánh sáng và màu đỏ. Người dân treo đồ đỏ, đốt pháo và thắp lồng đèn — tạo nên truyền thống ngày Tết.</p>
-        </div>
-      </section>
-
-      <!-- Featured (render từ news.json) -->
-      <section id="featured" class="posts">
-        <!-- JS sẽ render top tin (ví dụ 8 mục đầu) -->
-      </section>
-
-      <!-- More news (render phần còn lại) -->
-      <section id="more" class="posts">
-        <!-- JS sẽ render danh sách tin thêm -->
-      </section>
-
-      <!-- Hướng dẫn -->
-      <section id="how" class="post">
-        <header class="major">
-          <h2>How it works</h2>
-        </header>
-        <p>Click card → xem nhanh trong Quick View → mở bài gốc ở nút “🔗 Nguồn”.</p>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="post">
-        <header class="major">
-          <h2>Contact</h2>
-        </header>
-        <p>Muốn thêm lồng đèn rủ xuống, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</p>
-        <p>FROM MR. THOR WITH LOVE</p>
-      </section>
-    </div>
-
-    <!-- Popup Quick View -->
-    <div id="digest-popup" aria-hidden="true">
-      <div class="box">
-        <h2 id="popup-title"></h2>
-        <p id="popup-summary"></p>
-        <p><a id="popup-link" href="#" target="_blank">🔗 Đọc nguồn đầy đủ</a></p>
-        <button class="button primary close-btn" onclick="closeDigest()">Đóng</button>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer id="copyright">
-      <ul>
-        <li>&copy; AI Digest</li>
-        <li>Auto update</li>
-      </ul>
-    </footer>
+  <!-- INTRO -->
+  <div id="intro">
+    <h1>AI Digest</h1>
+    <p>Curated Artificial Intelligence news & research</p>
+    <ul class="actions">
+      <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+    </ul>
   </div>
 
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <!-- HEADER -->
+  <header id="header">
+    <a href="index.html" class="logo">AI DIGEST</a>
+  </header>
 
-  <script>
-    // === Popup control ===
-    function openDigest(title, summary, link) {
-      document.getElementById("popup-title").innerText = title || "";
-      document.getElementById("popup-summary").innerText = summary || "";
-      const a = document.getElementById("popup-link");
-      a.href = link || "#";
-      document.getElementById("digest-popup").style.display = "block";
-      document.getElementById("digest-popup").setAttribute("aria-hidden", "false");
-    }
-    function closeDigest() {
-      document.getElementById("digest-popup").style.display = "none";
-      document.getElementById("digest-popup").setAttribute("aria-hidden", "true");
-    }
+  <!-- NAV -->
+  <nav id="nav">
+    <ul class="links">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Research</a></li>
+      <li><a href="#">Industry</a></li>
+    </ul>
+  </nav>
 
-    // === Render helpers (giữ tinh thần card của AI Digest) ===
-    function createCard(item) {
-      const article = document.createElement("article");
+  <!-- MAIN -->
+  <div id="main">
 
-      const imageHTML = item.image
-        ? `<a href="#" class="image fit"><img src="${item.image}" alt=""></a>`
-        : "";
+    <!-- FEATURED -->
+    <section class="post featured">
+      <header class="major">
+        <span class="date">AI DIGEST</span>
+        <h1>Artificial<br />Intelligence</h1>
+        <p>
+          Curated AI news, research highlights,<br />
+          and industry movements — updated daily.
+        </p>
+      </header>
+      <ul class="actions special">
+        <li><a href="#posts" class="button">Explore</a></li>
+      </ul>
+    </section>
 
-      const sourceMeta = `
-        <div class="digest-meta">
-          ${(item.country || "Global")} • ${(item.source || "Unknown")}
-        </div>
-      `;
+    <!-- POSTS -->
+    <section class="posts" id="posts">
 
-      const clickSummary = `
-        <a href="#" class="button small"
-           onclick="openDigest(
-             ${JSON.stringify(item.title || "")},
-             ${JSON.stringify(item.summary || "")},
-             ${JSON.stringify(item.url || "#")}
-           )">
-          🤖 Tóm tắt nhanh
-        </a>
-      `;
-
-      const linkSource = `
-        <a href="${item.url || '#'}" target="_blank" class="button small">🔗 Nguồn</a>
-      `;
-
-      article.innerHTML = `
+      <article class="post">
         <header>
-          ${sourceMeta}
-          <h2>${item.title || ""}</h2>
+          <span class="date">OpenAI</span>
+          <h2>Next-Gen Reasoning Models</h2>
         </header>
-        ${imageHTML}
-        <p>${item.summary || ""}</p>
-        <div class="digest-actions">
-          ${clickSummary}
-          ${linkSource}
-        </div>
-      `;
-      return article;
-    }
+        <p>
+          OpenAI introduces a new generation of reasoning-focused models,
+          significantly improving multi-step problem solving.
+        </p>
+        <ul class="actions">
+          <li><a href="#" class="button">Read</a></li>
+        </ul>
+      </article>
 
-    // === Load & split data to Featured / More ===
-    // Giữ nguyên nguồn từ file text/json bạn gửi
-    fetch("data/news.json")
-      .then(res => {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      })
-      .then(news => {
-        // Chuẩn hóa dữ liệu: đảm bảo là mảng
-        const items = Array.isArray(news)
-          ? news
-          : (Array.isArray(news.items) ? news.items : []);
+      <article class="post">
+        <header>
+          <span class="date">Google AI</span>
+          <h2>Gemini Updates</h2>
+        </header>
+        <p>
+          Gemini receives major updates focused on multimodal understanding
+          and developer tooling.
+        </p>
+        <ul class="actions">
+          <li><a href="#" class="button">Read</a></li>
+        </ul>
+      </article>
 
-        // Tách danh sách: featured = 8 tin đầu; more = phần còn lại đến 30 tin
-        const featured = items.slice(0, 8);
-        const more = items.slice(8, 30);
+      <article class="post">
+        <header>
+          <span class="date">Research</span>
+          <h2>Efficient LLM Training</h2>
+        </header>
+        <p>
+          New research explores parameter-efficient training methods
+          that dramatically reduce compute costs.
+        </p>
+        <ul class="actions">
+          <li><a href="#" class="button">Read</a></li>
+        </ul>
+      </article>
 
-        const featuredContainer = document.getElementById("featured");
-        const moreContainer = document.getElementById("more");
+    </section>
+  </div>
 
-        featuredContainer.innerHTML = "";
-        moreContainer.innerHTML = "";
+  <!-- FOOTER -->
+  <footer id="footer">
+    <section class="split contact">
+      <section>
+        <h3>Email</h3>
+        <p>contact@aidigest.ai</p>
+      </section>
+    </section>
+  </footer>
 
-        featured.forEach(item => {
-          featuredContainer.appendChild(createCard(item));
-        });
-        more.forEach(item => {
-          moreContainer.appendChild(createCard(item));
-        });
+</div>
 
-        // Nếu không có tin nào
-        if (items.length === 0) {
-          featuredContainer.innerHTML = "<p>❌ Không có dữ liệu để hiển thị.</p>";
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        const featuredContainer = document.getElementById("featured");
-        featuredContainer.innerHTML = "<p>❌ Không tải được dữ liệu.</p>";
-      });
-  </script>
+<!-- SCRIPTS (MASSIVELY CORE) -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
 </body>
-</
+</html>
