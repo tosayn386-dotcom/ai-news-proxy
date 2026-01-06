@@ -122,4 +122,25 @@ def run_pipeline(new_articles):
         save_cache(cache)
 
     print(f"✅ Added {len(new_items)} new items")
+if __name__ == "__main__":
+    test_articles = [
+        {
+            "title": "AI Việt Nam thử nghiệm drone giao hàng",
+            "content": "TP HCM thử nghiệm giao hàng bằng thiết bị bay không người lái...",
+            "url": "https://vnexpress.net/ai-drone",
+            "source": "VNExpress",
+            "country": "VN",
+            "category": "Ứng dụng AI"
+        },
+        {
+            "title": "AI Việt Nam thử nghiệm drone giao hàng (LẶP)",
+            "content": "TP HCM thử nghiệm giao hàng bằng thiết bị bay không người lái...",
+            "url": "https://vnexpress.net/ai-drone",
+            "source": "VNExpress",
+            "country": "VN",
+            "category": "Ứng dụng AI"
+        }
+    ]
+
+    run_pipeline(test_articles)
 
