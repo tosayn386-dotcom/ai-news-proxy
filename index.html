@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI News Việt Nam & Thế Giới</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .news-item {
+      background: white;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🤖 AI News Việt Nam & Thế Giới</h1>
+
+  <div id="news">Đang tải tin AI...</div>
+
+  <script>
+    fetch("data/news.json")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("news");
+        container.innerHTML = "";
+
+        data
+          .sort((a, b) => b.hot_score - a.hot_score)
+          .forEach(item => {
+            const div = document.createElement("div");
+            div.className = "news-item";
+            div.innerHTML = `
+              <h3>${item.country === "VN" ? "🇻🇳" : "🌍"} ${item.title}</h3>
+              <p>${item.summary}</p>
+              <div class="meta">
+                ${item.source} • ${item.category} • 🔥 ${item.hot_score}
+              </div>
+            `;
+            container.appendChild(div);
+          });
+      })
+      .catch(err => {
+        document.getElementById("news").innerText = "❌ Không tải được dữ liệu";
+        console.error(err);
+      });
+  </script>
+
+</body>
+</html>
