@@ -106,7 +106,7 @@ def run_pipeline(new_articles):
     cache = load_cache()
     news = load_existing_news()
 
-    existing_urls = {n["url"] for n in news}
+    existing_urls = {n.get("url") for n in news if isinstance(n, dict) and n.get("url")}
     new_items = []
 
     for a in new_articles:
