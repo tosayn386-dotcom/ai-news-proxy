@@ -1,32 +1,45 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>🤖 AI News Việt Nam & Thế Giới</title>
+  <title>🤖 AI Digest – Việt Nam & Thế Giới</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
   <style>
-    /* popup */
-    #popup {
+    .digest-meta {
+      font-size: 0.8em;
+      opacity: 0.7;
+      margin-bottom: 0.5em;
+    }
+
+    .digest-actions {
+      display: flex;
+      gap: 0.5em;
+      flex-wrap: wrap;
+    }
+
+    /* Popup */
+    #digest-popup {
       display: none;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.7);
       z-index: 1000;
     }
-    #popup .box {
+    #digest-popup .box {
       background: #fff;
-      max-width: 700px;
+      max-width: 720px;
       margin: 5% auto;
       padding: 2rem;
       border-radius: 6px;
-      overflow-y: auto;
       max-height: 80vh;
+      overflow-y: auto;
     }
-    #popup h2 { margin-top: 0 }
-    #popup button { margin-top: 1rem }
+    #digest-popup h2 {
+      margin-top: 0;
+    }
   </style>
 </head>
 
@@ -35,39 +48,33 @@
 
   <!-- Header -->
   <header id="header">
-    <a href="index.html" class="logo">🤖 AI NEWS</a>
+    <a href="#" class="logo">🤖 AI DIGEST</a>
   </header>
-
-  <!-- Nav -->
-  <nav id="nav">
-    <ul class="links">
-      <li class="active"><a href="#">AI News</a></li>
-    </ul>
-  </nav>
 
   <!-- Main -->
   <div id="main">
     <section class="posts" id="news-container">
-      <!-- JS inject -->
+      <!-- JS render -->
     </section>
   </div>
 
   <!-- Popup -->
-  <div id="popup">
+  <div id="digest-popup">
     <div class="box">
       <h2 id="popup-title"></h2>
       <p id="popup-summary"></p>
-      <a id="popup-link" href="#" target="_blank">🔗 Đọc nguồn</a>
-      <br>
-      <button onclick="closePopup()">Đóng</button>
+      <p>
+        <a id="popup-link" href="#" target="_blank">🔗 Đọc nguồn đầy đủ</a>
+      </p>
+      <button onclick="closeDigest()">Đóng</button>
     </div>
   </div>
 
   <!-- Footer -->
   <footer id="copyright">
     <ul>
-      <li>&copy; AI News VN</li>
-      <li>Auto Update</li>
+      <li>&copy; AI Digest</li>
+      <li>Auto update</li>
     </ul>
   </footer>
 
@@ -78,15 +85,15 @@
 <script src="assets/js/main.js"></script>
 
 <script>
-function openPopup(title, summary, link) {
+function openDigest(title, summary, link) {
   document.getElementById("popup-title").innerText = title;
   document.getElementById("popup-summary").innerText = summary;
   document.getElementById("popup-link").href = link;
-  document.getElementById("popup").style.display = "block";
+  document.getElementById("digest-popup").style.display = "block";
 }
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
+function closeDigest() {
+  document.getElementById("digest-popup").style.display = "none";
 }
 
 fetch("data/news.json")
@@ -104,30 +111,39 @@ fetch("data/news.json")
 
       article.innerHTML = `
         <header>
-          <span class="date">${item.source} • ${item.country}</span>
-          <h2><a href="#">${item.title}</a></h2>
+          <div class="digest-meta">
+            ${item.country} • ${item.source}
+          </div>
+          <h2>${item.title}</h2>
         </header>
 
         ${imageHTML}
 
         <p>${item.summary}</p>
 
-        <ul class="actions special">
-          <li>
-            <a href="#" class="button"
-               onclick="openPopup(
-                 \`${item.title}\`,
-                 \`${item.summary}\`,
-                 \`${item.url}\`
-               )">
-               Đọc nhanh
-            </a>
-          </li>
-        </ul>
+        <div class="digest-actions">
+          <a href="#" class="button small"
+             onclick="openDigest(
+               \`${item.title}\`,
+               \`${item.summary}\`,
+               \`${item.url}\`
+             )">
+            🤖 Tóm tắt nhanh
+          </a>
+
+          <a href="${item.url}" target="_blank" class="button small">
+            🔗 Nguồn
+          </a>
+        </div>
       `;
 
       container.appendChild(article);
     });
+  })
+  .catch(err => {
+    document.getElementById("news-container").innerHTML =
+      "<p>❌ Không tải được dữ liệu</p>";
+    console.error(err);
   });
 </script>
 
