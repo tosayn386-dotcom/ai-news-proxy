@@ -13,6 +13,7 @@
       max-width: 900px;
       margin: auto;
       padding: 20px;
+      transition: background 0.3s ease;
     }
 
     h1 {
@@ -31,17 +32,81 @@
       font-size: 13px;
       color: #6b7280;
     }
+
+    /* ===== TET THEME ===== */
+    body.tet {
+      background: linear-gradient(180deg, #fff7ed, #fef3c7);
+    }
+
+    body.tet h1::after {
+      content: " 🧧";
+    }
+
+    body.tet .news-item {
+      border-left: 4px solid #dc2626;
+    }
+
+    body.tet .news-item h3 {
+      color: #b91c1c;
+    }
+
+    .tet-badge {
+      display: none;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    body.tet .tet-badge {
+      display: block;
+      background: #dc2626;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body.tet::before {
+      content: "🌸 🌼 🧧 🌸";
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      font-size: 24px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
 
   <h1>🤖 AI News Việt Nam & Thế Giới</h1>
+  <div class="tet-badge">🎊 Tết AI 2026</div>
 
   <div id="news">Đang tải tin AI...</div>
 
   <script>
-    fetch("data/news.json")
+    // ===== AUTO TET THEME =====
+    (function () {
+      const today = new Date();
+      const month = today.getMonth() + 1;
+      const day = today.getDate();
+
+      // Bật theme Tết từ 20/12 đến 15/02
+      const isTet =
+        (month === 12 && day >= 20) ||
+        (month === 1) ||
+        (month === 2 && day <= 15);
+
+      if (isTet) {
+        document.body.classList.add("tet");
+      }
+    })();
+
+    // ===== LOAD NEWS =====
+    fetch("./data/news.json")
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById("news");
