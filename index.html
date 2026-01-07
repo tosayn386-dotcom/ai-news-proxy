@@ -5,9 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AI NEWS — Lunar New Year Digest</title>
-  <meta name="description" content="AI Digest — Tin tức AI quốc tế & Việt Nam, hiệu ứng trượt kiểu HTML5UP Massively, có Quick View pop‑up." />
+  <meta name="description" content="AI Digest — Tin tức AI quốc tế & Việt Nam, hiệu ứng trượt Massively, Quick View pop‑up." />
 
-  <!-- THEME -->
   <style>
     :root{
       --bg:#0f1220; --bg-alt:#121630; --txt:#e6e8f0; --txt-muted:#9aa3b2;
@@ -48,7 +47,6 @@
     .section{padding:42px 0;border-bottom:1px solid var(--border)}
     .section h3{margin:0 0 18px;font-size:22px;font-weight:800;letter-spacing:.3px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-
     .card{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-alt);
       padding:16px 16px 18px;box-shadow:var(--shadow);cursor:pointer;position:relative}
     .card strong{color:var(--accent-2);font-weight:700}
@@ -56,7 +54,7 @@
     .card::after{content:"";position:absolute;inset:0;border-radius:inherit;transition:box-shadow .25s ease, transform .25s ease}
     .card:hover::after{box-shadow:0 0 0 2px rgba(88,166,255,.35);transform:translateY(-2px)}
 
-    /* REVEAL (Massively-like) */
+    /* REVEAL */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity 700ms ease,transform 700ms ease;will-change:opacity,transform}
     .reveal.is-in{opacity:1;transform:none}
     .left{transform:translateX(-36px)} .right{transform:translateX(36px)} .up{transform:translateY(36px)}
@@ -76,7 +74,7 @@
       cursor:pointer;opacity:0;transform:translateY(14px);transition:opacity .3s ease,transform .3s ease;z-index:999}
     .to-top.show{opacity:1;transform:none}
 
-    /* POP‑UP (Quick View) */
+    /* POP‑UP */
     .popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1000;
       background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
     .popup.show{display:flex}
@@ -105,6 +103,7 @@
         <h1>AI NEWS <span aria-hidden="true">🤖</span></h1>
         <span class="date">02-01-2026</span>
       </div>
+      <!-- FIXED MENU -->
       <nav class="menu">
         <a href="#featured">Featured</a>
         <a href="#more">More</a>
@@ -136,28 +135,24 @@
     <div class="wrap">
       <h3>Featured</h3>
       <div class="grid">
-        <!-- Ví dụ: mỗi card có data-url + data-summary -->
         <article class="card reveal up"
                  data-url="https://blog.google/products/ai/top-60-ai-announcements-2025/"
                  data-summary="Danh sách 60 thông báo AI lớn nhất năm 2025 từ Google.">
           <strong>Google AI</strong>
           <h4>60 of our biggest AI announcements in 2025</h4>
         </article>
-
         <article class="card reveal up"
                  data-url="https://blog.google/products/ai/top-40-ai-tips-2025/"
                  data-summary="40 mẹo AI hữu ích nhất năm 2025 cho người dùng và doanh nghiệp.">
           <strong>Google AI</strong>
           <h4>40 of our most helpful AI tips from 2025</h4>
         </article>
-
         <article class="card reveal up"
                  data-url="https://blog.google/technology/ai/5-ways-ai-agents-transform-work-2026/"
                  data-summary="5 cách AI agents thay đổi cách làm việc trong 2026.">
           <strong>Google AI</strong>
           <h4>5 ways AI agents will transform the way we work in 2026</h4>
         </article>
-
         <article class="card reveal up"
                  data-url="https://ai.googleblog.com/2025/12/latest-google-ai-news.html"
                  data-summary="Điểm mới của Google AI trong tháng 12.">
@@ -173,7 +168,6 @@
     <div class="wrap">
       <h3>More news</h3>
       <div class="grid">
-        <!-- OpenAI -->
         <article class="card reveal up"
                  data-url="https://openai.com/blog/one-in-a-million"
                  data-summary="Tôn vinh khách hàng định hình tương lai AI.">
@@ -189,8 +183,6 @@
                  data-summary="Giám sát chain‑of‑thought trong LLM.">
           <strong>OpenAI</strong><h4>Evaluating chain‑of‑thought monitorability</h4>
         </article>
-
-        <!-- HuggingFace -->
         <article class="card reveal up"
                  data-url="https://huggingface.co/blog/aprielguard"
                  data-summary="AprielGuard: guardrail tăng an toàn và chống đối kháng.">
@@ -201,15 +193,11 @@
                  data-summary="Tokenization trong Transformers v5.">
           <strong>HuggingFace</strong><h4>Tokenization in Transformers v5</h4>
         </article>
-
-        <!-- VTV AI -->
         <article class="card reveal up"
                  data-url="https://vtv.vn/ai/openai-day-chatgpt-cach-nhan-loi.html"
                  data-summary="OpenAI huấn luyện ChatGPT học cách nhận lỗi.">
           <strong>VTV AI</strong><h4>OpenAI đang dạy cho ChatGPT cách nhận lỗi</h4>
         </article>
-
-        <!-- GenK AI -->
         <article class="card reveal up"
                  data-url="https://genk.vn/trung-quoc-de-xuat-quy-dinh-ai-moi-de-bao-ve-tre-vi-thanh-nien-2025-xxxxx.chn"
                  data-summary="Trung Quốc đề xuất quy định AI mới bảo vệ trẻ vị thành niên.">
@@ -250,7 +238,6 @@
         Tóm tắt ngắn sẽ hiển thị ở đây.
       </div>
       <div class="popup-actions">
-        <!-- PATCH: nút mở link bài gốc -->
         <a id="popupOpen" class="btn primary" target="_blank" rel="noopener">Xem đầy đủ →</a>
         <button class="btn outline" id="popupDismiss">Đóng</button>
       </div>
@@ -281,7 +268,7 @@
       const popupSource=document.getElementById('popupSource');
       const popupTitle=document.getElementById('popupTitle');
       const popupBody=document.getElementById('popupBody');
-      const popupOpen=document.getElementById('popupOpen');  // <-- PATCH: phần tử <a> nhận href
+      const popupOpen=document.getElementById('popupOpen');
       const popupClose=document.getElementById('popupClose');
       const popupDismiss=document.getElementById('popupDismiss');
 
@@ -293,7 +280,6 @@
         popup.classList.add('show');
         popup.setAttribute('aria-hidden','false');
 
-        // Cho phép click tiêu đề để mở link đầy đủ
         popupTitle.style.cursor='pointer';
         popupTitle.onclick=()=>{ if(url && url!=='#') window.open(url,'_blank','noopener'); };
       }
@@ -303,29 +289,23 @@
       }
       popupClose.addEventListener('click',closePopup);
       popupDismiss.addEventListener('click',closePopup);
-      popup.addEventListener('click',(e)=>{ if(e.target===popup) closePopup(); }); // click nền để đóng
-      addEventListener('keydown',(e)=>{ if(e.key==='Escape') closePopup(); });     // ESC để đóng
+      popup.addEventListener('click',(e)=>{ if(e.target===popup) closePopup(); });
+      addEventListener('keydown',(e)=>{ if(e.key==='Escape') closePopup(); });
 
-      // Gắn sự kiện click cho card
       document.querySelectorAll('.card').forEach(card=>{
         card.addEventListener('click',()=>{
           const source  = card.querySelector('strong')?.textContent?.trim() || '';
           const title   = card.querySelector('h4')?.textContent?.trim() || '';
           const summary = card.getAttribute('data-summary') || '';
           const url     = card.getAttribute('data-url') || '';
-
-          if (!url) {
-            alert('Card này chưa có link bài gốc (data-url). H            alert('Card này chưa có link bài gốc (data-url). Hãy bổ sung để xem đầy đủ.');
-            return;
-          }
+          if (!url) { alert('Card này chưa có link bài gốc (data-url). Hãy bổ sung để xem đầy đủ.'); return; }
           openPopup({ source, title, summary, url });
         });
       });
 
-      // Focus nhẹ khi đổi hash
+      /* Focus nhẹ khi đổi hash */
       addEventListener('hashchange',()=>{
-        const t=document.getElementById(location.hash.slice(1));
-        if(t){ t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); setTimeout(()=>t.removeAttribute('tabindex'),500); }
+        const t=document.getElementById(location.hash.slice        const t=document.getElementById(location.hash.slice.focus({preventScroll:true}); setTimeout(()=>t.removeAttribute('tabindex'),500); }
       });
     })();
   </script>
