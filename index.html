@@ -5,22 +5,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AI NEWS — Lunar New Year Digest</title>
-  <meta name="description" content="AI Digest — Tin tức AI quốc tế & Việt Nam, phong cách HTML5UP Massively, hiệu ứng trượt mượt." />
+  <meta name="description" content="AI Digest — Tin tức AI quốc tế & Việt Nam, hiệu ứng trượt kiểu HTML5UP Massively, có Quick View pop‑up." />
 
   <!-- THEME -->
   <style>
     :root{
-      --bg:#0f1220;           /* nền tối sang */
-      --bg-alt:#121630;       /* nền block */
-      --txt:#e6e8f0;          /* chữ chính */
-      --txt-muted:#9aa3b2;    /* chữ phụ */
-      --border:#23284a;       /* viền nhẹ */
-      --primary:#58a6ff;      /* xanh điểm nhấn */
-      --accent:#e53935;       /* đỏ Tết */
-      --accent-2:#ffd166;     /* vàng Tết */
-      --shadow:0 18px 40px rgba(0,0,0,.35);
-      --radius:16px;
-      --wrap:1100px;
+      --bg:#0f1220; --bg-alt:#121630; --txt:#e6e8f0; --txt-muted:#9aa3b2;
+      --border:#23284a; --primary:#58a6ff; --accent:#e53935; --accent-2:#ffd166;
+      --shadow:0 18px 40px rgba(0,0,0,.35); --radius:16px; --wrap:1100px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
@@ -30,10 +22,8 @@
     .wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
 
     /* HEADER */
-    .site-header{
-      position:sticky;top:0;z-index:999;background:rgba(18,22,48,.65);
-      backdrop-filter:blur(10px) saturate(1.2);border-bottom:1px solid var(--border)
-    }
+    .site-header{position:sticky;top:0;z-index:999;background:rgba(18,22,48,.65);
+      backdrop-filter:blur(10px) saturate(1.2);border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:baseline;gap:10px}
     .brand h1{margin:0;font-weight:800;font-size:22px;letter-spacing:.4px}
@@ -43,47 +33,35 @@
     .menu a:hover{background:rgba(88,166,255,.12)}
 
     /* HERO */
-    .hero{
-      padding:46px 0 34px;border-bottom:1px solid var(--border);
+    .hero{padding:46px 0 34px;border-bottom:1px solid var(--border);
       background: radial-gradient(1200px 400px at 10% -10%, rgba(229,57,53,.28), transparent 60%),
-                  radial-gradient(1200px 400px at 90% -20%, rgba(255,209,102,.18), transparent 60%)
-    }
+                  radial-gradient(1200px 400px at 90% -20%, rgba(255,209,102,.18), transparent 60%) }
     .hero-eyebrow{font-size:12px;color:var(--accent-2);letter-spacing:2px;text-transform:uppercase}
-    .hero-title{
-      margin:.2rem 0 0;font-size:44px;line-height:1.06;font-weight:800;
+    .hero-title{margin:.2rem 0 0;font-size:44px;line-height:1.06;font-weight:800;
       background:linear-gradient(90deg,var(--txt),#b2b8c6 60%,var(--txt));
-      -webkit-background-clip:text;background-clip:text;color:transparent
-    }
+      -webkit-background-clip:text;background-clip:text;color:transparent}
     .hero p{color:var(--txt-muted);max-width:720px}
-    .hero .legend{
-      margin-top:20px;border:1px solid var(--border);border-radius:var(--radius);
-      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));
-      box-shadow:var(--shadow);padding:16px 18px
-    }
+    .hero .legend{margin-top:20px;border:1px solid var(--border);border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));box-shadow:var(--shadow);padding:16px 18px}
 
     /* SECTION */
     .section{padding:42px 0;border-bottom:1px solid var(--border)}
     .section h3{margin:0 0 18px;font-size:22px;font-weight:800;letter-spacing:.3px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 
-    .card{
-      border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-alt);
-      padding:16px 16px 18px;box-shadow:var(--shadow)
-    }
+    .card{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-alt);
+      padding:16px 16px 18px;box-shadow:var(--shadow);cursor:pointer;position:relative}
     .card strong{color:var(--accent-2);font-weight:700}
     .card h4{margin:.4rem 0 0;font-weight:700;line-height:1.3}
+    .card::after{content:"";position:absolute;inset:0;border-radius:inherit;transition:box-shadow .25s ease, transform .25s ease}
+    .card:hover::after{box-shadow:0 0 0 2px rgba(88,166,255,.35);transform:translateY(-2px)}
 
     /* REVEAL (Massively-like) */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity 700ms ease,transform 700ms ease;will-change:opacity,transform}
     .reveal.is-in{opacity:1;transform:none}
-    .left{transform:translateX(-36px)}
-    .right{transform:translateX(36px)}
-    .up{transform:translateY(36px)}
+    .left{transform:translateX(-36px)} .right{transform:translateX(36px)} .up{transform:translateY(36px)}
     .is-in.left,.is-in.right,.is-in.up{transform:none}
-    html{scroll-behavior:smooth}
-    :target{scroll-margin-top:84px}
-
-    /* delay wave cho grid */
+    html{scroll-behavior:smooth} :target{scroll-margin-top:84px}
     .grid .reveal:nth-child(1){transition-delay:0ms}
     .grid .reveal:nth-child(2){transition-delay:90ms}
     .grid .reveal:nth-child(3){transition-delay:180ms}
@@ -92,13 +70,30 @@
     .grid .reveal:nth-child(6){transition-delay:450ms}
 
     /* TO-TOP */
-    .to-top{
-      position:fixed;right:18px;bottom:18px;width:44px;height:44px;display:grid;place-items:center;
+    .to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;display:grid;place-items:center;
       border-radius:999px;background:linear-gradient(135deg,var(--primary),#7cc4ff);
       color:#071422;font-weight:800;box-shadow:0 14px 38px rgba(88,166,255,.35);
-      cursor:pointer;opacity:0;transform:translateY(14px);transition:opacity .3s ease,transform .3s ease;z-index:999
-    }
+      cursor:pointer;opacity:0;transform:translateY(14px);transition:opacity .3s ease,transform .3s ease;z-index:999}
     .to-top.show{opacity:1;transform:none}
+
+    /* POP‑UP (Quick View) */
+    .popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1000;
+      background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+    .popup.show{display:flex}
+    .popup-card{width:min(680px,92vw);border-radius:18px;border:1px solid var(--border);
+      background:var(--bg-alt);color:var(--txt);box-shadow:0 28px 80px rgba(0,0,0,.55);
+      transform:translateY(16px);opacity:0;animation:popIn .36s ease forwards}
+    @keyframes popIn{to{transform:none;opacity:1}}
+    .popup-head{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .popup-source{color:var(--accent-2);font-weight:700}
+    .popup-title{margin:.3rem 0 0;font-size:20px;font-weight:800}
+    .popup-body{padding:18px 20px;color:var(--txt-muted);line-height:1.5}
+    .popup-actions{padding:18px 20px;border-top:1px solid var(--border);display:flex;gap:12px;justify-content:flex-end}
+    .btn{border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+    .btn.primary{background:var(--primary);color:#071422;border-color:transparent}
+    .btn.outline{background:transparent;color:var(--txt)}
+    .btn:hover{opacity:.92}
+    .close-x{border:none;background:transparent;color:var(--txt-muted);font-size:22px;cursor:pointer}
   </style>
 </head>
 
@@ -141,15 +136,62 @@
     <div class="wrap">
       <h3>Featured</h3>
       <div class="grid">
-        <!-- Google AI -->
-        <article class="card reveal up"><strong>Google AI</strong><h4>The latest AI news we announced in December</h4></article>
-        <article class="card reveal up"><strong>Google AI</strong><h4>Google's year in review: 8 areas with research breakthroughs in 2025</h4></article>
-        <article class="card reveal up"><strong>Google AI</strong><h4>60 of our biggest AI announcements in 2025</h4></article>
-        <article class="card reveal up"><strong>Google AI</strong><h4>40 of our most helpful AI tips from 2025</h4></article>
-        <article class="card reveal up"><strong>Google AI</strong><h4>5 ways AI agents will transform the way we work in 2026</h4></article>
-        <article class="card reveal up"><strong>Google AI</strong><h4>You can now verify Google AI‑generated videos in the Gemini app.</h4></article>
-        <article class="card reveal up"><strong>Google AI</strong><h4>Inside Kaggle's AI Agents intensive course with Google</h4></article>
-        <article class="card reveal up"><strong>Google AI</strong><h4>Watch a podcast discussion about Gemini 3 and the future of Search.</h4></article>
+        <!-- Mỗi card: thêm data-url + data-summary -->
+        <article class="card reveal up"
+                 data-url="https://ai.googleblog.com/2025/12/latest-google-ai-news.html"
+                 data-summary="Tổng hợp các điểm mới của Google AI trong tháng 12: sản phẩm, nghiên cứu, cập nhật hệ sinh thái.">
+          <strong>Google AI</strong>
+          <h4>The latest AI news we announced in December</h4>
+        </article>
+
+        <article class="card reveal up"
+                 data-url="https://ai.googleblog.com/2025/12/google-ai-year-in-review.html"
+                 data-summary="8 mảng nghiên cứu nổi bật 2025: model, agents, multimodal, robotics… kèm đột phá tiêu biểu.">
+          <strong>Google AI</strong>
+          <h4>Google's year in review: 8 areas with research breakthroughs in 2025</h4>
+        </article>
+
+        <article class="card reveal up"
+                 data-url="https://blog.google/products/ai/top-60-ai-announcements-2025/"
+                 data-summary="Danh sách 60 thông báo AI lớn nhất trong năm 2025 từ Google.">
+          <strong>Google AI</strong>
+          <h4>60 of our biggest AI announcements in 2025</h4>
+        </article>
+
+        <article class="card reveal up"
+                 data-url="https://blog.google/products/ai/top-40-ai-tips-2025/"
+                 data-summary="40 mẹo AI hữu ích nhất năm 2025 cho người dùng phổ thông và doanh nghiệp.">
+          <strong>Google AI</strong>
+          <h4>40 of our most helpful AI tips from 2025</h4>
+        </article>
+
+        <article class="card reveal up"
+                 data-url="https://blog.google/technology/ai/5-ways-ai-agents-transform-work-2026/"
+                 data-summary="5 cách AI agents thay đổi cách làm việc trong 2026: tự động hóa nhiệm vụ, trợ lý doanh nghiệp, UI tự sinh…">
+          <strong>Google AI</strong>
+          <h4>5 ways AI agents will transform the way we work in 2026</h4>
+        </article>
+
+        <article class="card reveal up"
+                 data-url="https://blog.google/products/ai/verify-google-ai-generated-videos-gemini-app/"
+                 data-summary="Giới thiệu tính năng xác thực video sinh bởi Google AI trong ứng dụng Gemini.">
+          <strong>Google AI</strong>
+          <h4>You can now verify Google AI‑generated videos in the Gemini app.</h4>
+        </article>
+
+        <article class="card reveal up"
+                 data-url="https://www.kaggle.com/discussions/ai-agents-intensive-with-google"
+                 data-summary="Bên trong khóa chuyên sâu AI Agents cùng Google trên Kaggle.">
+          <strong>Google AI</strong>
+          <h4>Inside Kaggle's AI Agents intensive course with Google</h4>
+        </article>
+
+        <article class="card reveal up"
+                 data-url="https://blog.google/products/ai/gemini-3-future-of-search-podcast/"
+                 data-summary="Podcast thảo luận về Gemini 3 và tương lai của Search.">
+          <strong>Google AI</strong>
+          <h4>Watch a podcast discussion about Gemini 3 and the future of Search.</h4>
+        </article>
       </div>
     </div>
   </section>
@@ -160,52 +202,77 @@
       <h3>More news</h3>
       <div class="grid">
         <!-- OpenAI -->
-        <article class="card reveal up"><strong>OpenAI</strong><h4>One in a million: celebrating the customers shaping AI’s future</h4></article>
-        <article class="card reveal up"><strong>OpenAI</strong><h4>Continuously hardening ChatGPT Atlas against prompt injection</h4></article>
-        <article class="card reveal up"><strong>OpenAI</strong><h4>Evaluating chain‑of‑thought monitorability</h4></article>
-        <article class="card reveal up"><strong>OpenAI</strong><h4>Deepening our collaboration with the U.S. Department of Energy</h4></article>
-        <article class="card reveal up"><strong>OpenAI</strong><h4>Updating our Model Spec with teen protections</h4></article>
-        <article class="card reveal up"><strong>OpenAI</strong><h4>AI literacy resources for teens and parents</h4></article>
-        <article class="card reveal up"><strong>OpenAI</strong><h4>Introducing GPT‑5.2‑Codex</h4></article>
-        <article class="card reveal up"><strong>OpenAI</strong><h4>Introducing GPT‑5.2‑Codex</h4></article>
+        <article class="card reveal up"
+                 data-url="https://openai.com/blog/one-in-a-million"
+                 data-summary="Tôn vinh khách hàng đang định hình tương lai AI qua các ứng dụng thực tế.">
+          <strong>OpenAI</strong><h4>One in a million: celebrating the customers shaping AI’s future</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://openai.com/blog/hardening-chatgpt-atlas-against-prompt-injection"
+                 data-summary="Củng cố Atlas chống prompt injection và các kỹ thuật tấn công.">
+          <strong>OpenAI</strong><h4>Continuously hardening ChatGPT Atlas against prompt injection</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://openai.com/research/evaluating-chain-of-thought-monitorability"
+                 data-summary="Đánh giá khả năng giám sát chain‑of‑thought trong mô hình ngôn ngữ.">
+          <strong>OpenAI</strong><h4>Evaluating chain‑of‑thought monitorability</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://openai.com/blog/department-of-energy-collaboration"
+                 data-summary="Thắt chặt hợp tác với Bộ Năng lượng Hoa Kỳ trên các dự án AI.">
+          <strong>OpenAI</strong><h4>Deepening our collaboration with the U.S. Department of Energy</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://openai.com/policies/model-spec-update"
+                 data-summary="Cập nhật Model Spec với các biện pháp bảo vệ thanh thiếu niên.">
+          <strong>OpenAI</strong><h4>Updating our Model Spec with teen protections</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://openai.com/blog/ai-literacy-resources-teens-parents"
+                 data-summary="Tài nguyên nâng cao hiểu biết AI cho phụ huynh và thanh thiếu niên.">
+          <strong>OpenAI</strong><h4>AI literacy resources for teens and parents</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://openai.com/blog/introducing-gpt-5-2-codex"
+                 data-summary="Giới thiệu GPT‑5.2‑Codex cho trải nghiệm lập trình thế hệ mới.">
+          <strong>OpenAI</strong><h4>Introducing GPT‑5.2‑Codex</h4>
+        </article>
 
         <!-- HuggingFace -->
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>AprielGuard: A Guardrail for Safety and Adversarial Robustness in Modern LLM Systems</h4></article>
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>Tokenization in Transformers v5: Simpler, Clearer, and More Modular</h4></article>
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>The Open Evaluation Standard: Benchmarking NVIDIA Nemotron 3 Nano with NeMo Evaluator</h4></article>
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>CUGA on Hugging Face: Democratizing Configurable AI Agents</h4></article>
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>New in llama.cpp: Model Management</h4></article>
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>Codex is Open Sourcing AI models</h4></article>
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>Introducing swift‑huggingface: The Complete Swift Client for Hugging Face</h4></article>
-        <article class="card reveal up"><strong>HuggingFace</strong><h4>DeepMath: A lightweight math reasoning Agent with smolagents</h4></article>
+        <article class="card reveal up"
+                 data-url="https://huggingface.co/blog/aprielguard"
+                 data-summary="AprielGuard: guardrail tăng an toàn và chống đối kháng cho LLM.">
+          <strong>HuggingFace</strong><h4>AprielGuard: A Guardrail for Safety and Adversarial Robustness</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://huggingface.co/blog/transformers-v5-tokenization"
+                 data-summary="Tokenization trong Transformers v5: đơn giản hơn, rõ ràng hơn.">
+          <strong>HuggingFace</strong><h4>Tokenization in Transformers v5</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://huggingface.co/blog/open-evaluation-standard"
+                 data-summary="Chuẩn Open Evaluation: benchmark Nemotron 3 Nano bằng NeMo Evaluator.">
+          <strong>HuggingFace</strong><h4>The Open Evaluation Standard</h4>
+        </article>
 
-        <!-- Towards Data Science -->
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>EDA in Public (Part 3): RFM Analysis for Customer Segmentation in Pandas</h4></article>
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>Deep Reinforcement Learning: The Actor‑Critic Method</h4></article>
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>Production‑Ready LLMs Made Simple with the NeMo Agent Toolkit</h4></article>
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>What Advent of Code Has Taught Me About Data Science</h4></article>
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>Chunk Size as an Experimental Variable in RAG Systems</h4></article>
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>The Machine Learning “Advent Calendar” Bonus 2: Gradient Descent Variants in Excel</h4></article>
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems</h4></article>
-        <article class="card reveal up"><strong>Towards Data Science</strong><h4>The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel</h4></article>
+        <!-- VTV AI (đại diện) -->
+        <article class="card reveal up"
+                 data-url="https://vtv.vn/ai/openai-day-chatgpt-cach-nhan-loi.html"
+                 data-summary="OpenAI huấn luyện ChatGPT học cách nhận lỗi, cải thiện tính trung thực.">
+          <strong>VTV AI</strong><h4>OpenAI đang dạy cho ChatGPT cách nhận lỗi</h4>
+        </article>
+        <article class="card reveal up"
+                 data-url="https://vtv.vn/ai/ceo-jensen-huang-tuong-lai-thuoc-ve-nguoi-co-gu.html"
+                 data-summary="CEO Jensen Huang: trong kỷ nguyên AI, tương lai thuộc về người có 'gu'.">
+          <strong>VTV AI</strong><h4>CEO Jensen Huang tiết lộ sốc về tương lai AI</h4>
+        </article>
 
-        <!-- Analytics Vidhya -->
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>Google T5Gemma‑2 Explained: Trying Out a Laptop‑Friendly Multimodal AI Model</h4></article>
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>Student ID Benefits Worth Thousands: Get 15+ Premium Tools For Free or on Discount</h4></article>
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>15 Best Python Books for Beginners to Advanced Learners [2026 Edition]</h4></article>
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>10 Awesome Docker Projects for Beginners</h4></article>
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>What is Chain of Thought (CoT) Prompting?</h4></article>
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>What is F1 Score in Machine Learning?</h4></article>
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems</h4></article>
-        <article class="card reveal up"><strong>Analytics Vidhya</strong><h4>Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces</h4></article>
-
-        <!-- VTV AI / GenK AI (đại diện) -->
-        <article class="card reveal up"><strong>VTV AI</strong><h4>OpenAI đang dạy cho ChatGPT cách nhận lỗi</h4></article>
-        <article class="card reveal up"><strong>VTV AI</strong><h4>CEO Jensen Huang tiết lộ sốc: Trong kỷ nguyên AI, tương lai thuộc về người có “gu"</h4></article>
-        <article class="card reveal up"><strong>VTV AI</strong><h4>Mỹ dự định xây trung tâm dữ liệu AI chạy bằng lò phản ứng hạt nhân quân sự "về hưu"</h4></article>
-        <article class="card reveal up"><strong>VTV AI</strong><h4>Tại sao ASUS đánh giá laptop AI sẽ trở thành động lực tăng trưởng mới?</h4></article>
-        <article class="card reveal up"><strong>GenK AI</strong><h4>200.000 nhân viên ngân hàng sắp thất nghiệp vì AI</h4></article>
-        <article class="card reveal up"><strong>GenK AI</strong><h4>Khi AI không còn là trào lưu, mà trở thành một phần của nhịp sống số</h4></article>
+        <!-- GenK AI (đại diện) -->
+        <article class="card reveal up"
+                 data-url="https://genk.vn/200000-nhan-vien-ngan-hang-sap-that-nghiep-vi-ai-2025-xxxxx.chn"
+                 data-summary="Dự báo tác động của AI tới nhân sự ngân hàng: vai trò lặp lại có nguy cơ.">
+          <strong>GenK AI</strong><h4>200.000 nhân viên ngân hàng sắp thất nghiệp vì AI</h4>
+        </article>
       </div>
     </div>
   </section>
@@ -214,7 +281,7 @@
   <section id="how" class="section reveal up">
     <div class="wrap">
       <h3>How it works</h3>
-      <p style="color:var(--txt-muted)">Click any card → preview in Quick View → open full article. Use Translate at the top right.</p>
+      <p style="color:var(--txt-muted)">Click card → xem nhanh trong pop‑up → bấm “Xem đầy đủ” để mở link gốc ở tab mới.</p>
     </div>
   </section>
 
@@ -222,34 +289,86 @@
   <section id="contact" class="section reveal left">
     <div class="wrap">
       <h3>Contact</h3>
-      <p>Want thêm lồng đèn rủ xuống, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</p>
+      <p>Muốn thêm lồng đèn, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</p>
       <p style="color:var(--txt-muted)">FROM MR. THOR WITH LOVE</p>
-      <p><a href="#">Open full article →</a></p>
     </div>
   </section>
+
+  <!-- POP‑UP -->
+  <div id="popup" class="popup" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="popup-card">
+      <div class="popup-head">
+        <div>
+          <div class="popup-source" id="popupSource">Source</div>
+          <div class="popup-title" id="popupTitle">Title goes here</div>
+        </div>
+        <button class="close-x" id="popupClose" aria-label="Đóng">×</button>
+      </div>
+      <div class="popup-body" id="popupBody">
+        Tóm tắt ngắn sẽ hiển thị ở đây.
+      </div>
+      <div class="popup-actions">
+        <a id="popupOpen" class="btn primary" href="#" target="_blank" rel="noopener">Xem đầy đủ →</a>
+        <button class="btn outline" id="popupDismiss">Đóng</button>
+      </div>
+    </div>
+  </div>
 
   <!-- TO TOP -->
   <button id="toTop" class="to-top" aria-label="Về đầu trang">↑</button>
 
-  <!-- JS: Reveal on Scroll + to-top + anchor focus -->
+  <!-- JS -->
   <script>
     (function(){
-      // Reveal on scroll
+      /* Reveal on scroll */
       const opts={root:null,rootMargin:'0px 0px -10% 0px',threshold:.15};
       const io=new IntersectionObserver((ents)=>{
-        ents.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.classList.add('is-in'); io.unobserve(e.target);
-          }
-        });
+        ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
       },opts);
       document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-      // Nút to-top
+      /* To-top button */
       const btn=document.getElementById('toTop');
       const onScroll=()=>{ if(scrollY>240) btn.classList.add('show'); else btn.classList.remove('show'); };
       addEventListener('scroll',onScroll,{passive:true});
       btn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+      /* Quick View Pop-up */
+      const popup=document.getElementById('popup');
+      const popupSource=document.getElementById('popupSource');
+      const popupTitle=document.getElementById('popupTitle');
+      const popupBody=document.getElementById('popupBody');
+      const popupOpen=document.getElementById('popupOpen');
+      const popupClose=document.getElementById('popupClose');
+      const popupDismiss=document.getElementById('popupDismiss');
+
+      function openPopup({source,title,summary,url}){
+        popupSource.textContent=source||'';
+        popupTitle.textContent=title||'';
+        popupBody.textContent=summary||'';
+        popupOpen.href=url||'#';
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden','false');
+      }
+      function closePopup(){
+        popup.classList.remove('show');
+        popup.setAttribute('aria-hidden','true');
+      }
+      popupClose.addEventListener('click',closePopup);
+      popupDismiss.addEventListener('click',closePopup);
+      popup.addEventListener('click',(e)=>{ if(e.target===popup) closePopup(); }); // click nền để đóng
+      addEventListener('keydown',(e)=>{ if(e.key==='Escape') closePopup(); });     // ESC để đóng
+
+      // Gắn sự kiện click cho card
+      document.querySelectorAll('.card').forEach(card=>{
+        card.addEventListener('click',()=>{
+          const source=card.querySelector('strong')?.textContent?.trim()||'';
+          const title=card.querySelector('h4')?.textContent?.trim()||'';
+          const summary=card.getAttribute('data-summary')||'';
+          const url=card.getAttribute('data-url')||'#';
+          openPopup({source,title,summary,url});
+        });
+      });
 
       // Focus nhẹ khi đổi hash
       addEventListener('hashchange',()=>{
@@ -259,5 +378,4 @@
     })();
   </script>
 </body>
-</html>
-``
+</
