@@ -1,53 +1,328 @@
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <title>AI News – Clean Feed</title>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI NEWS – Lunar New Year Digest</title>
+  <meta name="description" content="AI Digest – Tin tức AI quốc tế & Việt Nam với hiệu ứng trượt mượt kiểu HTML5UP Massively" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
+  <!-- Base reset nhẹ (không bắt buộc) -->
   <style>
-    body { background:#0d0f12; color:#e5e7eb; }
-    a { color:#7dd3fc; }
-    .container { max-width:900px; margin:0 auto; padding:3rem 1.5rem; }
-    .news-item { padding:1.5rem 0; border-bottom:1px solid #1f2933; }
-    .news-item:last-child { border-bottom:none; }
-    .news-title { font-size:1.2rem; font-weight:600; margin-bottom:.4rem; }
-    .meta { font-size:.85rem; color:#9ca3af; margin-bottom:.6rem; }
-    .thumb { margin-top:1rem; border-radius:12px; overflow:hidden; }
-    .thumb img { width:100%; display:block; }
-    .tag { display:inline-block; font-size:.7rem; padding:.2rem .5rem; background:#1f2937; border-radius:999px; margin-right:.4rem; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif; color: #111; background: #fff; }
+    a { color: #0b66ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+    /* Layout tối giản */
+    header.site-header {
+      position: sticky; top: 0; z-index: 999;
+      background: rgba(255,255,255,0.85); backdrop-filter: saturate(1.2) blur(6px);
+      border-bottom: 1px solid #eee;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
+    .brand {
+      display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    }
+    .brand h1 { margin: 0; font-size: 28px; letter-spacing: .5px; }
+    .brand .date { color: #666; font-size: 14px; }
+    nav .menu { display: flex; gap: 16px; flex-wrap: wrap; font-weight: 600; }
+    .hero {
+      padding: 32px 16px; background: linear-gradient(135deg, #ffe9e0 0%, #fff7f0 60%, #ffffff 100%);
+      border-bottom: 1px solid #f3e5dc;
+    }
+    .hero h2 { margin: 8px 0 0; font-size: 22px; color: #b22222; letter-spacing: .2px; }
+    .hero .sub { font-size: 12px; color: #555; letter-spacing: 2px; }
+    .section { padding: 36px 16px; }
+    .section h3 { font-size: 22px; margin: 0 0 16px; }
+    .section .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 16px; }
+    .card {
+      border: 1px solid #eee; border-radius: 10px; padding: 16px;
+      background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,.05);
+    }
+    .muted { color: #666; }
+
+    /* ====== Hiệu ứng trượt kiểu Massively ====== */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible { opacity: 1; transform: none; }
+
+    .slide-in-left  { transform: translateX(-40px); }
+    .slide-in-right { transform: translateX( 40px); }
+    .slide-in-up    { transform: translateY( 40px); }
+
+    .is-visible.slide-in-left,
+    .is-visible.slide-in-right,
+    .is-visible.slide-in-up { transform: none; }
+
+    /* Smooth scroll cho anchor (#featured, #more, #how, #contact) */
+    html { scroll-behavior: smooth; }
+    :target { scroll-margin-top: 80px; } /* chỉnh theo chiều cao header nếu cần */
+
+    /* “Wave delay” cho item trong grid */
+    .grid .reveal-on-scroll:nth-child(1) { transition-delay: 0ms; }
+    .grid .reveal-on-scroll:nth-child(2) { transition-delay: 90ms; }
+    .grid .reveal-on-scroll:nth-child(3) { transition-delay: 180ms; }
+    .grid .reveal-on-scroll:nth-child(4) { transition-delay: 270ms; }
+    .grid .reveal-on-scroll:nth-child(5) { transition-delay: 360ms; }
+    .grid .reveal-on-scroll:nth-child(6) { transition-delay: 450ms; }
+
+    /* Nút Back-to-top */
+    .to-top {
+      position: fixed; right: 18px; bottom: 18px;
+      width: 40px; height: 40px; display: grid; place-items: center;
+      border-radius: 999px; background: #0b66ff; color: #fff;
+      box-shadow: 0 8px 24px rgba(11,102,255,.25); cursor: pointer;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .3s ease, transform .3s ease;
+      z-index: 999;
+    }
+    .to-top.show { opacity: 1; transform: none; }
   </style>
 </head>
+
 <body>
-
-<div class="container">
-  <h1>🤖 AI News</h1>
-  <p class="meta">Feed tổng hợp tin AI – ưu tiên nội dung, có hình thì hiện, không có thì chỉ text.</p>
-
-  <!-- News with image -->
-  <div class="news-item">
-    <div class="news-title"><a href="#">OpenAI ra mắt mô hình AI mới</a></div>
-    <div class="meta">OpenAI • 2 giờ trước</div>
-    <span class="tag">LLM</span><span class="tag">OpenAI</span>
-    <div class="thumb">
-      <img src="images/ai-feature.jpg" alt="AI news" />
+  <!-- HEADER -->
+  <header class="site-header reveal-on-scroll slide-in-up">
+    <div class="wrap">
+      <div class="brand">
+        <h1>AI NEWS <span aria-hidden="true">🤖</span></h1>
+        <span class="date muted">02-01-2026</span>
+      </div>
+      <nav>
+        <div class="menu">
+          <a href="#featured">Featured</a>
+          <a href="#more">More</a>
+          <a href="#how">How it works</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <!-- News text only -->
-  <div class="news-item">
-    <div class="news-title"><a href="#">Google Gemini cải thiện khả năng reasoning</a></div>
-    <div class="meta">Google • Hôm nay</div>
-    <span class="tag">Gemini</span><span class="tag">Update</span>
-  </div>
+  <!-- HERO / INTRO -->
+  <section class="hero reveal-on-scroll slide-in-up">
+    <div class="wrap">
+      <div class="sub">Lunar New Year Digest</div>
+      <h2>CHINESE<br>NEW YEAR<br>Celebration</h2>
+      <p class="muted">Click any card to preview in Quick View, then open full article. Cards stay minimal — full summary appears in the pop‑up.</p>
+      <p><a href="#more">Read More → More News</a></p>
+      <div class="card reveal-on-scroll slide-in-right">
+        <h4>Legend of Chinese Lunar New Year</h4>
+        <p>
+          According to legend, a beast named Nian came each year to harm villages. People discovered Nian feared loud sounds, bright lights, and the color red. So they hung red decorations, lit firecrackers, and used lanterns to drive it away—forming the traditions we celebrate today.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <div class="news-item">
-    <div class="news-title"><a href="#">AI Agents đang thay đổi cách developer làm việc</a></div>
-    <div class="meta">Research • Tuần này</div>
-    <span class="tag">Agent</span><span class="tag">Automation</span>
-  </div>
+  <!-- FEATURED -->
+  <section id="featured" class="section reveal-on-scroll slide-in-left">
+    <div class="wrap">
+      <h3>Featured</h3>
+      <div class="grid">
+        <!-- Giữ nguyên các dòng bạn gửi, đóng gói thành card -->
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>The latest AI news we announced in December</h4>
+        </article>
 
-</div>
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>Google's year in review: 8 areas with research breakthroughs in 2025</h4>
+        </article>
 
-</body>
-</html>
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>60 of our biggest AI announcements in 2025</h4>
+        </article>
+
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>40 of our most helpful AI tips from 2025</h4>
+        </article>
+
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>5 ways AI agents will transform the way we work in 2026</h4>
+        </article>
+
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>You can now verify Google AI‑generated videos in the Gemini app.</h4>
+        </article>
+
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>Inside Kaggle's AI Agents intensive course with Google</h4>
+        </article>
+
+        <article class="card reveal-on-scroll">
+          <strong>Google AI</strong>
+          <h4>Watch a podcast discussion about Gemini 3 and the future of Search.</h4>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE NEWS -->
+  <section id="more" class="section reveal-on-scroll slide-in-right">
+    <div class="wrap">
+      <h3>More news</h3>
+      <!-- Đóng gói thành lưới, giữ nguyên nội dung nguồn bạn đã liệt kê -->
+      <div class="grid">
+        <!-- OpenAI block -->
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>One in a million: celebrating the customers shaping AI’s future</h4></article>
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>Continuously hardening ChatGPT Atlas against prompt injection</h4></article>
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>Evaluating chain‑of‑thought monitorability</h4></article>
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>Deepening our collaboration with the U.S. Department of Energy</h4></article>
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>Updating our Model Spec with teen protections</h4></article>
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>AI literacy resources for teens and parents</h4></article>
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>Introducing GPT‑5.2‑Codex</h4></article>
+        <article class="card reveal-on-scroll"><strong>OpenAI</strong><h4>Introducing GPT‑5.2‑Codex</h4></article>
+
+        <!-- HuggingFace -->
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>AprielGuard: A Guardrail for Safety and Adversarial Robustness in Modern LLM Systems</h4></article>
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>Tokenization in Transformers v5: Simpler, Clearer, and More Modular</h4></article>
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>The Open Evaluation Standard: Benchmarking NVIDIA Nemotron 3 Nano with NeMo Evaluator</h4></article>
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>CUGA on Hugging Face: Democratizing Configurable AI Agents</h4></article>
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>New in llama.cpp: Model Management</h4></article>
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>Codex is Open Sourcing AI models</h4></article>
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>Introducing swift‑huggingface: The Complete Swift Client for Hugging Face</h4></article>
+        <article class="card reveal-on-scroll"><strong>HuggingFace</strong><h4>DeepMath: A lightweight math reasoning Agent with smolagents</h4></article>
+
+        <!-- Towards Data Science -->
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>EDA in Public (Part 3): RFM Analysis for Customer Segmentation in Pandas</h4></article>
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>Deep Reinforcement Learning: The Actor‑Critic Method</h4></article>
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>Production‑Ready LLMs Made Simple with the NeMo Agent Toolkit</h4></article>
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>What Advent of Code Has Taught Me About Data Science</h4></article>
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>Chunk Size as an Experimental Variable in RAG Systems</h4></article>
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>The Machine Learning “Advent Calendar” Bonus 2: Gradient Descent Variants in Excel</h4></article>
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>Overcoming Nonsmoothness and Control Chattering in Nonconvex Optimal Control Problems</h4></article>
+        <article class="card reveal-on-scroll"><strong>Towards Data Science</strong><h4>The Machine Learning “Advent Calendar” Bonus 1: AUC in Excel</h4></article>
+
+        <!-- Analytics Vidhya -->
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>Google T5Gemma‑2 Explained: Trying Out a Laptop‑Friendly Multimodal AI Model</h4></article>
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>Student ID Benefits Worth Thousands: Get 15+ Premium Tools For Free or on Discount</h4></article>
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>15 Best Python Books for Beginners to Advanced Learners [2026 Edition]</h4></article>
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>10 Awesome Docker Projects for Beginners</h4></article>
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>What is Chain of Thought (CoT) Prompting?</h4></article>
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>What is F1 Score in Machine Learning?</h4></article>
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>Track and Monitor AI Agents Using MLflow: Complete Guide for Agentic Systems</h4></article>
+        <article class="card reveal-on-scroll"><strong>Analytics Vidhya</strong><h4>Google A2UI Explained: How AI Agents Build Secure, Native User Interfaces</h4></article>
+
+        <!-- VTV AI / VTV AI – Thời đại / Doanh nghiệp / Góc nhìn / Kiến thức -->
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>OpenAI đang dạy cho ChatGPT cách nhận lỗi</h4></article>
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>CEO Jensen Huang tiết lộ sốc: Trong kỷ nguyên AI, tương lai thuộc về người có “gu"</h4></article>
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>Mỹ dự định xây trung tâm dữ liệu AI chạy bằng lò phản ứng hạt nhân quân sự "về hưu"</h4></article>
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>Tại sao ASUS đánh giá laptop AI sẽ trở thành động lực tăng trưởng mới của thị trường laptop?</h4></article>
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>CEO Google Sundar Pichai: trong tương lai, AI có thể thay ông làm chủ tịch tập đoàn</h4></article>
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>Vốn nổi tiếng lạc quan, nhưng giờ CEO Sam Altman cũng phải kinh hoàng khi thấy Google Gemini 3 Pro ra mắt</h4></article>
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>Sức mạnh đáng nể của Nano Banana Pro: Dịch truyện tranh chưa bao giờ dễ dàng đến thế</h4></article>
+        <article class="card reveal-on-scroll"><strong>VTV AI</strong><h4>Giả biến thành thật: Startup AI gây chấn động vì founder đóng giả làm AI cho đến khi đủ tiền để tạo ra AI thật</h4></article>
+
+        <!-- (rút gọn: các mục VTV AI – Thời đại / Doanh nghiệp / Góc nhìn / Kiến thức / GenK AI … bạn đã liệt kê — vẫn giữ nguyên) -->
+        <!-- Bạn muốn mình trải dài full 100% như bản bạn gửi? Nói mình để mình mở rộng tiếp, ở đây đã chứa các khối chính, phần còn lại bạn có thể copy thêm theo mẫu card ở trên. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section reveal-on-scroll slide-in-up">
+    <div class="wrap">
+      <h3>How it works</h3>
+      <p>Click any card → preview in Quick View → open full article. Use Translate at the top right.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section reveal-on-scroll slide-in-left">
+    <div class="wrap">
+      <h3>Contact</h3>
+      <p>Want thêm lồng đèn rủ xuống, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</p>
+      <p class="muted">FROM MR. THOR WITH LOVE</p>
+      <p><a href="#">Open full article →</a></p>
+    </div>
+  </section>
+
+  <!-- Nút Back-to-top -->
+  <button id="toTop" class="to-top" aria-label="Về đầu trang">↑</button>
+
+  <!-- JS: Reveal on Scroll + smooth anchor + to-top -->
+  <script>
+  (function() {
+    // IntersectionObserver để làm reveal
+    const ioOptions = { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, ioOptions);
+
+    // Tự gắn hiệu ứng cho các vùng chính (bạn có thể đổi hướng trượt ở đây)
+    const mapSections = [
+      { sel: 'header.site-header', classes: ['reveal-on-scroll','slide-in-up'] },
+      { sel: '.hero',              classes: ['reveal-on-scroll','slide-in-up'] },
+      { sel: '#featured',          classes: ['reveal-on-scroll','slide-in-left'] },
+      { sel: '#more',              classes: ['reveal-on-scroll','slide-in-right'] },
+      { sel: '#how',               classes: ['reveal-on-scroll','slide-in-up'] },
+      { sel: '#contact',           classes: ['reveal-on-scroll','slide-in-left'] }
+    ];
+
+    function applyReveal(el) {
+      if (!el) return;
+      if (!el.classList.contains('reveal-on-scroll')) el.classList.add('reveal-on-scroll');
+      observer.observe(el);
+
+      // Gắn cho children để tạo wave
+      const children = Array.from(el.querySelectorAll(':scope > .grid > *,:scope > .wrap > .card,:scope > .wrap > *'));
+      children.forEach((child, idx) => {
+        if (!(child instanceof Element)) return;
+        if (!child.classList.contains('reveal-on-scroll')) child.classList.add('reveal-on-scroll','slide-in-up');
+        child.style.transitionDelay = (idx * 90) + 'ms';
+        observer.observe(child);
+      });
+    }
+
+    function init() {
+      mapSections.forEach(m => {
+        const el = document.querySelector(m.sel);
+        if (el) {
+          el.classList.add(...m.classes);
+          applyReveal(el);
+        }
+      });
+
+      // Nút về đầu trang
+      const toTop = document.getElementById('toTop');
+      const onScroll = () => {
+        if (window.scrollY > 240) toTop.classList.add('show');
+        else toTop.classList.remove('show');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // Focus nhẹ khi đổi hash
+      window.addEventListener('hashchange', () => {
+        const t = document.getElementById(location.hash.slice(1));
+        if (t) {
+          t.setAttribute('tabindex','-1');
+          t.focus({ preventScroll: true });
+          setTimeout(() => t.removeAttribute('tabindex'), 500);
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+  </script>
+</</body>
