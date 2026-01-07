@@ -4,19 +4,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI NEWS — Lunar New Year Digest</title>
-  <meta name="description" content="AI Digest — Tin tức AI quốc tế & Việt Nam, hiệu ứng trượt Massively, Quick View pop‑up." />
+  <title>Catalog Shopee — Thor</title>
+  <meta name="description" content="Catalog trưng bày sản phẩm Shopee bằng ảnh riêng, có lọc danh mục, pop‑up Quick View và giỏ hàng cục bộ." />
 
   <!-- THEME -->
   <style>
     :root{
+      /* Vibe Shopee (cam) */
       --bg:#0f1220; --bg-alt:#121630; --txt:#e6e8f0; --txt-muted:#9aa3b2;
-      --border:#23284a; --primary:#58a6ff; --accent:#e53935; --accent-2:#ffd166;
+      --border:#23284a; --primary:#ff6a00; --primary-2:#ff8f3f;
+      --accent:#e53935; --accent-2:#ffd166;
       --shadow:0 18px 40px rgba(0,0,0,.35); --radius:16px; --wrap:1100px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
-    a{color:var(--primary);text-decoration:none}
+    a{color:var(--primary-2);text-decoration:none}
     a:hover{text-decoration:underline}
     img{max-width:100%;display:block}
     .wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
@@ -30,32 +32,50 @@
     .brand .date{font-size:13px;color:var(--txt-muted)}
     .menu{display:flex;gap:18px;font-weight:600}
     .menu a{padding:8px 10px;border-radius:10px}
-    .menu a:hover{background:rgba(88,166,255,.12)}
+    .menu a:hover{background:rgba(255,255,255,.08)}
+    .cart-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#141414;border:none;
+      padding:8px 12px;border-radius:999px;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(255,106,0,.35)}
+    .cart-count{background:#141414;color:#fff;border-radius:999px;padding:2px 8px;font-size:12px}
 
     /* HERO */
     .hero{padding:46px 0 34px;border-bottom:1px solid var(--border);
       background: radial-gradient(1200px 400px at 10% -10%, rgba(229,57,53,.28), transparent 60%),
                   radial-gradient(1200px 400px at 90% -20%, rgba(255,209,102,.18), transparent 60%) }
     .hero-eyebrow{font-size:12px;color:var(--accent-2);letter-spacing:2px;text-transform:uppercase}
-    .hero-title{margin:.2rem 0 0;font-size:44px;line-height:1.06;font-weight:800;
+    .hero-title{margin:.2rem 0 0;font-size:40px;line-height:1.06;font-weight:800;
       background:linear-gradient(90deg,var(--txt),#b2b8c6 60%,var(--txt));
       -webkit-background-clip:text;background-clip:text;color:transparent}
     .hero p{color:var(--txt-muted);max-width:720px}
-    .hero .legend{margin-top:20px;border:1px solid var(--border);border-radius:var(--radius);
-      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));box-shadow:var(--shadow);padding:16px 18px}
 
     /* SECTION */
     .section{padding:42px 0;border-bottom:1px solid var(--border)}
     .section h3{margin:0 0 18px;font-size:22px;font-weight:800;letter-spacing:.3px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-    .card{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-alt);
-      padding:16px 16px 18px;box-shadow:var(--shadow);cursor:pointer;position:relative}
-    .card strong{color:var(--accent-2);font-weight:700}
-    .card h4{margin:.4rem 0 0;font-weight:700;line-height:1.3}
-    .card::after{content:"";position:absolute;inset:0;border-radius:inherit;transition:box-shadow .25s ease, transform .25s ease}
-    .card:hover::after{box-shadow:0 0 0 2px rgba(88,166,255,.35);transform:translateY(-2px)}
 
-    /* REVEAL */
+    /* FILTERS */
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 16px}
+    .chip{padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--txt);cursor:pointer}
+    .chip.active{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#141414;border-color:transparent}
+    .search{display:flex;gap:10px;margin-top:8px}
+    .search input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg-alt);color:var(--txt)}
+
+    /* CARD PRODUCT */
+    .card{border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-alt);
+      padding:0;box-shadow:var(--shadow);cursor:pointer;position:relative;display:flex;flex-direction:column}
+    .card .thumb{aspect-ratio:4/3;border-bottom:1px solid var(--border);background:#1a1f3a;display:flex;align-items:center;justify-content:center}
+    .card .thumb img{width:100%;height:100%;object-fit:cover;border-top-left-radius:var(--radius);border-top-right-radius:var(--radius)}
+    .card .body{padding:14px 14px 12px}
+    .card strong{color:var(--accent-2);font-weight:700}
+    .card h4{margin:.3rem 0 .35rem;font-weight:800;line-height:1.25}
+    .price{color:#9fe0ff;font-weight:800}
+    .card .actions{display:flex;gap:8px;margin-top:10px}
+    .btn{border:1px solid var(--border);border-radius:12px;padding:8px 12px;font-weight:700;cursor:pointer}
+    .btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#141414;border-color:transparent}
+    .btn.outline{background:transparent;color:var(--txt)}
+    .card::after{content:"";position:absolute;inset:0;border-radius:inherit;transition:box-shadow .25s ease, transform .25s ease}
+    .card:hover::after{box-shadow:0 0 0 2px rgba(255,106,0,.35);transform:translateY(-2px)}
+
+    /* REVEAL (Massively-like) */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity 700ms ease,transform 700ms ease;will-change:opacity,transform}
     .reveal.is-in{opacity:1;transform:none}
     .left{transform:translateX(-36px)} .right{transform:translateX(36px)} .up{transform:translateY(36px)}
@@ -68,31 +88,37 @@
     .grid .reveal:nth-child(5){transition-delay:360ms}
     .grid .reveal:nth-child(6){transition-delay:450ms}
 
-    /* TO‑TOP */
-    .to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;display:grid;place-items:center;
-      border-radius:999px;background:linear-gradient(135deg,var(--primary),#7cc4ff);
-      color:#071422;font-weight:800;box-shadow:0 14px 38px rgba(88,166,255,.35);
-      cursor:pointer;opacity:0;transform:translateY(14px);transition:opacity .3s ease,transform .3s ease;z-index:999}
-    .to-top.show{opacity:1;transform:none}
-
-    /* POP‑UP */
+    /* POP‑UP (Quick View) */
     .popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:1000;
       background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
     .popup.show{display:flex}
-    .popup-card{width:min(680px,92vw);border-radius:18px;border:1px solid var(--border);
+    .popup-card{width:min(820px,92vw);border-radius:18px;border:1px solid var(--border);
       background:var(--bg-alt);color:var(--txt);box-shadow:0 28px 80px rgba(0,0,0,.55);
       transform:translateY(16px);opacity:0;animation:popIn .36s ease forwards}
     @keyframes popIn{to{transform:none;opacity:1}}
     .popup-head{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
     .popup-source{color:var(--accent-2);font-weight:700}
     .popup-title{margin:.3rem 0 0;font-size:20px;font-weight:800}
-    .popup-body{padding:18px 20px;color:var(--txt-muted);line-height:1.5}
+    .popup-body{padding:0 20px 18px;color:var(--txt-muted);line-height:1.5;display:grid;grid-template-columns:280px 1fr;gap:16px}
+    .popup-body img{width:100%;border-radius:14px;border:1px solid var(--border)}
+    .popup-summary{margin-top:6px}
+    .popup-price{color:#9fe0ff;font-weight:800}
     .popup-actions{padding:18px 20px;border-top:1px solid var(--border);display:flex;gap:12px;justify-content:flex-end}
-    .btn{border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
-    .btn.primary{background:var(--primary);color:#071422;border-color:transparent}
-    .btn.outline{background:transparent;color:var(--txt)}
-    .btn:hover{opacity:.92}
     .close-x{border:none;background:transparent;color:var(--txt-muted);font-size:22px;cursor:pointer}
+
+    /* CART DRAWER */
+    .drawer{position:fixed;top:0;right:0;width:min(380px,92vw);height:100vh;background:var(--bg-alt);border-left:1px solid var(--border);
+      box-shadow:-8px 0 24px rgba(0,0,0,.35);transform:translateX(100%);transition:transform .3s ease;z-index:1001}
+    .drawer.show{transform:none}
+    .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border)}
+    .drawer-list{padding:12px 16px;display:flex;flex-direction:column;gap:12px;max-height:calc(100vh - 210px);overflow:auto}
+    .drawer-item{display:flex;gap:10px;border:1px solid var(--border);border-radius:12px;padding:10px;background:#0e152f}
+    .drawer-item img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:1px solid var(--border)}
+    .drawer-item .meta{flex:1}
+    .drawer-foot{padding:14px 16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:10px}
+    .total{display:flex;justify-content:space-between;font-weight:800}
+    .drawer-actions{display:flex;gap:8px}
+    .empty{color:var(--txt-muted);text-align:center;padding:20px}
   </style>
 </head>
 
@@ -101,108 +127,167 @@
   <header class="site-header reveal up">
     <div class="wrap nav">
       <div class="brand">
-        <h1>AI NEWS <span aria-hidden="true">🤖</span></h1>
-        <span class="date">02-01-2026</span>
+        <h1>Catalog Shopee <span aria-hidden="true">🛍️</span></h1>
+        <span class="date">Cập nhật: 07-01-2026</span>
       </div>
-      <!-- MENU ĐÚNG CHUẨN -->
       <nav class="menu">
-        #featuredFeatured</a>
-        #moreMore</a>
-        #howHow it works</a>
-        #contactContact</a>
+        #featuredNổi bật</a>
+        #catalogDanh mục</a>
+        #howHướng dẫn</a>
+        #contactLiên hệ</a>
       </nav>
+      <button id="openCart" class="cart-btn" aria-label="Mở giỏ hàng">
+        <span>Giỏ hàng</span><span id="cartCount" class="cart-count">0</span>
+      </button>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero reveal up">
     <div class="wrap">
-      <div class="hero-eyebrow">Lunar New Year Digest</div>
-      <h2 class="hero-title">CHINESE<br>NEW YEAR<br>Celebration</h2>
-      <p>Click any card to preview in Quick View, then open full article. Cards stay minimal — full summary appears in the pop‑up.</p>
-      <p>#moreRead More → More News</a></p>
-
-      <div class="legend reveal right">
-        <h4 style="margin:0 0 8px;color:var(--accent)">Legend of Chinese Lunar New Year</h4>
-        <p class="muted" style="margin:0;color:var(--txt-muted)">
-          According to legend, a beast named Nian came each year to harm villages. People discovered Nian feared loud sounds, bright lights, and the color red. So they hung red decorations, lit firecrackers, and used lanterns to drive it away—forming the traditions we celebrate today.
-        </p>
-      </div>
+      <div class="hero-eyebrow">Trưng bày sản phẩm | Ảnh riêng</div>
+      <h2 class="hero-title">Bộ sưu tập & Deal hot</h2>
+      <p>Ảnh sản phẩm dùng ảnh bạn tự chụp/thiết kế. Click vào thẻ để xem nhanh trong pop‑up, sau đó bấm <b>Mua ngay</b> để vào Shopee.</p>
     </div>
   </section>
 
   <!-- FEATURED -->
   <section id="featured" class="section reveal left">
     <div class="wrap">
-      <h3>Featured</h3>
+      <h3>Nổi bật</h3>
       <div class="grid">
-        <article class="card reveal up"
-                 data-url="https://blog.google/products/ai/top-60-ai-announcements-2025/"
-                 data-summary="Danh sách 60 thông báo AI lớn nhất năm 2025 từ Google.">
-          <strong>Google AI</strong>
-          <h4>60 of our biggest AI announcements in 2025</h4>
+        <!-- Ví dụ nổi bật: một vài sản phẩm hot -->
+        <article class="card reveal up product"
+                 data-category="DienTu"
+                 data-url="https://shopee.vn/product-abc"
+                 data-summary="Tai nghe True Wireless — pin 30h, chống ồn, sạc nhanh."
+                 data-name="Tai nghe Bluetooth X12"
+                 data-price="299000">
+          <div class="thumb">
+            <!-- Ảnh không từ link Shopee: dùng file nội bộ/images CDN của bạn -->
+            images/sp_tainghe.jpg
+          </div>
+          <div class="body">
+            <strong>Shop Thor</strong>
+            <h4>Tai nghe Bluetooth X12</h4>
+            <div class="price">299.000đ</div>
+            <div class="actions">
+              <button class="btn outline btn-view">Xem nhanh</button>
+              <button class="btn primary btn-buy">Mua ngay</button>
+            </div>
+          </div>
         </article>
-        <article class="card reveal up"
-                 data-url="https://blog.google/products/ai/top-40-ai-tips-2025/"
-                 data-summary="40 mẹo AI hữu ích nhất năm 2025 cho người dùng và doanh nghiệp.">
-          <strong>Google AI</strong>
-          <h4>40 of our most helpful AI tips from 2025</h4>
-        </article>
-        <article class="card reveal up"
-                 data-url="https://blog.google/technology/ai/5-ways-ai-agents-transform-work-2026/"
-                 data-summary="5 cách AI agents thay đổi cách làm việc trong 2026.">
-          <strong>Google AI</strong>
-          <h4>5 ways AI agents will transform the way we work in 2026</h4>
-        </article>
-        <article class="card reveal up"
-                 data-url="https://ai.googleblog.com/2025/12/latest-google-ai-news.html"
-                 data-summary="Điểm mới của Google AI trong tháng 12.">
-          <strong>Google AI</strong>
-          <h4>The latest AI news we announced in December</h4>
+
+        <article class="card reveal up product"
+                 data-category="GiaDung"
+                 data-url="https://shopee.vn/product-def"
+                 data-summary="Bình giữ nhiệt 800ml — vỏ thép, giữ nóng/lạnh 8–12h."
+                 data-name="Bình giữ nhiệt Inox 800ml"
+                 data-price="189000">
+          <div class="thumb">images/sp_binhgiu.jpg</div>
+          <div class="body">
+            <strong>Shop Thor</strong>
+            <h4>Bình giữ nhiệt Inox 800ml</h4>
+            <div class="price">189.000đ</div>
+            <div class="actions">
+              <button class="btn outline btn-view">Xem nhanh</button>
+              <button class="btn primary btn-buy">Mua ngay</button>
+            </div>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- MORE NEWS -->
-  <section id="more" class="section reveal right">
+  <!-- CATALOG -->
+  <section id="catalog" class="section reveal right">
     <div class="wrap">
-      <h3>More news</h3>
-      <div class="grid">
-        <article class="card reveal up"
-                 data-url="https://openai.com/blog/one-in-a-million"
-                 data-summary="Tôn vinh khách hàng định hình tương lai AI.">
-          <strong>OpenAI</strong><h4>One in a million: celebrating the customers shaping AI’s future</h4>
+      <h3>Danh mục</h3>
+
+      <!-- FILTERS -->
+      <div class="filters">
+        <span class="chip active" data-filter="All">Tất cả</span>
+        <span class="chip" data-filter="DienTu">Điện tử</span>
+        <span class="chip" data-filter="ThoiTrang">Thời trang</span>
+        <span class="chip" data-filter="GiaDung">Gia dụng</span>
+        <span class="chip" data-filter="LamDep">Làm đẹp</span>
+      </div>
+      <div class="search">
+        <input id="searchInput" type="text" placeholder="Tìm sản phẩm (ví dụ: tai nghe, áo thun...)" />
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- Một số sản phẩm mẫu -->
+        <article class="card reveal up product"
+                 data-category="ThoiTrang"
+                 data-url="https://shopee.vn/product-shirt"
+                 data-summary="Áo thun unisex 280gsm — co giãn, form rộng."
+                 data-name="Áo thun Basic Unisex"
+                 data-price="129000">
+          <div class="thumb">images/sp_aothun.jpg</div>
+          <div class="body">
+            <strong>Shop Thor</strong>
+            <h4>Áo thun Basic Unisex</h4>
+            <div class="price">129.000đ</div>
+            <div class="actions">
+              <button class="btn outline btn-view">Xem nhanh</button>
+              <button class="btn primary btn-buy">Mua ngay</button>
+            </div>
+          </div>
         </article>
-        <article class="card reveal up"
-                 data-url="https://openai.com/blog/hardening-chatgpt-atlas-against-prompt-injection"
-                 data-summary="Củng cố Atlas chống prompt injection.">
-          <strong>OpenAI</strong><h4>Continuously hardening ChatGPT Atlas against prompt injection</h4>
+
+        <article class="card reveal up product"
+                 data-category="LamDep"
+                 data-url="https://shopee.vn/product-skincare"
+                 data-summary="Serum dưỡng ẩm — HA 2%, da căng mịn."
+                 data-name="Serum HA 2% 30ml"
+                 data-price="159000">
+          <div class="thumb">images/sp_serum.jpg</div>
+          <div class="body">
+            <strong>Shop Thor</strong>
+            <h4>Serum HA 2% 30ml</h4>
+            <div class="price">159.000đ</div>
+            <div class="actions">
+              <button class="btn outline btn-view">Xem nhanh</button>
+              <button class="btn primary btn-buy">Mua ngay</button>
+            </div>
+          </div>
         </article>
-        <article class="card reveal up"
-                 data-url="https://openai.com/research/evaluating-chain-of-thought-monitorability"
-                 data-summary="Giám sát chain‑of‑thought trong LLM.">
-          <strong>OpenAI</strong><h4>Evaluating chain‑of‑thought monitorability</h4>
+
+        <article class="card reveal up product"
+                 data-category="GiaDung"
+                 data-url="https://shopee.vn/product-pan"
+                 data-summary="Chảo chống dính 28cm — đáy từ, tay cầm gỗ."
+                 data-name="Chảo chống dính 28cm"
+                 data-price="239000">
+          <div class="thumb">images/sp_chao.jpg</div>
+          <div class="body">
+            <strong>Shop Thor</strong>
+            <h4>Chảo chống dính 28cm</h4>
+            <div class="price">239.000đ</div>
+            <div class="actions">
+              <button class="btn outline btn-view">Xem nhanh</button>
+              <button class="btn primary btn-buy">Mua ngay</button>
+            </div>
+          </div>
         </article>
-        <article class="card reveal up"
-                 data-url="https://huggingface.co/blog/aprielguard"
-                 data-summary="AprielGuard: guardrail tăng an toàn và chống đối kháng.">
-          <strong>HuggingFace</strong><h4>AprielGuard: A Guardrail for Safety and Adversarial Robustness</h4>
-        </article>
-        <article class="card reveal up"
-                 data-url="https://huggingface.co/blog/transformers-v5-tokenization"
-                 data-summary="Tokenization trong Transformers v5.">
-          <strong>HuggingFace</strong><h4>Tokenization in Transformers v5</h4>
-        </article>
-        <article class="card reveal up"
-                 data-url="https://vtv.vn/ai/openai-day-chatgpt-cach-nhan-loi.html"
-                 data-summary="OpenAI huấn luyện ChatGPT học cách nhận lỗi.">
-          <strong>VTV AI</strong><h4>OpenAI đang dạy cho ChatGPT cách nhận lỗi</h4>
-        </article>
-        <article class="card reveal up"
-                 data-url="https://genk.vn/trung-quoc-de-xuat-quy-dinh-ai-moi-de-bao-ve-tre-vi-thanh-nien-2025-xxxxx.chn"
-                 data-summary="Trung Quốc đề xuất quy định AI mới bảo vệ trẻ vị thành niên.">
-          <strong>GenK AI</strong><h4>Trung Quốc đề xuất quy định AI mới để bảo vệ trẻ vị thành niên</h4>
+
+        <article class="card reveal up product"
+                 data-category="DienTu"
+                 data-url="https://shopee.vn/product-kb"
+                 data-summary="Bàn phím cơ RK — LED RGB, switch brown."
+                 data-name="Bàn phím cơ RK RGB"
+                 data-price="699000">
+          <div class="thumb">images/sp_keyboard.jpg</div>
+          <div class="body">
+            <strong>Shop Thor</strong>
+            <h4>Bàn phím cơ RK RGB</h4>
+            <div class="price">699.000đ</div>
+            <div class="actions">
+              <button class="btn outline btn-view">Xem nhanh</button>
+              <button class="btn primary btn-buy">Mua ngay</button>
+            </div>
+          </div>
         </article>
       </div>
     </div>
@@ -211,16 +296,21 @@
   <!-- HOW IT WORKS -->
   <section id="how" class="section reveal up">
     <div class="wrap">
-      <h3>How it works</h3>
-      <p style="color:var(--txt-muted)">Click card → xem nhanh trong pop‑up → bấm “Xem đầy đủ” để mở link gốc ở tab mới.</p>
+      <h3>Hướng dẫn dùng catalog</h3>
+      <ul>
+        <li>Ảnh sản phẩm là ảnh riêng (thư mục <code>/images</code> hoặc CDN của bạn), <b>không</b> lấy ảnh từ link Shopee.</li>
+        <li>Click thẻ → pop‑up hiển thị ảnh lớn + giá + mô tả, rồi bấm <b>Mua ngay</b> để mở trang Shopee.</li>
+        <li>Dùng chip <b>Lọc danh mục</b> hoặc ô <b>Tìm kiếm</b> để lọc sản phẩm.</li>
+        <li>Bấm <b>Thêm vào giỏ</b> để lưu vào <em>giỏ hàng cục bộ</em> (giữ bằng <code>localStorage</code>).</li>
+      </ul>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="section reveal left">
     <div class="wrap">
-      <h3>Contact</h3>
-      <p>Muốn thêm lồng đèn, dây pháo, hoa mai/hoa đào? Nói mình chỉnh tiếp.</p>
+      <h3>Liên hệ</h3>
+      <p>Muốn mình import từ file Excel/CSV hoặc tự động lấy feed, nói mình—mình sẽ thêm ngay.</p>
       <p style="color:var(--txt-muted)">FROM MR. THOR WITH LOVE</p>
     </div>
   </section>
@@ -230,18 +320,43 @@
     <div class="popup-card">
       <div class="popup-head">
         <div>
-          <div class="popup-source" id="popupSource">Source</div>
-          <div class="popup-title" id="popupTitle">Title goes here</div>
+          <div class="popup-source" id="popupSource">Shop Thor</div>
+          <div class="popup-title" id="popupTitle">Tên sản phẩm</div>
         </div>
         <button class="close-x" id="popupClose" aria-label="Đóng">×</button>
       </div>
-      <div class="popup-body" id="popupBody">Tóm tắt ngắn sẽ hiển thị ở đây.</div>
+      <div class="popup-body">
+        <img id="popupImg" alt="Ảnh sản phẩm" />
+        <div>
+          <div class="popup-price" id="popupPrice">0đ</div>
+          <div class="popup-summary" id="popupSummary">Mô tả ngắn…</div>
+        </div>
+      </div>
       <div class="popup-actions">
-        <a id="popupOpen" class="btn primary" target="_blank" rel="noopener">Xem đầy đủ →</a>
+        <a id="popupOpen" class="btn primary" target="_blank" rel="noopener">Mua ngay (Shopee) →</a>
+        <button class="btn outline" id="popupAdd">Thêm vào giỏ</button>
         <button class="btn outline" id="popupDismiss">Đóng</button>
       </div>
     </div>
   </div>
+
+  <!-- CART DRAWER -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <strong>Giỏ hàng</strong>
+      <button class="close-x" id="closeCart" aria-label="Đóng">×</button>
+    </div>
+    <div id="cartList" class="drawer-list">
+      <div class="empty">Giỏ đang trống</div>
+    </div>
+    <div class="drawer-foot">
+      <div class="total"><span>Tổng</span><span id="cartTotal">0đ</span></div>
+      <div class="drawer-actions">
+        <button id="checkoutShopee" class="btn primary">Mua trên Shopee</button>
+        <button id="clearCart" class="btn outline">Xóa giỏ</button>
+      </div>
+    </div>
+  </aside>
 
   <!-- TO‑TOP -->
   <button id="toTop" class="to-top" aria-label="Về đầu trang">↑</button>
@@ -257,49 +372,190 @@
       document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
       /* To‑top */
-      const btn=document.getElementById('toTop');
-      const onScroll=()=>{ if(scrollY>240) btn.classList.add('show'); else btn.classList.remove('show'); };
-      addEventListener('scroll',onScroll,{passive:true});
-      btn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+      const btnTop=document.getElementById('toTop');
+      addEventListener('scroll',()=>{ if(scrollY>240) btnTop.classList.add('show'); else btnTop.classList.remove('show'); },{passive:true});
+      btnTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-      /* Pop‑up */
+      /* ===== Catalog logic ===== */
+      const formatter = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 });
+
+      // Fallback ảnh nếu không tìm thấy file
+      document.querySelectorAll('.product .thumb img').forEach(img=>{
+        img.onerror = () => { img.style.display='none'; img.parentElement.style.background = 'linear-gradient(135deg,#1b2142,#0f1220)'; };
+      });
+
+      /* Quick View Pop‑up */
       const popup=document.getElementById('popup');
+      const popupImg=document.getElementById('popupImg');
       const popupSource=document.getElementById('popupSource');
       const popupTitle=document.getElementById('popupTitle');
-      const popupBody=document.getElementById('popupBody');
+      const popupPrice=document.getElementById('popupPrice');
+      const popupSummary=document.getElementById('popupSummary');
       const popupOpen=document.getElementById('popupOpen');
+      const popupAdd=document.getElementById('popupAdd');
       const popupClose=document.getElementById('popupClose');
       const popupDismiss=document.getElementById('popupDismiss');
 
-      function openPopup({source,title,summary,url}){
-        popupSource.textContent=source||'';
-        popupTitle.textContent=title||'';
-        popupBody.textContent=summary||'';
-        popupOpen.href=url||'#';
+      let currentItem = null;
+
+      function openPopup(item){
+        currentItem = item;
+        popupSource.textContent = 'Shop Thor';
+        popupTitle.textContent  = item.name;
+        popupPrice.textContent  = formatter.format(item.price || 0);
+        popupSummary.textContent= item.summary || '';
+        popupOpen.href          = item.url || '#';
+        popupImg.src            = item.img || '';
+
         popup.classList.add('show');
         popup.setAttribute('aria-hidden','false');
-        popupTitle.style.cursor='pointer';
-        popupTitle.onclick=()=>{ if(url && url!=='#') window.open(url,'_blank','noopener'); };
       }
       function closePopup(){
         popup.classList.remove('show');
         popup.setAttribute('aria-hidden','true');
+        currentItem = null;
       }
       popupClose.addEventListener('click',closePopup);
       popupDismiss.addEventListener('click',closePopup);
       popup.addEventListener('click',(e)=>{ if(e.target===popup) closePopup(); });
       addEventListener('keydown',(e)=>{ if(e.key==='Escape') closePopup(); });
 
-      document.querySelectorAll('.card').forEach(card=>{
-        card.addEventListener('click',()=>{
-          const source  = card.querySelector('strong')?.textContent?.trim() || '';
-          const title   = card.querySelector('h4')?.textContent?.trim() || '';
-          const summary = card.getAttribute('data-summary') || '';
-          const url     = card.getAttribute('data-url') || '';
-          if (!url) { alert('Card này chưa có link bài gốc (data-url). Hãy bổ sung để xem đầy đủ.'); return; }
-          openPopup({ source, title, summary, url });
+      // Click trên card
+      document.querySelectorAll('.product').forEach(card=>{
+        const btnView = card.querySelector('.btn-view');
+        const btnBuy  = card.querySelector('.btn-buy');
+
+        function getItem(){
+          const name   = card.getAttribute('data-name')   || card.querySelector('h4')?.textContent?.trim() || '';
+          const price  = parseInt(card.getAttribute('data-price') || '0', 10);
+          const url    = card.getAttribute('data-url')    || '#';
+          const summary= card.getAttribute('data-summary')|| '';
+          const img    = card.querySelector('img')?.src || '';
+          const cat    = card.getAttribute('data-category') || 'Khac';
+          return { name, price, url, summary, img, cat };
+        }
+
+        card.addEventListener('click',(e)=>{
+          // Nếu bấm nút bên trong, để sự kiện riêng xử lý
+          if (e.target.closest('.actions')) return;
+          openPopup(getItem());
+        });
+        btnView?.addEventListener('click',(e)=>{ e.stopPropagation(); openPopup(getItem()); });
+        btnBuy?.addEventListener('click',(e)=>{ e.stopPropagation(); const it=getItem(); if (it.url && it.url!=='#') window.open(it.url,'_blank','noopener'); });
+      });
+
+      // Thêm vào giỏ từ pop‑up
+      popupAdd.addEventListener('click',()=>{
+        if (!currentItem) return;
+        addToCart(currentItem);
+        closePopup();
+      });
+
+      /* ===== Cart (localStorage) ===== */
+      const CART_KEY='thor_cart';
+      const drawer=document.getElementById('drawer');
+      const openCart=document.getElementById('openCart');
+      const closeCart=document.getElementById('closeCart');
+      const cartList=document.getElementById('cartList');
+      const cartTotal=document.getElementById('cartTotal');
+      const checkoutShopee=document.getElementById('checkoutShopee');
+      const clearCart=document.getElementById('clearCart');
+      const cartCountEl=document.getElementById('cartCount');
+
+      function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)||'[]'); }catch(e){ return []; } }
+      function setCart(items){ localStorage.setItem(CART_KEY, JSON.stringify(items)); renderCart(); }
+
+      function addToCart(item){
+        const items = getCart();
+        const idx = items.findIndex(x=>x.name===item.name && x.url===item.url);
+        if (idx>=0) items[idx].qty = (items[idx].qty||1)+1;
+        else items.push({ ...item, qty:1 });
+        setCart(items);
+      }
+      function removeFromCart(name){
+        const items = getCart().filter(x=>x.name!==name);
+        setCart(items);
+      }
+      function renderCart(){
+        const items = getCart();
+        cartList.innerHTML='';
+        if (!items.length){
+          cartList.innerHTML = '<div class="empty">Giỏ đang trống</div>';
+          cartTotal.textContent = formatter.format(0);
+          cartCountEl.textContent = '0';
+          return;
+        }
+        let total = 0;
+        items.forEach(it=>{
+          total += (it.price||0) * (it.qty||1);
+          const row = document.createElement('div');
+          row.className='drawer-item';
+          row.innerHTML = `
+            # " alt="">
+            <div class="meta">
+              <div style="font-weight:800">${it.name}</div>
+              <div style="color:#9fe0ff">${formatter.format(it.price||0)} × ${it.qty||1}</div>
+              ${it.url ? '#Mua ngay →</a>' : ''}
+            </div>
+            <div>
+              <button class="btn outline btn-remove">Xóa</button>
+            </div>
+          `;
+          const imgEl = row.querySelector('img');
+          imgEl.src = it.img || '';
+          // remove
+          row.querySelector('.btn-remove').addEventListener('click',()=>removeFromCart(it.name));
+          // buy
+          const buyEl = row.querySelector('.btn-buy-row');
+          buyEl?.addEventListener('click',()=>{ if (it.url && it.url!=='#') window.open(it.url,'_blank','noopener'); });
+          cartList.appendChild(row);
+        });
+        cartTotal.textContent = formatter.format(total);
+        cartCountEl.textContent = items.reduce((s,x)=>s+(x.qty||1),0);
+      }
+      renderCart();
+
+      // Drawer open/close
+      openCart.addEventListener('click',()=>{ drawer.classList.add('show'); drawer.setAttribute('aria-hidden','false'); });
+      closeCart.addEventListener('click',()=>{ drawer.classList.remove('show'); drawer.setAttribute('aria-hidden','true'); });
+
+      // Checkout: mở tất cả link Shopee mỗi sản phẩm (cảnh báo: trình duyệt có thể chặn nếu quá nhiều)
+      checkoutShopee.addEventListener('click',()=>{
+        const items=getCart().filter(x=>x.url && x.url!=='#');
+        if (!items.length){ alert('Giỏ chưa có sản phẩm có link Shopee.'); return; }
+        items.forEach((it,i)=>{ setTimeout(()=>window.open(it.url,'_blank','noopener'), i*120); });
+      });
+
+      clearCart.addEventListener('click',()=>{
+        if (confirm('Xóa toàn bộ giỏ hàng?')) setCart([]);
+      });
+
+      /* ===== Filters & Search ===== */
+      const chips = document.querySelectorAll('.chip');
+      chips.forEach(ch=>{
+        ch.addEventListener('click',()=>{
+          chips.forEach(c=>c.classList.remove('active'));
+          ch.classList.add('active');
+          const cat = ch.getAttribute('data-filter');
+          filterProducts(cat, searchInput.value.trim());
         });
       });
+
+      const searchInput=document.getElementById('searchInput');
+      searchInput.addEventListener('input',()=>filterProducts(getActiveCat(), searchInput.value.trim()));
+
+      function getActiveCat(){ const a=document.querySelector('.chip.active'); return a?a.getAttribute('data-filter'):'All'; }
+      function filterProducts(cat, keyword){
+        const cards = document.querySelectorAll('.product');
+        const kw = (keyword||'').toLowerCase();
+        cards.forEach(card=>{
+          const c = card.getAttribute('data-category');
+          const name = (card.getAttribute('data-name') || card.querySelector('h4')?.textContent || '').toLowerCase();
+          const okCat = (cat==='All' || c===cat);
+          const okKw  = (!kw || name.includes(kw));
+          card.style.display = (okCat && okKw) ? '' : 'none';
+        });
+      }
 
       /* Anchor focus nhẹ */
       addEventListener('hashchange',()=>{
@@ -309,5 +565,3 @@
     })();
   </script>
 </body>
-</html>
-``
