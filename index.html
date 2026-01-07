@@ -7,6 +7,7 @@
   <title>AI NEWS — Lunar New Year Digest</title>
   <meta name="description" content="AI Digest — Tin tức AI quốc tế & Việt Nam, hiệu ứng trượt Massively, Quick View pop‑up." />
 
+  <!-- THEME -->
   <style>
     :root{
       --bg:#0f1220; --bg-alt:#121630; --txt:#e6e8f0; --txt-muted:#9aa3b2;
@@ -67,7 +68,7 @@
     .grid .reveal:nth-child(5){transition-delay:360ms}
     .grid .reveal:nth-child(6){transition-delay:450ms}
 
-    /* TO-TOP */
+    /* TO‑TOP */
     .to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;display:grid;place-items:center;
       border-radius:999px;background:linear-gradient(135deg,var(--primary),#7cc4ff);
       color:#071422;font-weight:800;box-shadow:0 14px 38px rgba(88,166,255,.35);
@@ -103,12 +104,12 @@
         <h1>AI NEWS <span aria-hidden="true">🤖</span></h1>
         <span class="date">02-01-2026</span>
       </div>
-      <!-- FIXED MENU -->
+      <!-- MENU ĐÚNG CHUẨN -->
       <nav class="menu">
-        <a href="#featured">Featured</a>
-        <a href="#more">More</a>
-        <a href="#how">How it works</a>
-        <a href="#contact">Contact</a>
+        #featuredFeatured</a>
+        #moreMore</a>
+        #howHow it works</a>
+        #contactContact</a>
       </nav>
     </div>
   </header>
@@ -119,7 +120,7 @@
       <div class="hero-eyebrow">Lunar New Year Digest</div>
       <h2 class="hero-title">CHINESE<br>NEW YEAR<br>Celebration</h2>
       <p>Click any card to preview in Quick View, then open full article. Cards stay minimal — full summary appears in the pop‑up.</p>
-      <p><a href="#more">Read More → More News</a></p>
+      <p>#moreRead More → More News</a></p>
 
       <div class="legend reveal right">
         <h4 style="margin:0 0 8px;color:var(--accent)">Legend of Chinese Lunar New Year</h4>
@@ -234,9 +235,7 @@
         </div>
         <button class="close-x" id="popupClose" aria-label="Đóng">×</button>
       </div>
-      <div class="popup-body" id="popupBody">
-        Tóm tắt ngắn sẽ hiển thị ở đây.
-      </div>
+      <div class="popup-body" id="popupBody">Tóm tắt ngắn sẽ hiển thị ở đây.</div>
       <div class="popup-actions">
         <a id="popupOpen" class="btn primary" target="_blank" rel="noopener">Xem đầy đủ →</a>
         <button class="btn outline" id="popupDismiss">Đóng</button>
@@ -244,7 +243,7 @@
     </div>
   </div>
 
-  <!-- TO TOP -->
+  <!-- TO‑TOP -->
   <button id="toTop" class="to-top" aria-label="Về đầu trang">↑</button>
 
   <!-- JS -->
@@ -257,13 +256,13 @@
       },opts);
       document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-      /* To-top button */
+      /* To‑top */
       const btn=document.getElementById('toTop');
       const onScroll=()=>{ if(scrollY>240) btn.classList.add('show'); else btn.classList.remove('show'); };
       addEventListener('scroll',onScroll,{passive:true});
       btn.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-      /* Quick View Pop-up */
+      /* Pop‑up */
       const popup=document.getElementById('popup');
       const popupSource=document.getElementById('popupSource');
       const popupTitle=document.getElementById('popupTitle');
@@ -279,7 +278,6 @@
         popupOpen.href=url||'#';
         popup.classList.add('show');
         popup.setAttribute('aria-hidden','false');
-
         popupTitle.style.cursor='pointer';
         popupTitle.onclick=()=>{ if(url && url!=='#') window.open(url,'_blank','noopener'); };
       }
@@ -303,10 +301,13 @@
         });
       });
 
-      /* Focus nhẹ khi đổi hash */
+      /* Anchor focus nhẹ */
       addEventListener('hashchange',()=>{
-        const t=document.getElementById(location.hash.slice        const t=document.getElementById(location.hash.slice.focus({preventScroll:true}); setTimeout(()=>t.removeAttribute('tabindex'),500); }
+        const t=document.getElementById(location.hash.slice(1));
+        if(t){ t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); setTimeout(()=>t.removeAttribute('tabindex'),500); }
       });
     })();
   </script>
 </body>
+</html>
+``
