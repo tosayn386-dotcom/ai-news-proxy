@@ -10,21 +10,14 @@
   <!-- THEME: Đỏ–Vàng Tết -->
   <style>
     :root{
-      /* Nền đỏ–vàng ấm như ảnh bạn gửi */
-      --bg:#3b0a19;            /* đỏ mận nền sâu */
-      --bg-alt:#541226;        /* block tối hơn */
-      --gold:#f7c35f;          /* vàng chính */
-      --gold-2:#ffdf8a;        /* vàng nhẹ */
-      --red:#d33636;           /* đỏ điểm nhấn */
-      --txt:#fff2f2;           /* chữ chính */
-      --txt-muted:#f0cfd1;     /* chữ phụ */
-      --border:#7a2138;        /* viền nhẹ */
-      --shadow:0 26px 80px rgba(0,0,0,.45);
-      --radius:18px;
-      --wrap:1100px;
+      --bg:#3b0a19; --bg-alt:#541226;
+      --gold:#f7c35f; --gold-2:#ffdf8a; --red:#d33636;
+      --txt:#fff2f2; --txt-muted:#f0cfd1; --border:#7a2138;
+      --shadow:0 26px 80px rgba(0,0,0,.45); --radius:18px; --wrap:1100px;
+      --headerH:60px; /* chiều cao header */
     }
 
-    /* Nền gradient đỏ–vàng */
+    /* Nền đỏ–vàng */
     html,body{
       margin:0; padding:0; color:var(--txt);
       font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
@@ -38,41 +31,50 @@
     img{ max-width:100%; display:block }
     .wrap{ max-width:var(--wrap); margin:0 auto; padding:0 22px }
 
-    /* HEADER TỐI GIẢN */
+    /* ===== HEADER mới (bỏ hashtag, có logo xe đẩy) ===== */
     .site-header{
-      position:sticky; top:0; z-index:999;
+      position:sticky; top:0; z-index:999; height:var(--headerH);
       background:rgba(84,18,38,.65); backdrop-filter:blur(10px) saturate(1.15);
       border-bottom:1px solid var(--border);
     }
-    .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
-    .brand{ display:flex; align-items:center; gap:10px }
-    .brand h1{ margin:0; font-weight:900; letter-spacing:.4px; font-size:22px }
-    .menu{ display:flex; gap:18px; font-weight:700 }
-    .menu a{ padding:8px 10px; border-radius:10px }
+    .nav{ height:100%; display:flex; align-items:center; justify-content:space-between }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{ width:36px; height:36px; display:grid; place-items:center;
+      border-radius:12px; background:linear-gradient(135deg, var(--gold), var(--gold-2));
+      box-shadow:0 8px 22px rgba(247,195,95,.35);
+    }
+    .logo svg{ width:24px; height:24px; fill:#3b0a19 }
+    .brand-title{ font-weight:900; letter-spacing:.4px; font-size:18px; color:#fff }
+
+    .menu{ display:flex; gap:18px; font-weight:800 }
+    .menu a{ padding:8px 12px; border-radius:12px; color:#fff }
     .menu a:hover{ background:rgba(247,195,95,.15) }
 
-    /* NÚT GIỎ HÀNG */
+    /* Nút giỏ hàng (góc phải) */
     .cart-btn{
-      display:flex; align-items:center; gap:8px;
+      display:flex; align-items:center; gap:10px;
       background:linear-gradient(135deg, var(--gold), var(--gold-2));
-      color:#3b0a19; border:none; padding:8px 12px; border-radius:999px;
+      color:#3b0a19; border:none; padding:10px 14px; border-radius:999px;
       font-weight:900; cursor:pointer; box-shadow:0 10px 24px rgba(247,195,95,.35)
     }
+    .cart-btn svg{ width:20px; height:20px; fill:#3b0a19 }
     .cart-count{ background:#3b0a19; color:#fff; border-radius:999px; padding:2px 8px; font-size:12px }
 
-    /* HERO TỐI GIẢN */
-    .hero{ padding:36px 0 28px; border-bottom:1px solid var(--border) }
-    .hero-title{ margin:.2rem 0 0; font-size:38px; line-height:1.08; font-weight:900;
+    /* ===== HERO ===== */
+    .hero{ padding:28px 0 20px; border-bottom:1px solid var(--border) }
+    .hero-title{ margin:.2rem 0 0; font-size:34px; line-height:1.08; font-weight:900;
       background:linear-gradient(90deg, var(--gold-2), #fff, var(--gold));
       -webkit-background-clip:text; background-clip:text; color:transparent }
     .hero p{ color:var(--txt-muted); max-width:720px; margin:10px 0 0 }
 
-    /* SECTION */
-    .section{ padding:36px 0; border-bottom:1px solid var(--border) }
+    /* ===== SECTION / GRID ===== */
+    .section{ padding:32px 0; border-bottom:1px solid var(--border) }
     .section h3{ margin:0 0 16px; font-size:22px; font-weight:900; letter-spacing:.3px }
     .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px }
 
-    /* CARD SẢN PHẨM — đơn giản, có hover “giờ” */
+    /* ===== CARD sản phẩm (hover “giờ” vàng) ===== */
     .card{
       border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-alt);
       box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column;
@@ -82,11 +84,10 @@
       display:flex; align-items:center; justify-content:center;
     }
     .thumb img{ width:100%; height:100%; object-fit:cover }
-    /* Vòng "đồng hồ" vàng chạy khi hover */
+    /* vòng đồng hồ vàng */
     .thumb::before{
       content:""; position:absolute; inset:10px; border-radius:18px;
-      background:
-        conic-gradient(from 0deg, rgba(247,195,95,.0) 0deg, rgba(247,195,95,.65) 240deg, rgba(247,195,95,.0) 360deg);
+      background:conic-gradient(from 0deg, rgba(247,195,95,.0) 0deg, rgba(247,195,95,.65) 240deg, rgba(247,195,95,.0) 360deg);
       box-shadow:0 0 0 2px rgba(247,195,95,.35) inset, 0 0 24px rgba(247,195,95,.25);
       opacity:0; transform:scale(1.02);
     }
@@ -103,7 +104,7 @@
     .btn.outline{ background:transparent; color:#fff }
     .btn:hover{ filter:brightness(1.05) }
 
-    /* POP‑UP QUICK VIEW */
+    /* ===== POP‑UP ===== */
     .popup{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:1000;
       background:rgba(0,0,0,.55); backdrop-filter:blur(4px) }
     .popup.show{ display:flex }
@@ -120,7 +121,7 @@
     .popup-actions{ padding:16px 18px; border-top:1px solid var(--border); display:flex; gap:10px; justify-content:flex-end }
     .close-x{ border:none; background:transparent; color:var(--gold); font-size:22px; cursor:pointer }
 
-    /* DRAWER GIỎ HÀNG — tối giản */
+    /* ===== Drawer giỏ hàng ===== */
     .drawer{
       position:fixed; top:0; right:0; width:min(380px,92vw); height:100vh; background:var(--bg-alt); border-left:1px solid var(--border);
       box-shadow:-8px 0 24px rgba(0,0,0,.35); transform:translateX(100%); transition:transform .28s ease; z-index:1001
@@ -136,7 +137,7 @@
     .drawer-actions{ display:flex; gap:8px }
     .empty{ color:var(--txt-muted); text-align:center; padding:20px }
 
-    /* Nút về đầu trang (giữ nhỏ) */
+    /* Nút về đầu trang */
     .to-top{
       position:fixed; right:18px; bottom:18px; width:44px; height:44px; display:grid; place-items:center;
       border-radius:999px; background:linear-gradient(135deg, var(--gold), var(--gold-2));
@@ -148,36 +149,47 @@
 </head>
 
 <body>
-  <!-- HEADER (đã bỏ ngày tháng) -->
+  <!-- ===== HEADER (logo xe đẩy to vừa dòng, menu sạch) ===== -->
   <header class="site-header">
     <div class="wrap nav">
       <div class="brand">
-        <h1>Giỏ hàng của tôi <span aria-hidden="true">🧧</span></h1>
-      </div> 
+        <div class="logo" aria-label="Giỏ hàng của tôi">
+          <!-- SVG xe đẩy -->
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 .001 4.001A2 2 0 0 0 17 18zM6.2 6h13.6l-1.4 7H8.3l-.6-3H4V8h3.1l-.3-2zM4 6V4h2l1 5h10l1.5-8H6.1L5.8 1H1v2h3l.2 3z"/>
+          </svg>
+        </div>
+        <div class="brand-title">Giỏ hàng của tôi</div>
+      </div>
+
       <nav class="menu">
-        <a href="#sanpham">Sản phẩm</a>
-       ỏ hàng</a>
+        #sanphamSản phẩm</a>
+        #giohangGiỏ hàng</a>
       </nav>
+
       <button id="openCart" class="cart-btn" aria-label="Mở giỏ hàng">
-        <span>Giỏ hàng</span><span id="cartCount" class="cart-count">0</span>
+        <!-- icon nhỏ trong nút -->
+        <svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 .001 4.001A2 2 0 0 0 17 18zM6.2 6h13.6l-1.4 7H8.3l-.6-3H4V8h3.1l-.3-2z"/></svg>
+        <span>Giỏ hàng</span>
+        <span id="cartCount" class="cart-count">0</span>
       </button>
     </div>
   </header>
 
-  <!-- HERO TỐI GIẢN -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="wrap">
       <h2 class="hero-title">Bộ sưu tập Tết — Ảnh riêng</h2>
-      <p>Rê chuột vào sản phẩm để xem **vòng “giờ” vàng** chạy quanh ảnh. Click để xem nhanh, thêm vào giỏ hoặc mở link Shopee.</p>
+      <p>Rê chuột vào sản phẩm để xem “vòng giờ” vàng chạy quanh ảnh. Click để xem nhanh, thêm vào giỏ, hoặc mở link Shopee.</p>
     </div>
   </section>
 
-  <!-- SẢN PHẨM -->
+  <!-- ===== SẢN PHẨM ===== -->
   <section id="sanpham" class="section">
     <div class="wrap">
       <h3>Sản phẩm</h3>
       <div class="grid">
-        <!-- MẪU: thay ảnh/giá/link cho phù hợp -->
+        <!-- MẪU 1 -->
         <article class="card product" data-name="Tai nghe Bluetooth X12" data-price="299000"
                  data-summary="Pin 30h, chống ồn, sạc nhanh." data-url="https://shopee.vn/product-abc">
           <div class="thumb">
@@ -195,9 +207,12 @@
           </div>
         </article>
 
+        <!-- MẪU 2 -->
         <article class="card product" data-name="Bình giữ nhiệt Inox 800ml" data-price="189000"
                  data-summary="Giữ nóng/lạnh 8–12h, vỏ thép." data-url="https://shopee.vn/product-def">
-          <div class="thumb">images/sp_binhgiu.jpg</div>
+          <div class="thumb">
+            images/sp_binhgiu.jpg
+          </div>
           <div class="body">
             <div class="brand-mini">Shop Thor</div>
             <div class="title">Bình giữ nhiệt Inox 800ml</div>
@@ -210,9 +225,12 @@
           </div>
         </article>
 
+        <!-- MẪU 3 -->
         <article class="card product" data-name="Áo thun Basic Unisex" data-price="129000"
                  data-summary="Vải 280gsm, co giãn, form rộng." data-url="https://shopee.vn/product-shirt">
-          <div class="thumb">images/sp_aothun.jpg</div>
+          <div class="thumb">
+            images/sp_aothun.jpg
+          </div>
           <div class="body">
             <div class="brand-mini">Shop Thor</div>
             <div class="title">Áo thun Basic Unisex</div>
@@ -232,9 +250,7 @@
   <div id="popup" class="popup" aria-modal="true" role="dialog" aria-hidden="true">
     <div class="popup-card">
       <div class="popup-head">
-        <div>
-          <div class="popup-title" id="popupTitle">Tên sản phẩm</div>
-        </div>
+        <div class="popup-title" id="popupTitle">Tên sản phẩm</div>
         <button class="close-x" id="popupClose" aria-label="Đóng">×</button>
       </div>
       <div class="popup-body">
@@ -252,7 +268,7 @@
     </div>
   </div>
 
-  <!-- GIỎ HÀNG (DRAWER) -->
+  <!-- GIỎ HÀNG -->
   <section id="giohang"></section>
   <aside id="drawer" class="drawer" aria-hidden="true">
     <div class="drawer-head">
@@ -271,13 +287,13 @@
     </div>
   </aside>
 
-  <!-- NÚT VỀ ĐẦU -->
+  <!-- Nút về đầu -->
   <button id="toTop" class="to-top" aria-label="Về đầu trang">↑</button>
 
-  <!-- JS: tối giản -->
+  <!-- JS -->
   <script>
     (function(){
-      /* To‑top nhỏ */
+      /* Nút về đầu */
       const btnTop=document.getElementById('toTop');
       addEventListener('scroll',()=>{ if(scrollY>240) btnTop.classList.add('show'); else btnTop.classList.remove('show'); },{passive:true});
       btnTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
@@ -294,10 +310,11 @@
       const popupDismiss=document.getElementById('popupDismiss');
       let currentItem=null;
 
+      function formatVND(v){ return new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(v||0); }
       function openPopup(item){
         currentItem=item;
         popupTitle.textContent=item.name;
-        popupPrice.textContent=new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(item.price||0);
+        popupPrice.textContent=formatVND(item.price||0);
         popupSummary.textContent=item.summary||'';
         popupOpen.href=item.url||'#';
         popupImg.src=item.img||'';
@@ -310,7 +327,7 @@
       popup.addEventListener('click',(e)=>{ if(e.target===popup) closePopup(); });
       addEventListener('keydown',(e)=>{ if(e.key==='Escape') closePopup(); });
 
-      /* Cart (localStorage) đơn giản */
+      /* Cart (localStorage) */
       const CART_KEY='thor_cart';
       const drawer=document.getElementById('drawer');
       const openCart=document.getElementById('openCart');
@@ -341,7 +358,7 @@
             # alt="">
             <div class="meta">
               <div style="font-weight:900">${it.name}</div>
-              <div style="color:#ffd7a2; font-weight:900">${new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(it.price||0)} × ${it.qty||1}</div>
+              <div style="color:#ffd7a2; font-weight:900">${formatVND(it.price||0)} × ${it.qty||1}</div>
               ${it.url ? '#Mua →</a>' : ''}
             </div>
             <div>
@@ -353,7 +370,7 @@
           buy?.addEventListener('click',()=>{ if(it.url && it.url!=='#') window.open(it.url,'_blank','noopener'); });
           cartList.appendChild(row);
         });
-        cartTotal.textContent=new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(total);
+        cartTotal.textContent=formatVND(total);
         cartCountEl.textContent=items.reduce((s,x)=>s+(x.qty||1),0);
       }
       renderCart();
@@ -389,9 +406,9 @@
       /* Anchor focus nhẹ */
       addEventListener('hashchange',()=>{
         const t=document.getElementById(location.hash.slice(1));
-        if(t){ t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); setTimeout(()=>t.remove        if(t){ t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); setTimeout(()=>t.removeAttribute('tabindex'),500); }
+        if(t){ t.setAttribute('tabindex','-1'); t.focus({preventScroll:true}); setTimeout(()=>t.removeAttribute('tabindex'),500); }
       });
     })();
   </script>
 </body>
-
+</html>
