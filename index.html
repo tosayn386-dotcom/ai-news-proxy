@@ -9,7 +9,7 @@
 
   <style>
     :root{
-      /* Tông đỏ–vàng Tết (ấm, không chói) */
+      /* Tông đỏ–vàng Tết */
       --bg:#3b0a19; --bg2:#4a0f22; --bg-alt:#561630;
       --gold:#ffd166; --gold2:#ffea9a; --text:#fff3f3; --muted:#e9bfc3;
       --border:#7a2138; --shadow:0 26px 80px rgba(0,0,0,.45);
@@ -28,7 +28,7 @@
     img{ max-width:100%; display:block }
     .wrap{ max-width:var(--wrap); margin:0 auto; padding:0 22px }
 
-    /* ===== HEADER (đẹp, không hashtag) ===== */
+    /* ===== HEADER ===== */
     .site-header{
       position:sticky; top:0; z-index:999; height:var(--headerH);
       background:rgba(86,22,48,.65); backdrop-filter:blur(10px) saturate(1.1);
@@ -96,7 +96,6 @@
     @keyframes spin{ to{ transform:scale(1.02) rotate(1turn) } }
 
     .body{ padding:14px 14px 16px }
-    .brandMini{ color:#ffe79f; font-weight:800 }
     .title{ margin:.35rem 0 .4rem; font-weight:900; line-height:1.25 }
     .price{ color:#ffd7a2; font-weight:900 }
     .actions{ display:flex; gap:8px; margin-top:12px; flex-wrap:wrap }
@@ -155,7 +154,7 @@
     <div class="wrap nav">
       <div class="brand">
         <div class="logoBadge" aria-label="Giỏ hàng của tôi">
-          <!-- SVG xe đẩy gọn, cân -->
+          <!-- SVG xe đẩy -->
           <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
             <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h13.6l-1.4 7H8.3l-.6-3H4V8h3.1l-.3-2zM4 6V4h2l1 5h10l1.5-8H6.1L5.8 1H1v2h3l.2 3z"/>
           </svg>
@@ -163,13 +162,14 @@
         <h1 class="brandTitle">Giỏ hàng của tôi</h1>
       </div>
 
+      <!-- MENU CHUẨN (KHÔNG HASHTAG) -->
       <nav class="menu">
         #sanphamSản phẩm</a>
         #giohangGiỏ hàng</a>
       </nav>
 
       <button id="openCart" class="cartBtn" aria-label="Mở giỏ hàng">
-        <svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h13.6l-1.4 7H8.3l-.6-3H4V8h3.1l-.3-2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a 2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h13.6l-1.4 7H8.3l-.6-3H4V8h3.1l-.3-2z"/></svg>
         <span>Giỏ hàng</span>
         <span id="cartCount" class="cartCount">0</span>
       </button>
@@ -189,12 +189,11 @@
     <div class="wrap">
       <h3>Sản phẩm</h3>
       <div class="grid">
-        <!-- SP 1: thay ảnh/giá/link cho phù hợp -->
+        <!-- SP 1 -->
         <article class="card product" data-name="Tai nghe Bluetooth X12" data-price="299000"
                  data-summary="Pin 30h, chống ồn, sạc nhanh." data-url="https://shopee.vn/product-abc">
-          <div class="thumb"><img src="images/sp_tainghe.jpg" alt="Tai nghe Bluetooth X12"></div>
+          <div class="thumb">images/sp_tainghe.jpg</div>
           <div class="body">
-            <div class="brandMini">Shop Thor</div>
             <div class="title">Tai nghe Bluetooth X12</div>
             <div class="price">299.000đ</div>
             <div class="actions">
@@ -208,9 +207,8 @@
         <!-- SP 2 -->
         <article class="card product" data-name="Bình giữ nhiệt Inox 800ml" data-price="189000"
                  data-summary="Giữ nóng/lạnh 8–12h, vỏ thép." data-url="https://shopee.vn/product-def">
-          <div class="thumb"><img src="images/sp_binhgiu.jpg" alt="Bình giữ nhiệt Inox 800ml"></div>
+          <div class="thumb">images/sp_binhgiu.jpg</div>
           <div class="body">
-            <div class="brandMini">Shop Thor</div>
             <div class="title">Bình giữ nhiệt Inox 800ml</div>
             <div class="price">189.000đ</div>
             <div class="actions">
@@ -224,9 +222,8 @@
         <!-- SP 3 -->
         <article class="card product" data-name="Áo thun Basic Unisex" data-price="129000"
                  data-summary="Vải 280gsm, co giãn, form rộng." data-url="https://shopee.vn/product-shirt">
-          <div class="thumb"><img src="images/sp_aothun.jpg" alt="Áo thun Basic Unisex"></div>
+          <div class="thumb">images/sp_aothun.jpg</div>
           <div class="body">
-            <div class="brandMini">Shop Thor</div>
             <div class="title">Áo thun Basic Unisex</div>
             <div class="price">129.000đ</div>
             <div class="actions">
