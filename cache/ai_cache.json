@@ -154,5 +154,9 @@
   "8bd586a53d39aae112af9d666e239f58": {
     "summary": "Google đã giới thiệu một loạt tính năng AI mới cho Gmail nhằm nâng cao trải nghiệm người dùng và hiện đại hóa ứng dụng đã 22 năm tuổi này. Những cải tiến này được thực hiện trong bối cảnh ngày càng nhiều công nghệ AI được tích hợp vào các sản phẩm và dịch vụ. Các tính năng mới hứa hẹn sẽ giúp người dùng tiết kiệm thời gian và nâng cao hiệu quả trong việc quản lý email.",
     "category": "AI Tools"
+  },
+  "3e222dad24c9b38dca7165d680f5dbe7": {
+    "summary": "Datadog sử dụng Codex để thực hiện đánh giá mã nguồn ở cấp hệ thống. Hình ảnh minh họa có logo của OpenAI bên trái và logo của Datadog bên phải, với một nền trắng và một họa tiết trừu tượng giống như lông màu nâu ở giữa.",
+    "category": "AI Tools"
   }
 }
