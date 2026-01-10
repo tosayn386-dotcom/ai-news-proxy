@@ -158,5 +158,9 @@
   "3e222dad24c9b38dca7165d680f5dbe7": {
     "summary": "Datadog sử dụng Codex để thực hiện đánh giá mã nguồn ở cấp hệ thống. Hình ảnh minh họa có logo của OpenAI bên trái và logo của Datadog bên phải, với một nền trắng và một họa tiết trừu tượng giống như lông màu nâu ở giữa.",
     "category": "AI Tools"
+  },
+  "fee8fc52153871d64ad45b5d8b7dba79": {
+    "summary": "OpenAI và Tập đoàn SoftBank đã hợp tác với SB Energy để phát triển các khu trung tâm dữ liệu AI có công suất đa gigawatt, trong đó có một cơ sở 1,2 GW tại Texas hỗ trợ cho sáng kiến Stargate. Sự hợp tác này nhằm thúc đẩy công nghệ và năng lượng bền vững trong lĩnh vực trí tuệ nhân tạo.",
+    "category": "Business"
   }
 }
