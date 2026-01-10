@@ -166,5 +166,9 @@
   "66575e1b62ba1757adc0ca649c00e920": {
     "summary": "Công ty xAI của Elon Musk đã quyết định hạn chế tính năng tạo ảnh \"nhạy cảm\" trên nền tảng AI Grok sau khi nhận được phản ứng mạnh mẽ từ người dùng và chính phủ. Quyết định này nhằm đảm bảo an toàn và tuân thủ các quy định pháp luật liên quan đến nội dung nhạy cảm.",
     "category": "Policy"
+  },
+  "073b76700d6b5345289c6cc85a0049ad": {
+    "summary": "Nhiều công ty công nghệ lớn như Nvidia, Google và Amazon đang nỗ lực phát triển và chuyển sang sử dụng các loại chip mới thay vì chỉ phụ thuộc vào GPU. Sự chuyển mình này nhằm đáp ứng nhu cầu ngày càng tăng về sức mạnh tính toán cho các ứng dụng AI. Việc tìm kiếm giải pháp thay thế cho GPU được xem là cần thiết để tối ưu hóa hiệu suất và giảm chi phí trong tương lai.",
+    "category": "Business"
   }
 }
