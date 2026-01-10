@@ -162,5 +162,9 @@
   "fee8fc52153871d64ad45b5d8b7dba79": {
     "summary": "OpenAI và Tập đoàn SoftBank đã hợp tác với SB Energy để phát triển các khu trung tâm dữ liệu AI có công suất đa gigawatt, trong đó có một cơ sở 1,2 GW tại Texas hỗ trợ cho sáng kiến Stargate. Sự hợp tác này nhằm thúc đẩy công nghệ và năng lượng bền vững trong lĩnh vực trí tuệ nhân tạo.",
     "category": "Business"
+  },
+  "66575e1b62ba1757adc0ca649c00e920": {
+    "summary": "Công ty xAI của Elon Musk đã quyết định hạn chế tính năng tạo ảnh \"nhạy cảm\" trên nền tảng AI Grok sau khi nhận được phản ứng mạnh mẽ từ người dùng và chính phủ. Quyết định này nhằm đảm bảo an toàn và tuân thủ các quy định pháp luật liên quan đến nội dung nhạy cảm.",
+    "category": "Policy"
   }
 }
