@@ -218,5 +218,9 @@
   "18bea1fddee3899a35f0a749449054d7": {
     "summary": "Apple đã quyết định tích hợp công nghệ Gemini của Google vào Siri và các tính năng AI khác của mình. Quyết định này đã gây ra phản ứng từ Elon Musk, người cho rằng việc này thể hiện sự \"tập trung quyền lực bất hợp lý\" trong ngành công nghệ.",
     "category": "Policy"
+  },
+  "ad4c1d3bfbd37f69cb60bf389d9bb1ee": {
+    "summary": "Zenken đã triển khai ChatGPT Enterprise trên toàn công ty, giúp nâng cao hiệu suất bán hàng, giảm thời gian chuẩn bị và tăng tỷ lệ thành công của các đề xuất. Việc áp dụng quy trình làm việc hỗ trợ bởi AI đã giúp đội ngũ bán hàng mỏng của họ cung cấp dịch vụ khách hàng cá nhân hóa và hiệu quả hơn.",
+    "category": "Business"
   }
 }
