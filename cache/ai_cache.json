@@ -234,5 +234,25 @@
   "2d140b5d269c49cd095242392099d182": {
     "summary": "Ông Bùi Thế Duy, Phó chủ tịch Viện Hàn lâm Khoa học và Công nghệ Việt Nam, mong muốn áp dụng chính sách khoa học công nghệ vào thực tiễn nghiên cứu để đánh giá hiệu quả. Qua đó, ông hy vọng sẽ góp phần hoàn thiện các thể chế liên quan đến lĩnh vực này.",
     "category": "Policy"
+  },
+  "08ab697e24d1f07cd63df4b71e3e24e0": {
+    "summary": "Ông Trương Gia Bình, Chủ tịch Liên minh Âu Lạc, đã công bố giải thưởng một triệu USD cho sản phẩm AI không cần quá phức tạp, nhằm khuyến khích thanh niên Việt Nam tham gia vào lĩnh vực này. Ông bày tỏ hy vọng sẽ có triệu thanh niên dấn thân phát triển AI có chủ quyền, góp phần nâng cao năng lực công nghệ của đất nước.",
+    "category": "Business"
+  },
+  "e1e09975425b6755a55fa02d070a6077": {
+    "summary": "Việt Nam đã đề nghị Trung Quốc chia sẻ kinh nghiệm trong việc phát triển ứng dụng 5G và trí tuệ nhân tạo (AI). Điều này nhằm thúc đẩy sự hợp tác số thực chất giữa hai quốc gia. Việt Nam mong muốn học hỏi từ Trung Quốc để cải thiện công nghệ và phát triển kinh tế.",
+    "category": "Business"
+  },
+  "f971ff7a6b70dc84c3f00f2087137645": {
+    "summary": "Bộ trưởng Nguyễn Mạnh Hùng cho rằng các nước ASEAN đang ở trong giai đoạn phát triển và đối mặt với nhiều vấn đề thực tiễn cần giải quyết, điều này tạo ra cơ hội lớn để phát triển trí tuệ nhân tạo (AI). Việc ứng dụng AI có thể giúp các quốc gia trong khu vực cải thiện hiệu quả và giải quyết các thách thức hiện tại.",
+    "category": "Business"
+  },
+  "d7d06061477db398bc6b048dde69779c": {
+    "summary": "Jensen Huang, CEO của Nvidia, khẳng định rằng thế giới vẫn còn rất xa việc phát triển trí tuệ nhân tạo quyền năng, hay còn gọi là God AI, mà vượt qua tầm kiểm soát của con người. Ông nhấn mạnh rằng hiện tại, công nghệ AI vẫn chưa đạt đến mức độ đó và cần nhiều thời gian để phát triển. Huang cũng muốn trấn an mọi người rằng những lo ngại về AI không nằm trong thực tế hiện tại.",
+    "category": "This statement can be classified under **Ethics**."
+  },
+  "ebbd97e7d675120705a44c4dc7926bff": {
+    "summary": "OpenAI đã hợp tác với Cerebras để bổ sung 750MW khả năng tính toán AI tốc độ cao, giúp giảm độ trễ trong quá trình suy diễn và làm cho ChatGPT hoạt động nhanh hơn cho các tác vụ AI thời gian thực. Sự hợp tác này hứa hẹn cải thiện hiệu suất và trải nghiệm người dùng khi sử dụng ChatGPT.",
+    "category": "Business"
   }
 }
