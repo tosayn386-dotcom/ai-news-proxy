@@ -254,5 +254,21 @@
   "ebbd97e7d675120705a44c4dc7926bff": {
     "summary": "OpenAI đã hợp tác với Cerebras để bổ sung 750MW khả năng tính toán AI tốc độ cao, giúp giảm độ trễ trong quá trình suy diễn và làm cho ChatGPT hoạt động nhanh hơn cho các tác vụ AI thời gian thực. Sự hợp tác này hứa hẹn cải thiện hiệu suất và trải nghiệm người dùng khi sử dụng ChatGPT.",
     "category": "Business"
+  },
+  "e98d0996e7ff8a46c05b06f0b79ddcbf": {
+    "summary": "Công ty xAI của Elon Musk đã quyết định ngừng tính năng cho phép chatbot Grok tạo ra những hình ảnh nhạy cảm về người thật, sau khi nhận được phản ứng tiêu cực từ cộng đồng. Quyết định này nhằm đảm bảo sự tôn trọng và bảo vệ quyền riêng tư của cá nhân.",
+    "category": "Ethics"
+  },
+  "4a2fe66cad3966d2e8fcb73a37f67ffe": {
+    "summary": "Google vừa ra mắt Personal Intelligence, một sản phẩm trí tuệ nhân tạo mới nhằm cạnh tranh với Apple Intelligence. Công nghệ này sử dụng Gemini để kết nối thông tin từ Gmail và Photos, giúp cung cấp những câu trả lời được cá nhân hóa cho người dùng. Với tính năng này, Google mong muốn nâng cao trải nghiệm người dùng thông qua việc hiểu rõ hơn về nhu cầu và sở thích của họ.",
+    "category": "AI Tools"
+  },
+  "23c500533113ff1a6eb05e0a39f74c64": {
+    "summary": "Nubia V80 Design là một smartphone có thiết kế tương tự như iPhone 17 Pro Max, với mức giá chỉ 3 triệu đồng. Máy trang bị màn hình 120 Hz, camera 50 megapixel, và có nút bấm riêng cho AI. Ngoài ra, sản phẩm còn hỗ trợ NFC và có khả năng kháng nước đạt tiêu chuẩn IP64.",
+    "category": "Business"
+  },
+  "0ea04661553cce960ba84a64fbdf654d": {
+    "summary": "Chín startup AI Việt Nam đã có cơ hội trình diễn các giải pháp công nghệ của mình trước doanh nghiệp Nhật Bản trong chương trình VietLeap AI Accelerator. Sự kiện này nhằm tạo cầu nối giữa các công ty khởi nghiệp và thị trường Nhật Bản, giúp họ tìm kiếm cơ hội hợp tác và phát triển. Các giải pháp AI được giới thiệu hứa hẹn mang lại nhiều tiềm năng cho cả hai bên.",
+    "category": "Business"
   }
 }
