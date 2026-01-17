@@ -318,5 +318,9 @@
   "952a2d125ddf4421215b93176b7ed259": {
     "summary": "OpenAI dự định thử nghiệm quảng cáo tại Mỹ cho các phiên bản miễn phí và Go của ChatGPT nhằm mở rộng khả năng tiếp cận AI với chi phí hợp lý trên toàn cầu. Họ cam kết bảo vệ quyền riêng tư, duy trì sự tin cậy và chất lượng câu trả lời trong quá trình này.",
     "category": "Business"
+  },
+  "9b9a2c4165214821eea349189cc7942e": {
+    "summary": "Lỗ hổng WhisperPair liên quan đến chip Bluetooth và cách thiết bị xử lý giao thức Google Fast Pair, đã khiến hàng triệu tai nghe không dây có nguy cơ bị hacker chiếm đoạt âm thanh. Điều này có thể cho phép kẻ xấu nghe lén hoặc kiểm soát âm thanh phát ra từ tai nghe. Người dùng được khuyến cáo nên cập nhật phần mềm để bảo vệ thiết bị của mình khỏi nguy cơ này.",
+    "category": "Policy"
   }
 }
