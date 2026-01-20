@@ -390,5 +390,9 @@
   "05f821881818bb23bbec0a49439a6d8e": {
     "summary": "Airbus đã hợp tác với công ty UBTech của Trung Quốc để đặt hàng robot hình người Walker S2, nhằm hỗ trợ trong quá trình sản xuất máy bay tại các nhà máy của mình. Việc sử dụng robot này dự kiến sẽ nâng cao hiệu suất và tối ưu hóa quy trình sản xuất.",
     "category": "Business"
+  },
+  "bb12f2f9f541c1dae93b690d73138982": {
+    "summary": "ServiceNow đã mở rộng khả năng truy cập vào các mô hình tiên tiến của OpenAI để tăng cường các quy trình làm việc trong doanh nghiệp thông qua trí tuệ nhân tạo. Điều này bao gồm các tính năng như tóm tắt, tìm kiếm và nhận diện giọng nói trên nền tảng ServiceNow. Sự kết hợp này giúp cải thiện hiệu suất và tính hiệu quả trong các hoạt động của doanh nghiệp.",
+    "category": "Business"
   }
 }
