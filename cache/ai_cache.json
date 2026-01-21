@@ -394,5 +394,17 @@
   "bb12f2f9f541c1dae93b690d73138982": {
     "summary": "ServiceNow đã mở rộng khả năng truy cập vào các mô hình tiên tiến của OpenAI để tăng cường các quy trình làm việc trong doanh nghiệp thông qua trí tuệ nhân tạo. Điều này bao gồm các tính năng như tóm tắt, tìm kiếm và nhận diện giọng nói trên nền tảng ServiceNow. Sự kết hợp này giúp cải thiện hiệu suất và tính hiệu quả trong các hoạt động của doanh nghiệp.",
     "category": "Business"
+  },
+  "fe338d02e453415e354f532d860352fe": {
+    "summary": "Trong tương lai, các công nghệ pin mới như pin thể rắn, pin hạt nhân và pin cấu trúc đang được nghiên cứu để thay thế pin lithium-ion hiện tại. Những công nghệ này hứa hẹn sẽ giúp smartphone trở nên mỏng hơn và có thời gian sử dụng lâu hơn gấp nhiều lần. Đặc biệt, pin silicon-carbon cũng được xem là một bước tiến quan trọng trong việc cải thiện hiệu suất pin cho thiết bị di động.",
+    "category": "Research"
+  },
+  "2afb8abc3c7c4941b34ec16d85512731": {
+    "summary": "Cisco và OpenAI đã cải tiến kỹ thuật doanh nghiệp với Codex, một đại lý phần mềm AI được tích hợp vào quy trình làm việc. Công nghệ này giúp tăng tốc độ xây dựng, tự động sửa lỗi và hỗ trợ phát triển ứng dụng theo hướng AI.",
+    "category": "Business"
+  },
+  "5a969ae559036a00fcfa9970f2870ee6": {
+    "summary": "Sundance Institute đang xây dựng một tương lai do cộng đồng dẫn dắt cho trí tuệ nhân tạo (AI) trong ngành điện ảnh. Họ tập trung vào việc kết nối các nhà làm phim và công nghệ AI để tạo ra những sản phẩm sáng tạo và đột phá. Sáng kiến này không chỉ giúp nâng cao chất lượng phim mà còn khuyến khích sự tham gia của cộng đồng trong quá trình sản xuất.",
+    "category": "Business"
   }
 }
