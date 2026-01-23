@@ -462,5 +462,17 @@
   "d9b60fc142e4cdd02d508c55c45cea15": {
     "summary": "Chế độ Trí tuệ Cá nhân trong AI cung cấp sự hỗ trợ độc đáo và cá nhân hóa cho người dùng. Khi bạn truy cập chế độ này, hệ thống sẽ hỏi bạn về suy nghĩ hoặc nhu cầu của mình, như trong ví dụ \"Chào Lukas, bạn đang nghĩ gì?\". Điều này giúp tạo ra trải nghiệm tìm kiếm phù hợp hơn với từng cá nhân.",
     "category": "AI Tools"
+  },
+  "0ff9d225f33496146fb5d7c6f9896007": {
+    "summary": "Một khảo sát gần đây cho thấy ngày càng nhiều người dùng chọn ChatGPT làm trang chủ cho trình duyệt của họ, thay vì sử dụng Google Search như trước đây. Điều này cho thấy sự chuyển hướng trong cách mọi người tìm kiếm thông tin, khi họ ưu tiên sự tương tác và hỗ trợ từ chatbot. Sự phổ biến của ChatGPT có thể phản ánh nhu cầu ngày càng cao về trải nghiệm tìm kiếm thông minh và cá nhân hóa.",
+    "category": "Business"
+  },
+  "315664dbaed499bfb59964c13db56a4d": {
+    "summary": "Cuốn sách \"Kỹ thuật AI: Xây dựng ứng dụng với mô hình nền tảng\" vừa được phát hành bản tiếng Việt, cung cấp cái nhìn toàn diện về vòng đời của một ứng dụng trí tuệ nhân tạo. Tác phẩm này hướng dẫn độc giả từ những khái niệm cơ bản đến các kỹ thuật xây dựng ứng dụng AI hiệu quả.",
+    "category": "AI Tools"
+  },
+  "51ccdab785aa40ff764a0c0c239309a8": {
+    "summary": "OpenAI đã mở rộng PostgreSQL để phục vụ 800 triệu người dùng ChatGPT bằng cách sử dụng các bản sao, bộ nhớ đệm, giới hạn tốc độ và phân tách khối lượng công việc. Những giải pháp này giúp hệ thống xử lý hàng triệu truy vấn mỗi giây, đảm bảo hiệu suất và độ tin cậy cao. Việc tối ưu hóa này cho phép OpenAI đáp ứng nhu cầu ngày càng tăng từ người dùng một cách hiệu quả.",
+    "category": "AI Tools"
   }
 }
