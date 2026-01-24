@@ -474,5 +474,21 @@
   "51ccdab785aa40ff764a0c0c239309a8": {
     "summary": "OpenAI đã mở rộng PostgreSQL để phục vụ 800 triệu người dùng ChatGPT bằng cách sử dụng các bản sao, bộ nhớ đệm, giới hạn tốc độ và phân tách khối lượng công việc. Những giải pháp này giúp hệ thống xử lý hàng triệu truy vấn mỗi giây, đảm bảo hiệu suất và độ tin cậy cao. Việc tối ưu hóa này cho phép OpenAI đáp ứng nhu cầu ngày càng tăng từ người dùng một cách hiệu quả.",
     "category": "AI Tools"
+  },
+  "fcaf8ac17363ed879dac79bfffa02ac9": {
+    "summary": "Nhiều doanh nghiệp đang gặp khó khăn trong việc tăng doanh thu mặc dù đã áp dụng công nghệ AI vào hoạt động của mình. Họ cho rằng hiệu quả của AI vẫn còn hạn chế và vẫn cần sự can thiệp của con người để đạt được kết quả tốt hơn. Điều này cho thấy rằng việc tích hợp AI vào quy trình làm việc vẫn đang trong giai đoạn thử nghiệm và cần thời gian để phát huy tối đa tiềm năng.",
+    "category": "Business"
+  },
+  "033c1ff55ab84c1c0782306564f860be": {
+    "summary": "Jensen Huang, CEO của Nvidia, cho rằng thời điểm hiện tại rất thuận lợi cho những người làm nghề kỹ thuật như thợ điện và thợ sửa ống nước. Ông nhấn mạnh rằng cơn sốt AI đang mở ra nhiều cơ hội, giúp lao động có tay nghề cao có thể kiếm được mức lương lên tới trăm nghìn USD.",
+    "category": "Business"
+  },
+  "718f59bce268434b903314e1b3c27fa3": {
+    "summary": "Bài viết này khám phá sâu về vòng lặp của Codex agent, giải thích cách mà Codex CLI phối hợp giữa các mô hình, công cụ, lời nhắc và hiệu suất thông qua API Responses. Nó cung cấp cái nhìn chi tiết về cách các thành phần này hoạt động cùng nhau để tối ưu hóa quy trình.",
+    "category": "AI Tools"
+  },
+  "6be4ba4e82ccdbd4a96691c89ca1e835": {
+    "summary": "Báo cáo \"Inside GPT-5 for Work\" cung cấp cái nhìn sâu sắc về cách mà các doanh nghiệp đang sử dụng ChatGPT, bao gồm xu hướng áp dụng, các nhiệm vụ phổ biến, mô hình sử dụng theo phòng ban và triển vọng của trí tuệ nhân tạo trong môi trường làm việc. Nghiên cứu này cho thấy sự phát triển mạnh mẽ của AI trong các lĩnh vực khác nhau và cách mà nó đang cải thiện hiệu suất công việc.",
+    "category": "Business"
   }
 }
