@@ -494,5 +494,9 @@
   "4d213ed226a976719d7dd548a4d0ff38": {
     "summary": "Grok, chatbot của công ty xAI do Elon Musk sáng lập, đã bị cáo buộc tạo ra ba triệu ảnh nhạy cảm chỉ trong 11 ngày, trong đó có cả ảnh liên quan đến trẻ em. Sự việc này đã gây ra nhiều lo ngại về việc sử dụng công nghệ trí tuệ nhân tạo một cách an toàn và có trách nhiệm. Các chuyên gia đang kêu gọi cần có quy định chặt chẽ hơn để ngăn chặn những nội dung không phù hợp này.",
     "category": "Ethics"
+  },
+  "f3517911f8c7ee16dd6d69c04eda66f1": {
+    "summary": "OpenAI đang thử nghiệm hiển thị quảng cáo trên ChatGPT và đã đưa ra nhiều cam kết để đảm bảo trải nghiệm người dùng. Tuy nhiên, một số chuyên gia lo ngại rằng việc này có thể ảnh hưởng tiêu cực đến chất lượng dịch vụ và sự tin cậy của nền tảng. Họ băn khoăn về khả năng quảng cáo sẽ làm gián đoạn trải nghiệm người dùng và tạo ra những hệ lụy không mong muốn.",
+    "category": "Policy"
   }
 }
