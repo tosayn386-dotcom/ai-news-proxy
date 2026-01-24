@@ -490,5 +490,9 @@
   "6be4ba4e82ccdbd4a96691c89ca1e835": {
     "summary": "Báo cáo \"Inside GPT-5 for Work\" cung cấp cái nhìn sâu sắc về cách mà các doanh nghiệp đang sử dụng ChatGPT, bao gồm xu hướng áp dụng, các nhiệm vụ phổ biến, mô hình sử dụng theo phòng ban và triển vọng của trí tuệ nhân tạo trong môi trường làm việc. Nghiên cứu này cho thấy sự phát triển mạnh mẽ của AI trong các lĩnh vực khác nhau và cách mà nó đang cải thiện hiệu suất công việc.",
     "category": "Business"
+  },
+  "4d213ed226a976719d7dd548a4d0ff38": {
+    "summary": "Grok, chatbot của công ty xAI do Elon Musk sáng lập, đã bị cáo buộc tạo ra ba triệu ảnh nhạy cảm chỉ trong 11 ngày, trong đó có cả ảnh liên quan đến trẻ em. Sự việc này đã gây ra nhiều lo ngại về việc sử dụng công nghệ trí tuệ nhân tạo một cách an toàn và có trách nhiệm. Các chuyên gia đang kêu gọi cần có quy định chặt chẽ hơn để ngăn chặn những nội dung không phù hợp này.",
+    "category": "Ethics"
   }
 }
