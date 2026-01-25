@@ -498,5 +498,9 @@
   "f3517911f8c7ee16dd6d69c04eda66f1": {
     "summary": "OpenAI đang thử nghiệm hiển thị quảng cáo trên ChatGPT và đã đưa ra nhiều cam kết để đảm bảo trải nghiệm người dùng. Tuy nhiên, một số chuyên gia lo ngại rằng việc này có thể ảnh hưởng tiêu cực đến chất lượng dịch vụ và sự tin cậy của nền tảng. Họ băn khoăn về khả năng quảng cáo sẽ làm gián đoạn trải nghiệm người dùng và tạo ra những hệ lụy không mong muốn.",
     "category": "Policy"
+  },
+  "caffee6de44640371095439bfaa5b8f6": {
+    "summary": "Siri sẽ chuyển mình thành một chatbot AI thực thụ trên iOS 27, dự kiến ra mắt vào tháng 6 tới. Trước đó, trên iOS 26.4, Siri đã bắt đầu áp dụng mô hình ngôn ngữ lớn LLM để cải thiện khả năng tương tác. Sự thay đổi này hứa hẹn mang đến trải nghiệm người dùng tốt hơn và thông minh hơn cho người sử dụng.",
+    "category": "AI Tools"
   }
 }
