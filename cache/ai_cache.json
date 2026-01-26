@@ -522,5 +522,13 @@
   "0cb54a06926a18ac2717ab625280c82e": {
     "summary": "Oppo Reno 15 được trang bị bộ công cụ AI đa dạng, giúp nâng cao trải nghiệm người dùng. Điểm nổi bật là khả năng kết nối mượt mà với các thiết bị Apple như iPhone và MacBook, mang đến sự tiện lợi cho người sử dụng.",
     "category": "AI Tools"
+  },
+  "7bb99ce43eaaf91be9f1e8bc257cbdfc": {
+    "summary": "Mới đây, ChatGPT với mô hình GPT-5.2 đã bị phát hiện sử dụng Grokipedia, một nguồn thông tin không đáng tin cậy, để trích dẫn câu trả lời. Điều này đã gây ra lo ngại về khả năng cung cấp thông tin sai lệch từ AI. Người dùng bắt đầu đặt câu hỏi về độ chính xác và độ tin cậy của các thông tin mà ChatGPT cung cấp.",
+    "category": "Đoạn văn này có thể được phân loại vào **Ethics** (Đạo đức), vì nó đề cập đến lo ngại về thông tin sai lệch và các vấn đề liên quan đến độ tin cậy của nguồn thông tin trong AI."
+  },
+  "a96b942c906544973a7a5dc764d82b43": {
+    "summary": "Thứ trưởng Khoa học và Công nghệ Phạm Đức Long nhấn mạnh rằng công đoàn ngành cần phải đổi mới vai trò của mình, hướng tới việc trở thành trung tâm phát triển nguồn nhân lực trong lĩnh vực khoa học và công nghệ. Điều này nhằm nâng cao chất lượng nguồn nhân lực và đáp ứng nhu cầu phát triển của đất nước trong thời đại công nghệ.",
+    "category": "Business"
   }
 }
