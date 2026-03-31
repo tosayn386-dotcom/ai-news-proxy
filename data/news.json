@@ -17235,5 +17235,27 @@
     "category": "AI News",
     "published": "Tue, 31 Mar 2026 12:01:08 +0000",
     "created_at": "2026-03-31T13:51:34.741146"
+  },
+  {
+    "title": "Áp dụng luật khuyến khích cá nhân nước ngoài chuyển giao công nghệ vào Việt Nam",
+    "summary": "<a href=\"https://vnexpress.net/ap-dung-luat-khuyen-khich-ca-nhan-nuoc-ngoai-chuyen-giao-cong-nghe-vao-viet-nam-5056590.html\"><img src=\"https://vcdn1-vnexpress.vnecdn.net/2026/03/31/LQ-02864-1818-1774896044.jpg?w=1200&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=tYcBUtxBlnvRUXR6Erc0UA\" /></a>Luật s...",
+    "url": "https://vnexpress.net/ap-dung-luat-khuyen-khich-ca-nhan-nuoc-ngoai-chuyen-giao-cong-nghe-vao-viet-nam-5056590.html",
+    "image": "https://vcdn1-vnexpress.vnecdn.net/2026/03/31/LQ-02864-1818-1774896044.jpg?w=1200&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=tYcBUtxBlnvRUXR6Erc0UA",
+    "source": "VNExpress",
+    "country": "VN",
+    "category": "AI News",
+    "published": "Wed, 01 Apr 2026 00:00:00 +0700",
+    "created_at": "2026-03-31T19:12:45.360274"
+  },
+  {
+    "title": "Shifting to AI model customization is an architectural imperative",
+    "summary": "In the early days of large language models (LLMs), we grew accustomed to massive 10x jumps in reasoning and coding capability with every new model iteration. Today, those jumps have flattened into incremental gains. The exception is domain-specialized intelligence, where true step-function improveme...",
+    "url": "https://www.technologyreview.com/2026/03/31/1134762/shifting-to-ai-model-customization-is-an-architectural-imperative/",
+    "image": null,
+    "source": "MIT Tech Review",
+    "country": "GLOBAL",
+    "category": "AI News",
+    "published": "Tue, 31 Mar 2026 14:12:50 +0000",
+    "created_at": "2026-03-31T19:12:49.879243"
   }
 ]
