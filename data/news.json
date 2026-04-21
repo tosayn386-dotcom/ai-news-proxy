@@ -21569,5 +21569,27 @@
     "category": "AI News",
     "published": "Tue, 21 Apr 2026 12:10:00 +0000",
     "created_at": "2026-04-21T14:00:58.469991"
+  },
+  {
+    "title": "Building agent-first governance and security",
+    "summary": "As AI agents increasingly work alongside humans across organizations, companies could be inadvertently opening a new attack surface. Insecure agents can be manipulated to access sensitive systems and proprietary data, increasing enterprise risk. In some modern enterprises, non-human identities (NHI)...",
+    "url": "https://www.technologyreview.com/2026/04/21/1136158/building-agent-first-governance-and-security/",
+    "image": null,
+    "source": "MIT Tech Review",
+    "country": "GLOBAL",
+    "category": "AI News",
+    "published": "Tue, 21 Apr 2026 17:22:54 +0000",
+    "created_at": "2026-04-21T19:22:24.931795"
+  },
+  {
+    "title": "Chinese tech workers are starting to train their AI doubles—and pushing back",
+    "summary": "Tech workers in China are being instructed by their bosses to train AI agents to replace them—and it’s prompting a wave of soul-searching among otherwise enthusiastic early adopters.&#160; Earlier this month a GitHub project called Colleague Skill, which claimed workers could use it to “distill” the...",
+    "url": "https://www.technologyreview.com/2026/04/20/1136149/chinese-tech-workers-ai-colleagues/",
+    "image": null,
+    "source": "MIT Tech Review",
+    "country": "GLOBAL",
+    "category": "AI News",
+    "published": "Mon, 20 Apr 2026 09:00:00 +0000",
+    "created_at": "2026-04-21T19:22:24.931856"
   }
 ]
